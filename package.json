@@ -14,8 +14,11 @@
     "clean": "gatsby clean"
   },
   "dependencies": {
+    "@ant-design/icons": "^4.6.2",
     "@emotion/react": "^11.4.0",
     "@emotion/styled": "^11.3.0",
+    "@kfonts/nanum-square": "^0.1.2",
+    "@rebass/preset": "^4.0.5",
     "gatsby": "^3.10.1",
     "gatsby-plugin-emotion": "^6.10.0",
     "gatsby-plugin-image": "^1.10.1",

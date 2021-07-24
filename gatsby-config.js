@@ -20,14 +20,6 @@ module.exports = {
     },
     'gatsby-plugin-theme-ui',
     `gatsby-plugin-emotion`,
-    {
-      resolve: 'gatsby-plugin-web-font-loader',
-      options: {
-        google: {
-          families: ['Noto Sans KR'],
-        },
-      },
-    },
     'gatsby-plugin-react-helmet',
     {
       resolve: 'gatsby-plugin-layout',

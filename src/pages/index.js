@@ -1,5 +1,5 @@
 import React from 'react';
 
 export default function IndexPage() {
-  return <div>test</div>;
+  return <div css={(theme) => ({ color: theme.colors.secondary })}>Login</div>;
 }
