@@ -6,6 +6,11 @@ import Navbar from './Navbar';
 
 const Wrapper = styled('div')``;
 
+const ChildrenWrapper = styled('div')`
+  position: relative;
+  top: 90px;
+`;
+
 export default function Layout({ children }) {
   const theme = useTheme();
 
@@ -15,11 +20,12 @@ export default function Layout({ children }) {
         styles={css`
           body {
             font-family: ${theme.fonts.body};
+            margin: 0;
           }
         `}
       />
       <Navbar />
-      {children}
+      <ChildrenWrapper>{children}</ChildrenWrapper>
     </Wrapper>
   );
 }

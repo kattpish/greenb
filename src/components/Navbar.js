@@ -1,21 +1,21 @@
-import React from 'react';
+import React, { useCallback, useState } from 'react';
 import { Flex, Text, Box, Link, Button } from 'theme-ui';
-import { MenuOutlined } from '@ant-design/icons';
+import { useTheme } from '@emotion/react';
+import { DownloadOutlined } from '@ant-design/icons';
 
 const NavbarLink = (props) => (
   <Link
     fontSize={2}
     fontWeight="body"
-    p={2}
+    px={3}
     color="text"
     sx={{
       textDecoration: 'none',
-      ':hover,:focus,.active': {
-        borderBottomWidth: '2px',
-        borderBottomColor: 'primary',
-        borderBottomStyle: 'solid',
-      },
       cursor: 'pointer',
+      pb: [4, null, null, 0],
+      ':hover,:focus,.active': {
+        color: 'primary',
+      },
     }}
     href={props.url}
   >
@@ -24,21 +24,48 @@ const NavbarLink = (props) => (
 );
 
 export default function Navbar() {
+  const theme = useTheme();
+  const [isVisible, setIsVisible] = useState(false);
+
+  const handleClick = () => {
+    setIsVisible(!isVisible);
+    console.log(isVisible);
+  };
+
   return (
-    <Flex px={2} color="black" alignItems="center">
-      <Text p={2} fontWeight="bold">
-        <img src={'/logo.png'} width="100" alt="Logo" />
+    <Flex sx={{ flexDirection: ['column', null, null, 'row'], zIndex: '10000', position: 'fixed', width: '100%', bg: 'background' }} px={4} py={3} color="black" alignItems="center">
+      <Text p={2}>
+        <Link href="/">
+          <img src={'/logo.png'} width="100" alt="Logo" />
+        </Link>
       </Text>
-      <Box mx="auto" />
-      <Flex sx={{ display: ['none', 'none', 'block'], flexDirection: ['column', 'column', 'row'] }}>
+      <Box mx="auto" bg="background" />
+      <Box
+        sx={{
+          display: [`${isVisible ? 'flex' : 'none'}`, null, null, 'flex'],
+          flexDirection: ['column', null, null, 'row'],
+          justifyContent: ['center', null, null, 'flex-end'],
+          alignItems: ['center', null, null, 'center'],
+          position: ['absolute', null, null, 'static'],
+          bg: 'background',
+          width: '100%',
+          left: '0',
+          top: '5',
+          py: '3',
+          boxShadow: ['0px 7px 22px 1px rgba(0,0,0,0.27)', null, null, 'none'],
+        }}
+      >
         <NavbarLink url="/about">그린비를 소개해요</NavbarLink>
         <NavbarLink url="/biodegradable">기술을 살펴봐요</NavbarLink>
         <NavbarLink url="/product">제품보기</NavbarLink>
         <NavbarLink url="/news">소식을 전해요</NavbarLink>
         <NavbarLink url="/qna">질문에 답해요</NavbarLink>
-      </Flex>
-      <Button color="black" bg="white" sx={{ display: ['block', 'block', 'none'] }}>
-        <MenuOutlined />
+        <Button sx={{ borderRadius: 1, fontWeight: 'bold', ml: 3, fontSize: 1 }} color="white" bg="primary" px={4} py="12px">
+          사업소개서 <DownloadOutlined style={{ paddingLeft: theme.space[2] }} />
+        </Button>
+      </Box>
+      <Button color="black" bg="white" sx={{ display: ['block', 'block', 'block', 'none'], alignSelf: 'flex-end', position: 'absolute', top: '22px', right: '16px' }} onClick={handleClick}>
+        <img src={'/bars.svg'} width="30" alt="Menu Bar" />
       </Button>
     </Flex>
   );

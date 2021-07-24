@@ -27,5 +27,13 @@ module.exports = {
         component: require.resolve('./src/components/Layout'),
       },
     },
+    {
+      resolve: 'gatsby-plugin-web-font-loader',
+      options: {
+        google: {
+          families: ['Poppins'],
+        },
+      },
+    },
   ],
 };
