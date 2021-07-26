@@ -1,5 +1,5 @@
 import React from 'react';
-import { Flex, Text, Box, Link, Button, Image, useThemeUI } from 'theme-ui';
+import { Flex, Text, Button, Image, useThemeUI } from 'theme-ui';
 import { ArrowRightOutlined } from '@ant-design/icons';
 
 const Heading = (props) => (
