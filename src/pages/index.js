@@ -1,6 +1,5 @@
 import React from 'react';
-import { Flex, Text, Box, Link, Button, Image } from 'theme-ui';
-import { useTheme } from '@emotion/react';
+import { Flex, Text, Box, Link, Button, Image, useThemeUI } from 'theme-ui';
 import { ArrowRightOutlined } from '@ant-design/icons';
 
 const Heading = (props) => (
@@ -20,7 +19,7 @@ const Heading = (props) => (
 );
 
 export default function IndexPage() {
-  const theme = useTheme();
+  const { theme } = useThemeUI();
   return (
     <Flex sx={{ width: '100%', justifyContent: 'space-between', flexDirection: ['column', null, null, 'row'] }}>
       <Flex sx={{ flexDirection: 'column', alignItems: ['center', null, null, 'start'], justifyContent: [null, null, null, 'center'], pl: [null, null, null, 5] }}>
