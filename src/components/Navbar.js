@@ -1,4 +1,4 @@
-import React, { useCallback, useState } from 'react';
+import React, { useState } from 'react';
 import { Flex, Text, Box, Link, Button } from 'theme-ui';
 import { useTheme } from '@emotion/react';
 import { DownloadOutlined } from '@ant-design/icons';
