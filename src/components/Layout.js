@@ -1,18 +1,18 @@
-import React from 'react';
-import { useTheme, Global, css } from '@emotion/react';
-import styled from '@emotion/styled';
+import React from 'react'
+import { useTheme, Global, css } from '@emotion/react'
+import styled from '@emotion/styled'
 
-import Navbar from './Navbar';
+import Navbar from './Navbar'
 
-const Wrapper = styled('div')``;
+const Wrapper = styled('div')``
 
 const ChildrenWrapper = styled('div')`
   position: relative;
   top: 90px;
-`;
+`
 
-export default function Layout({ children }) {
-  const theme = useTheme();
+export default function Layout ({ children }) {
+  const theme = useTheme()
 
   return (
     <Wrapper>
@@ -27,5 +27,5 @@ export default function Layout({ children }) {
       <Navbar />
       <ChildrenWrapper>{children}</ChildrenWrapper>
     </Wrapper>
-  );
+  )
 }

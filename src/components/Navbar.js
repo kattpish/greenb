@@ -1,10 +1,10 @@
-import React, { useState } from 'react';
-import { Flex, Text, Box, Link, Button } from 'theme-ui';
-import { useTheme } from '@emotion/react';
-import { DownloadOutlined } from '@ant-design/icons';
+import React, { useState } from 'react'
+import { Flex, Text, Box, Link, Button } from 'theme-ui'
+import { useTheme } from '@emotion/react'
+import { DownloadOutlined } from '@ant-design/icons'
 
-import Container from './Container';
-import PrimaryBtn from './PrimaryBtn';
+import Container from './Container'
+import PrimaryBtn from './PrimaryBtn'
 
 const NavbarLink = (props) => (
   <Link
@@ -24,20 +24,35 @@ const NavbarLink = (props) => (
   >
     {props.children}
   </Link>
-);
+)
 
 export default function Navbar() {
-  const theme = useTheme();
-  const [isVisible, setIsVisible] = useState(false);
+  const theme = useTheme()
+  const [isVisible, setIsVisible] = useState(false)
 
   const handleClick = () => {
-    setIsVisible(!isVisible);
-    console.log(isVisible);
-  };
+    setIsVisible(!isVisible)
+    console.log(isVisible)
+  }
 
   return (
-    <Container sx={{ position: 'fixed', width: '100%', bg: 'background', zIndex: '10000' }}>
-      <Flex sx={{ flexDirection: ['column', null, null, 'row'], width: '100%', alignItems: 'center', position: 'relative' }} color="black">
+    <Container
+      sx={{
+        position: 'fixed',
+        width: '100%',
+        bg: 'background',
+        zIndex: '10000',
+      }}
+    >
+      <Flex
+        sx={{
+          flexDirection: ['column', null, null, 'row'],
+          width: '100%',
+          alignItems: 'center',
+          position: 'relative',
+        }}
+        color="black"
+      >
         <Text>
           <Link href="/">
             <img src={'/logo.png'} width="100" alt="Logo" />
@@ -55,7 +70,12 @@ export default function Navbar() {
             top: '5',
             py: '3',
             bg: 'background',
-            boxShadow: ['0px 7px 22px 1px rgba(0,0,0,0.27)', null, null, 'none'],
+            boxShadow: [
+              '0px 7px 22px 1px rgba(0,0,0,0.27)',
+              null,
+              null,
+              'none',
+            ],
           }}
         >
           <NavbarLink url="/about">그린비를 소개해요</NavbarLink>
@@ -64,13 +84,25 @@ export default function Navbar() {
           <NavbarLink url="/news">소식을 전해요</NavbarLink>
           <NavbarLink url="/qna">질문에 답해요</NavbarLink>
           <PrimaryBtn>
-            사업소개서 <DownloadOutlined style={{ paddingLeft: theme.space[2] }} />
+            사업소개서{' '}
+            <DownloadOutlined style={{ paddingLeft: theme.space[2] }} />
           </PrimaryBtn>
         </Box>
-        <Button color="black" bg="white" sx={{ display: ['block', 'block', 'block', 'none'], alignSelf: 'flex-end', position: 'absolute', top: '22px', right: '16px' }} onClick={handleClick}>
+        <Button
+          color="black"
+          bg="white"
+          sx={{
+            display: ['block', 'block', 'block', 'none'],
+            alignSelf: 'flex-end',
+            position: 'absolute',
+            top: '22px',
+            right: '16px',
+          }}
+          onClick={handleClick}
+        >
           <img src={'/bars.svg'} width="30" alt="Menu Bar" />
         </Button>
       </Flex>
     </Container>
-  );
+  )
 }

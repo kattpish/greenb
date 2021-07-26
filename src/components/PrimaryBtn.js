@@ -1,7 +1,7 @@
-import React from 'react';
-import { Button } from 'theme-ui';
+import React from 'react'
+import { Button } from 'theme-ui'
 
-export default function PrimaryBtn({ children }) {
+export default function PrimaryBtn ({ children }) {
   return (
     <Button
       sx={{
@@ -10,7 +10,7 @@ export default function PrimaryBtn({ children }) {
         ml: 3,
         fontSize: 1,
         border: '1px solid #fff',
-        ':hover': { borderWidth: '1px', borderStyle: 'solid', borderColor: 'primary', color: 'primary', bg: 'background' },
+        ':hover': { borderWidth: '1px', borderStyle: 'solid', borderColor: 'primary', color: 'primary', bg: 'background' }
       }}
       color="white"
       bg="primary"
@@ -19,5 +19,5 @@ export default function PrimaryBtn({ children }) {
     >
       {children}
     </Button>
-  );
+  )
 }

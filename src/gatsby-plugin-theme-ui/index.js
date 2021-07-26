@@ -8,7 +8,8 @@ const theme = {
   },
   fonts: {
     body: '"NanumSquare", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol"',
-    heading: '"Poppins", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol"',
+    heading:
+      '"Poppins", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol"',
   },
   fontWeights: {
     light: 300,
@@ -25,6 +26,6 @@ const theme = {
   space: [0, 4, 8, 16, 32, 64, 128, 256, 512],
   breakpoints: ['40em', '52em', '64em', '70em'],
   radii: ['20px', '30px'],
-};
+}
 
-export default theme;
+export default theme
