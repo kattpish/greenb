@@ -6,7 +6,6 @@ module.exports = {
     author: '그린비',
   },
   plugins: [
-    'gatsby-plugin-emotion',
     'gatsby-plugin-image',
     'gatsby-plugin-sharp',
     'gatsby-transformer-sharp',
@@ -19,7 +18,6 @@ module.exports = {
       __key: 'images',
     },
     'gatsby-plugin-theme-ui',
-    'gatsby-plugin-emotion',
     'gatsby-plugin-react-helmet',
     {
       resolve: 'gatsby-plugin-layout',
@@ -31,7 +29,7 @@ module.exports = {
       resolve: 'gatsby-plugin-web-font-loader',
       options: {
         google: {
-          families: ['Poppins'],
+          families: ['Lexend'],
         },
       },
     },

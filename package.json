@@ -14,15 +14,9 @@
     "clean": "gatsby clean"
   },
   "dependencies": {
-    "@ant-design/icons": "^4.6.2",
-    "@emotion/react": "^11.4.0",
-    "@emotion/styled": "^11.3.0",
-    "@kfonts/nanum-square": "^0.1.2",
-    "@rebass/preset": "^4.0.5",
     "eslint-config-prettier": "^8.3.0",
     "eslint-plugin-prettier": "^3.4.0",
     "gatsby": "^2.32.13",
-    "gatsby-plugin-emotion": "^5.4.0",
     "gatsby-plugin-image": "^0.7.2",
     "gatsby-plugin-layout": "^1.10.0",
     "gatsby-plugin-prettier-eslint": "^1.0.6",
@@ -33,11 +27,13 @@
     "gatsby-source-filesystem": "^2.11.1",
     "gatsby-transformer-sharp": "^2.12.1",
     "prettier": "^2.3.2",
+    "prop-types": "^15.7.2",
     "react": "^17.0.1",
     "react-app-polyfill": "^2.0.0",
     "react-dom": "^17.0.1",
     "react-helmet": "^6.1.0",
-    "rebass": "^4.0.7",
+    "react-icons": "^4.2.0",
+    "react-reveal": "^1.2.2",
     "theme-ui": "^0.10.0"
   },
   "devDependencies": {
