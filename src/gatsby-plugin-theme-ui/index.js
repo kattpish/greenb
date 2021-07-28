@@ -9,7 +9,7 @@ const theme = {
     sectionBg: '#f7f7f7',
   },
   fonts: {
-    body: 'rig-sans, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", sans-serif',
+    body: 'Pretendard, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", sans-serif',
     heading: '"Lexend", sans-serif',
     monospace: 'Menlo, monospace',
   },
@@ -26,7 +26,7 @@ const theme = {
   },
   fontSizes: [12, 14, 16, 20, 24, 32, 48, 64, 72],
   space: [0, 4, 8, 16, 32, 64, 128, 256, 512],
-  breakpoints: ['40em', '52em', '64em', '70em'],
+  breakpoints: ['40em', '52em', '64em', '71em', '100em'], // 640, 832, 1024, 1120, 1600
   radii: ['20px', '30px'],
   text: {
     default: {
@@ -34,6 +34,12 @@ const theme = {
     },
     paragraph: {
       color: 'paragraph',
+    },
+  },
+  styles: {
+    hr: {
+      width: '80%',
+      color: '#cbcbcb',
     },
   },
 }

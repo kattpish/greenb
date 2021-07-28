@@ -3,12 +3,34 @@ import PropTypes from 'prop-types'
 import { Flex, Box, Text, Link } from 'theme-ui'
 import { AiOutlineArrowRight } from 'react-icons/ai'
 
-function SectionContent({ size = 2, title, children, url, ...props }) {
+function SectionContent({
+  size = 2,
+  title,
+  children,
+  url,
+  sectionSize,
+  mobileAlign,
+  ...props
+}) {
   return (
-    <Flex sx={{ flexDirection: 'column' }}>
-      <Box sx={{ width: '45px', height: '7px', bg: 'primary' }} />
+    <Flex
+      {...props}
+      sx={{
+        maxWidth: '450px',
+        minWidth: ['200px', null, '350px'],
+        flexDirection: 'column',
+        width: ['200px', null, sectionSize],
+        alignSelf: mobileAlign,
+      }}
+    >
+      <Box
+        sx={{
+          width: '35px',
+          height: '5px',
+          bg: 'primary',
+        }}
+      />
       <Text
-        {...props}
         sx={{
           color: 'text',
           fontSize: size,
@@ -44,6 +66,8 @@ SectionContent.propTypes = {
   title: PropTypes.string,
   children: PropTypes.string,
   url: PropTypes.string,
+  sectionSize: PropTypes.string,
+  mobileAlign: PropTypes.array,
 }
 
 export default SectionContent
