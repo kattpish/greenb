@@ -87,7 +87,7 @@ const ProductSection = ({
           size={4}
           url={url}
           sectionSize="400px"
-          mobileAlign={['flex-start', null, '']}
+          mobileAlign={['flex-start', null, 'center']}
         >
           {children}
         </SectionContent>
