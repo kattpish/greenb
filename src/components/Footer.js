@@ -19,5 +19,5 @@ export default function Footer() {
 
 Footer.propTypes = {
   url: PropTypes.string,
-  children: PropTypes.element,
+  children: PropTypes.node,
 }

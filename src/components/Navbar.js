@@ -25,6 +25,11 @@ const NavbarLink = (props) => (
   </Link>
 )
 
+NavbarLink.propTypes = {
+  url: PropTypes.string,
+  children: PropTypes.node,
+}
+
 export default function Navbar() {
   const [isVisible, setIsVisible] = useState(false)
 
@@ -121,9 +126,4 @@ export default function Navbar() {
       </Box>
     </Container>
   )
-}
-
-NavbarLink.propTypes = {
-  url: PropTypes.string,
-  children: PropTypes.element,
 }

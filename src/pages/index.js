@@ -23,6 +23,11 @@ const Heading = (props) => (
   </Text>
 )
 
+Heading.propTypes = {
+  primary: PropTypes.bool,
+  children: PropTypes.node,
+}
+
 const AboutSection = ({ children }) => (
   <Box bg="sectionBg" sx={{ width: '100%' }}>
     <Container px={[4, null, null, null, 6]} py={6}>
@@ -44,6 +49,10 @@ const AboutSection = ({ children }) => (
     </Container>
   </Box>
 )
+
+AboutSection.propTypes = {
+  children: PropTypes.node,
+}
 
 const ProductSection = ({
   imageUrl,
@@ -94,6 +103,14 @@ const ProductSection = ({
       </Flex>
     </Fade>
   )
+}
+
+ProductSection.propTypes = {
+  imageUrl: PropTypes.string,
+  url: PropTypes.string,
+  title: PropTypes.string,
+  children: PropTypes.node,
+  reverse: PropTypes.string,
 }
 
 export default function IndexPage() {
@@ -321,21 +338,4 @@ export default function IndexPage() {
       </Container>
     </>
   )
-}
-
-Heading.propTypes = {
-  primary: PropTypes.bool,
-  children: PropTypes.string,
-}
-
-AboutSection.propTypes = {
-  children: PropTypes.element,
-}
-
-ProductSection.propTypes = {
-  imageUrl: PropTypes.string,
-  url: PropTypes.string,
-  title: PropTypes.string,
-  children: PropTypes.string,
-  reverse: PropTypes.string,
 }
