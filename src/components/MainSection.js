@@ -40,6 +40,7 @@ export default function MainSection({
                 width: '40px',
                 height: '7px',
                 bg: 'primary',
+                display: ['none', null, null, null, 'block'],
               }}
             />
           )}

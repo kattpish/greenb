@@ -74,7 +74,7 @@ const BackgroundSection = () => (
 )
 
 const FeatureCard = ({ idx, title, children }) => (
-  <Flex sx={{ flexDirection: 'column', width: '40%', padding: 4 }}>
+  <Flex sx={{ flexDirection: 'column', minWidth: '400px', padding: 4 }}>
     <Fade bottom opposite distance="50px">
       <Image src={`../about/feature-${idx}.png`} />
       <Box
@@ -139,11 +139,13 @@ export default function AboutPage() {
             />
           </Fade>
           <Fade bottom opposite distance="50px">
-            <Image
-              sx={{ display: ['block', null, null, 'none'] }}
-              py={4}
-              src={'../about/history-mobile.jpg'}
-            />
+            <Flex sx={{ justifyContent: 'center' }}>
+              <Image
+                sx={{ display: ['block', null, null, 'none'] }}
+                py={4}
+                src={'../about/history-mobile.jpg'}
+              />
+            </Flex>
           </Fade>
         </Flex>
       </PrimaryContainer>

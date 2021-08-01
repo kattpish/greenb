@@ -8,7 +8,7 @@ const theme = {
     paragraph: '#999',
     sectionBg: '#f7f7f7',
     footerBg: '#eaeff2',
-    footerText: '#939598',
+    footerText: '#363a45',
   },
   fonts: {
     body: 'Pretendard, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", sans-serif',

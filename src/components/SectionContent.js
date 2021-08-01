@@ -22,6 +22,7 @@ function SectionContent({
         flexDirection: 'column',
         width: sectionSize,
         alignSelf: mobileAlign,
+        wordBreak: 'keep-all',
       }}
     >
       <Box

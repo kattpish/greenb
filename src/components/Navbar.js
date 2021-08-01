@@ -79,7 +79,7 @@ export default function Navbar() {
           <NavbarLink url="/about">
             <Text>그린비를 소개해요</Text>
           </NavbarLink>
-          <NavbarLink url="/biodegradable">
+          <NavbarLink url="/technology">
             <Text>기술을 살펴봐요</Text>
           </NavbarLink>
           <NavbarLink url="/product">
@@ -116,7 +116,7 @@ export default function Navbar() {
         py={1}
       >
         <NavbarLink url="/about">그린비를 소개해요</NavbarLink>
-        <NavbarLink url="/biodegradable">기술을 살펴봐요</NavbarLink>
+        <NavbarLink url="/technology">기술을 살펴봐요</NavbarLink>
         <NavbarLink url="/product">제품보기</NavbarLink>
         <NavbarLink url="/news">소식을 전해요</NavbarLink>
         <NavbarLink url="/qna">질문에 답해요</NavbarLink>
