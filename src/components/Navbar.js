@@ -1,9 +1,10 @@
 import React, { useState } from 'react'
 import PropTypes from 'prop-types'
-import { Flex, Box, Link, Text, Button, Container } from 'theme-ui'
+import { Flex, Box, Link, Text, Button } from 'theme-ui'
 import { FiDownload } from 'react-icons/fi'
 
 import PrimaryBtn from './PrimaryBtn'
+import PrimaryContainer from './PrimaryContainer'
 
 const NavbarLink = (props) => (
   <Link
@@ -39,15 +40,14 @@ export default function Navbar() {
   }
 
   return (
-    <Container
+    <PrimaryContainer
       sx={{
         position: 'fixed',
         width: '100%',
         bg: 'background',
         zIndex: '10000',
       }}
-      px={[4, null, null, null, 6]}
-      py={3}
+      paddingY={3}
     >
       <Flex
         sx={{ width: '100%', justifyContent: 'space-between' }}
@@ -124,6 +124,6 @@ export default function Navbar() {
           사업소개서 <FiDownload />
         </PrimaryBtn>
       </Box>
-    </Container>
+    </PrimaryContainer>
   )
 }

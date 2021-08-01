@@ -26,14 +26,6 @@ module.exports = {
       },
     },
     {
-      resolve: 'gatsby-plugin-web-font-loader',
-      options: {
-        google: {
-          families: ['Lexend'],
-        },
-      },
-    },
-    {
       resolve: 'gatsby-plugin-prettier-eslint',
       options: {
         prettier: {

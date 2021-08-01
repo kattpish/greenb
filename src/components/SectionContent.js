@@ -10,6 +10,8 @@ function SectionContent({
   url,
   sectionSize,
   mobileAlign,
+  minWidth,
+  hideLink,
   ...props
 }) {
   return (
@@ -17,9 +19,8 @@ function SectionContent({
       {...props}
       sx={{
         maxWidth: '450px',
-        minWidth: ['200px', null, '350px'],
         flexDirection: 'column',
-        width: ['200px', null, sectionSize],
+        width: sectionSize,
         alignSelf: mobileAlign,
       }}
     >
@@ -44,19 +45,23 @@ function SectionContent({
       <Text variant="paragraph" color="paragraph" my={3}>
         {children}
       </Text>
-      <Box color="primary" sx={{ fontWeight: 'bold' }}>
-        <AiOutlineArrowRight />
-        <Link
-          url={url}
-          sx={{
-            borderBottomWidth: '1px',
-            borderBottomStyle: 'solid',
-            borderBottomColor: 'primary',
-          }}
-        >
-          더 알아보기
-        </Link>
-      </Box>
+      {hideLink ? (
+        ''
+      ) : (
+        <Box color="primary" sx={{ fontWeight: 'bold' }}>
+          <AiOutlineArrowRight />
+          <Link
+            url={url}
+            sx={{
+              borderBottomWidth: '1px',
+              borderBottomStyle: 'solid',
+              borderBottomColor: 'primary',
+            }}
+          >
+            더 알아보기
+          </Link>
+        </Box>
+      )}
     </Flex>
   )
 }
@@ -66,8 +71,10 @@ SectionContent.propTypes = {
   title: PropTypes.string,
   children: PropTypes.string,
   url: PropTypes.string,
-  sectionSize: PropTypes.string,
+  sectionSize: PropTypes.array,
   mobileAlign: PropTypes.array,
+  minWidth: PropTypes.number,
+  hideLink: PropTypes.bool,
 }
 
 export default SectionContent

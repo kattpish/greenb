@@ -1,6 +1,6 @@
 const theme = {
   colors: {
-    text: '#161A1D',
+    text: '#333333',
     background: '#fff',
     primary: '#33cc99',
     secondary: '#B8DA92',
@@ -8,10 +8,12 @@ const theme = {
     paragraph: '#999',
     sectionBg: '#f7f7f7',
     footerBg: '#eaeff2',
+    footerText: '#939598',
   },
   fonts: {
     body: 'Pretendard, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", sans-serif',
-    heading: '"Lexend", sans-serif',
+    heading:
+      'rig-sans, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", sans-serif',
     monospace: 'Menlo, monospace',
   },
   fontWeights: {

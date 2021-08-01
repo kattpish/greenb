@@ -1,36 +1,18 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import { Box, Container, Flex, Text, Image, Divider } from 'theme-ui'
+import { Box, Flex, Text, Image, Divider } from 'theme-ui'
 import { AiOutlineArrowRight } from 'react-icons/ai'
 import Fade from 'react-reveal/Fade'
 
 import PrimaryBtn from '../components/PrimaryBtn'
 import SectionContent from '../components/SectionContent'
-
-const Heading = (props) => (
-  <Text
-    sx={{
-      fontFamily: 'Lexend, sans-serif',
-      fontSize: [6, null, null, null, props.primary ? 8 : 7],
-      color: props.primary ? 'primary' : 'text',
-      fontWeight: 'bold',
-      wordSpacing: ['0px', null, null, null, props.primary ? '0px' : '8px'],
-      position: 'relative',
-      textAlign: ['center', null, 'left'],
-    }}
-  >
-    {props.children}
-  </Text>
-)
-
-Heading.propTypes = {
-  primary: PropTypes.bool,
-  children: PropTypes.node,
-}
+import PrimaryContainer from '../components/PrimaryContainer'
+import MainSection from '../components/MainSection'
+import SecondaryHeading from '../components/SecondaryHeading'
 
 const AboutSection = ({ children }) => (
   <Box bg="sectionBg" sx={{ width: '100%' }}>
-    <Container px={[4, null, null, null, 6]} py={6}>
+    <PrimaryContainer paddingY={6}>
       <Fade bottom opposite distance="50px">
         <Flex
           sx={{
@@ -46,7 +28,7 @@ const AboutSection = ({ children }) => (
           {children}
         </Flex>
       </Fade>
-    </Container>
+    </PrimaryContainer>
   </Box>
 )
 
@@ -76,7 +58,7 @@ const ProductSection = ({
   }
   const selectedObj = reverse ? rowReverseObj : rowObj
   return (
-    <Fade bottom opposite>
+    <Fade bottom opposite distance="50px">
       <Flex
         sx={{
           justifyContent: 'center',
@@ -95,7 +77,7 @@ const ProductSection = ({
           title={title}
           size={4}
           url={url}
-          sectionSize="400px"
+          sectionSize={['80%', '50%', null, null, '35%']}
           mobileAlign={['flex-start', null, 'center']}
         >
           {children}
@@ -106,65 +88,26 @@ const ProductSection = ({
 }
 
 ProductSection.propTypes = {
-  imageUrl: PropTypes.string,
+  imageUrl: PropTypes.number,
   url: PropTypes.string,
   title: PropTypes.string,
   children: PropTypes.node,
-  reverse: PropTypes.string,
+  reverse: PropTypes.bool,
 }
 
 export default function IndexPage() {
   return (
     <>
-      <Container px={[4, null, null, null, 6]} py={6}>
-        <Flex
-          sx={{
-            width: '100%',
-            alignItems: 'center',
-            justifyContent: 'space-between',
-            flexDirection: ['column-reverse', null, null, null, 'row'],
-          }}
-        >
-          <Flex
-            sx={{
-              flexDirection: 'column',
-              alignItems: ['center', null, null, null, 'start'],
-              justifyContent: [null, null, null, null, 'center'],
-            }}
-          >
-            <Heading>Be My Eco Friend,</Heading>
-            <Heading primary>Green B</Heading>
-            <Text
-              sx={{
-                fontSize: 2,
-                color: 'light',
-                py: '3',
-                wordBreak: 'keep-all',
-                textAlign: ['center', null, null, null, 'left'],
-              }}
-            >
-              환경을 위해 노력하는 사람들의 곁에 있는 친구 같은 그린비
-            </Text>
-            <PrimaryBtn>
-              <Text>그린비를 소개해요</Text>
-              <AiOutlineArrowRight />
-            </PrimaryBtn>
-          </Flex>
-          <Fade bottom opposite distance="50px">
-            <Flex
-              sx={{ justifyContent: ['center', null, null, 'flex-end', null] }}
-            >
-              <Image
-                sx={{
-                  width: ['350px', '400px', '80%', '90%', null],
-                  mt: [4, 4, 2, null, null],
-                }}
-                src={'./main.png'}
-              />
-            </Flex>
-          </Fade>
-        </Flex>
-      </Container>
+      <MainSection
+        title={['Be My Eco Friend,', 'Green B']}
+        subtitle="환경을 위해 노력하는 사람들의 곁에 있는 친구 같은 그린비"
+        url="../main.png"
+      >
+        <PrimaryBtn>
+          <Text>그린비를 소개해요</Text>
+          <AiOutlineArrowRight />
+        </PrimaryBtn>
+      </MainSection>
       <AboutSection>
         <SectionContent
           pt={[4, null, 0]}
@@ -172,7 +115,7 @@ export default function IndexPage() {
           생분해성 플라스틱."
           size={5}
           url="/about"
-          sectionSize="30%"
+          sectionSize={['80%', '50%', null, null, '35%']}
         >
           그린비의 생분해성 플라스틱은 천연 식물성 소재로 만들어져 6개월 안에
           완전히 생분해되어 자연으로 되돌아갑니다. 연소 등의 다른 처리 과정이
@@ -181,41 +124,12 @@ export default function IndexPage() {
           작물을 재배할 수 있습니다.
         </SectionContent>
       </AboutSection>
-      <Container px={[4, null, null, null, 6]} py={6}>
+      <PrimaryContainer paddingY={6}>
         <Flex sx={{ flexDirection: 'column' }}>
-          <Flex
-            sx={{
-              flexDirection: 'column',
-              alignItems: 'center',
-            }}
-          >
-            <Text
-              sx={{
-                color: 'text',
-                fontSize: 5,
-                fontWeight: 'bold',
-                textAlign: 'center',
-              }}
-            >
-              그린비가 만들어나가는
-              <br />
-              지속가능한 순환 경제.
-            </Text>
-            <Text
-              sx={{
-                color: 'light',
-                fontSize: 3,
-                fontWeight: 'body',
-                textAlign: 'center',
-              }}
-              mt={2}
-              mb={5}
-            >
-              그린비의 생분해성 플라스틱
-              <br />
-              제품을 소개합니다.
-            </Text>
-          </Flex>
+          <SecondaryHeading
+            title={['그린비가 만들어나가는', '지속가능한 순환 경제.']}
+            subtitle={['그린비의 생분해성 플라스틱', '제품을 소개합니다.']}
+          ></SecondaryHeading>
           <ProductSection imageUrl={1} url="/product" title="필름 제품">
             그린비의 필름 제품을 소개합니다.
           </ProductSection>
@@ -229,113 +143,42 @@ export default function IndexPage() {
             그린비의 필름 제품을 소개합니다.
           </ProductSection>
         </Flex>
-      </Container>
-      <Container px={[4, null, null, null, 6]} pb={6}>
+      </PrimaryContainer>
+      <PrimaryContainer sx={{ pb: 6 }}>
         <Flex sx={{ flexDirection: 'column', alignItems: 'center' }}>
-          <Divider />
-          <Flex
-            sx={{
-              flexDirection: 'column',
-              alignItems: 'center',
-            }}
-            pt={5}
-          >
-            <Text
+          <Divider mb={5} />
+          <SecondaryHeading
+            title={['그린비와 함께합니다.', '']}
+            subtitle={['그린비의 클라이언트를 소개합니다.', '']}
+          />
+          {[
+            [1, 2, 3, 4],
+            [5, 6, 7, 8],
+          ].map((row, key) => (
+            <Flex
               sx={{
-                color: 'text',
-                fontSize: 5,
-                fontWeight: 'bold',
-                textAlign: 'center',
+                justifyContent: 'space-evenly',
+                alignItems: 'center',
+                width: '80%',
+                flexWrap: 'wrap',
               }}
+              key={key}
             >
-              그린비와 함께합니다.
-            </Text>
-            <Text
-              sx={{
-                color: 'light',
-                fontSize: 3,
-                fontWeight: 'body',
-                textAlign: 'center',
-              }}
-              mt={2}
-              mb={5}
-            >
-              그린비의 클라이언트를 소개합니다.
-            </Text>
-          </Flex>
-          <Flex
-            sx={{
-              justifyContent: 'space-evenly',
-              alignItems: 'center',
-              width: '80%',
-              flexWrap: 'wrap',
-            }}
-          >
-            <Fade bottom opposite distance="50px">
-              <Image
-                sx={{ width: '130px' }}
-                px={2}
-                py={4}
-                src={'./clients/client-1.png'}
-              />
-              <Image
-                sx={{ width: '130px' }}
-                px={2}
-                py={4}
-                src={'./clients/client-2.png'}
-              />
-
-              <Image
-                sx={{ width: '130px' }}
-                px={2}
-                py={4}
-                src={'./clients/client-3.png'}
-              />
-              <Image
-                sx={{ width: '130px' }}
-                px={2}
-                py={4}
-                src={'./clients/client-4.png'}
-              />
-            </Fade>
-          </Flex>
-          <Flex
-            sx={{
-              justifyContent: 'space-evenly',
-              alignItems: 'center',
-              width: '80%',
-              flexWrap: 'wrap',
-            }}
-          >
-            <Fade bottom opposite distance="50px">
-              <Image
-                sx={{ width: '130px' }}
-                px={2}
-                py={4}
-                src={'./clients/client-5.png'}
-              />
-              <Image
-                sx={{ width: '130px' }}
-                px={2}
-                py={4}
-                src={'./clients/client-6.png'}
-              />
-              <Image
-                sx={{ width: '130px' }}
-                px={2}
-                py={4}
-                src={'./clients/client-7.png'}
-              />
-              <Image
-                sx={{ width: '130px' }}
-                px={2}
-                py={4}
-                src={'./clients/client-8.png'}
-              />
-            </Fade>
-          </Flex>
+              <Fade bottom opposite distance="50px">
+                {row.map((col, key) => (
+                  <Image
+                    sx={{ width: '130px' }}
+                    px={2}
+                    py={4}
+                    src={`./clients/client-${col}.png`}
+                    key={key}
+                  />
+                ))}
+              </Fade>
+            </Flex>
+          ))}
         </Flex>
-      </Container>
+      </PrimaryContainer>
     </>
   )
 }
