@@ -30,7 +30,7 @@ const SecondaryHeading = ({ title, subtitle }) => (
           textAlign: 'center',
         }}
         mt={2}
-        mb={3}
+        mb={4}
       >
         {subtitle[0]}
         <br />

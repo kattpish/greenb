@@ -9,6 +9,7 @@ import PrimaryContainer from '../components/PrimaryContainer'
 import PrimaryHeading from '../components/PrimaryHeading'
 import SecondaryHeading from '../components/SecondaryHeading'
 import ImageSlide from '../components/ImageSlide'
+import CertificateGallery from '../components/CertificateGallery'
 
 const BioplasticSectionItem = ({ url, title }) => (
   <Flex sx={{ flexDirection: 'column', alignItems: 'center' }}>
@@ -219,7 +220,10 @@ export default function TechPage() {
       <PrimaryContainer paddingY={6}>
         <SecondaryHeading
           title={['생분해성 플라스틱이', '만들어지려면?']}
-          subtitle={['', '']}
+          subtitle={[
+            'Green B의 생분해성 플라스틱',
+            '생산 공정에 대해 소개합니다.',
+          ]}
         />
         <Flex
           sx={{
@@ -228,87 +232,100 @@ export default function TechPage() {
             alignItems: ['center', null, null, null, 'flex-start'],
           }}
         >
-          <Flex sx={{ flexDirection: 'column', maxWidth: '450px' }} p="3">
-            <Button
-              sx={{
-                bg: 'primary',
-                borderRadius: '0px',
-                px: 5,
-                py: 3,
-                fontWeight: 'bold',
-                wordBreak: 'keep-all',
-              }}
-            >
-              Green B 생분해성 수지 생산공정
-            </Button>
-            <Box>
-              <Image src={'../technology/process-1.jpg'} />
-            </Box>
-          </Flex>
-          <Flex
-            sx={{
-              flexDirection: 'column',
-              maxWidth: '450px',
-            }}
-            p="3"
-          >
-            <Button
-              sx={{
-                bg: 'primary',
-                borderRadius: '0px',
-                px: 5,
-                py: 3,
-                fontWeight: 'bold',
-                wordBreak: 'keep-all',
-              }}
-            >
-              Green B 생분해성 봉투 생산공정
-            </Button>
-            <Flex>
-              <Image
-                sx={{ width: '80%' }}
-                src={'../technology/process-2.jpg'}
-              />
+          <Fade bottom opposite distance="50px">
+            <Flex sx={{ flexDirection: 'column', maxWidth: '450px' }} p="3">
+              <Button
+                sx={{
+                  bg: 'primary',
+                  borderRadius: '0px',
+                  px: 5,
+                  py: 3,
+                  fontWeight: 'bold',
+                  wordBreak: 'keep-all',
+                }}
+              >
+                Green B 생분해성 수지 생산공정
+              </Button>
+              <Box>
+                <Image src={'../technology/process-1.jpg'} />
+              </Box>
             </Flex>
-          </Flex>
-          <Flex
-            sx={{
-              flexDirection: 'column',
-              justifyContent: 'center',
-              alignSelf: 'center',
-            }}
-          >
-            <Text
-              variant="paragraph"
-              sx={{ display: ['none', null, null, null, 'flex'] }}
+            <Flex
+              sx={{
+                flexDirection: 'column',
+                maxWidth: '450px',
+              }}
+              p="3"
             >
-              1. 생분해 수지 투입
-              <br /> 2. 수지가열/압출
-              <br /> 3. 링투입/버블공정
-              <br /> 4. 냉각장치/온도조절
-              <br /> 5. 에어 블로우
-              <br /> 6. 중간케이지/필름홀드
-              <br /> 7. 필름 평면 공정
-              <br /> 8. 가젯보드 / 압출
-              <br /> 9. 닙롤러/압출
-              <br /> 10. 프린트 / 씨링 가공기
-              <br /> 11. 개별 봉투 생산 / 재단
-              <br /> 12. 검수 작업
-              <br /> 13. 포장
-            </Text>
-          </Flex>
+              <Button
+                sx={{
+                  bg: 'primary',
+                  borderRadius: '0px',
+                  px: 5,
+                  py: 3,
+                  fontWeight: 'bold',
+                  wordBreak: 'keep-all',
+                }}
+              >
+                Green B 생분해성 봉투 생산공정
+              </Button>
+              <Flex>
+                <Image
+                  sx={{ width: '80%' }}
+                  src={'../technology/process-2.jpg'}
+                />
+              </Flex>
+            </Flex>
+            <Flex
+              sx={{
+                flexDirection: 'column',
+                justifyContent: 'center',
+                alignSelf: 'center',
+              }}
+            >
+              <Text
+                variant="paragraph"
+                sx={{ display: ['none', null, null, null, 'flex'] }}
+              >
+                1. 생분해 수지 투입
+                <br /> 2. 수지가열/압출
+                <br /> 3. 링투입/버블공정
+                <br /> 4. 냉각장치/온도조절
+                <br /> 5. 에어 블로우
+                <br /> 6. 중간케이지/필름홀드
+                <br /> 7. 필름 평면 공정
+                <br /> 8. 가젯보드 / 압출
+                <br /> 9. 닙롤러/압출
+                <br /> 10. 프린트 / 씨링 가공기
+                <br /> 11. 개별 봉투 생산 / 재단
+                <br /> 12. 검수 작업
+                <br /> 13. 포장
+              </Text>
+            </Flex>
+          </Fade>
         </Flex>
       </PrimaryContainer>
-      <PrimaryContainer>
-        <ImageSlide>
-          {[...Array(6)].map((u, i) => (
-            <Image
-              key={i}
-              sx={{ maxHeight: '260px' }}
-              src={`../technology/equipment-${i + 1}.jpg`}
-            />
-          ))}
-        </ImageSlide>
+      <Box bg="sectionBg" sx={{ width: '100%' }}>
+        <PrimaryContainer paddingY={[5, null, null, null, 6]}>
+          <SecondaryHeading
+            title={['Green B의 시설과 장비들', '']}
+            subtitle={['생분해성 플라스틱이 제작되는 곳을 소개합니다.', '']}
+          />
+          <ImageSlide>
+            {[...Array(6)].map((u, i) => (
+              <Box key={i}>
+                <Image src={`../technology/equipment-${i + 1}.jpg`} />
+              </Box>
+            ))}
+          </ImageSlide>
+        </PrimaryContainer>
+      </Box>
+      <PrimaryContainer paddingY={[5, null, null, null, 6]}>
+        <SecondaryHeading
+          title={['인증서 및 성적서', '']}
+          subtitle={['Green B의 각종 인증서 및 성적서를 소개합니다.', '']}
+        />
+        <CertificateGallery />
       </PrimaryContainer>
     </>
   )

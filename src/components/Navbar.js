@@ -45,7 +45,7 @@ export default function Navbar() {
         position: 'fixed',
         width: '100%',
         bg: 'background',
-        zIndex: '10000',
+        zIndex: '10',
       }}
       paddingY={3}
     >
