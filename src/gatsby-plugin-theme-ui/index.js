@@ -7,7 +7,7 @@ const theme = {
     light: '#b3b3b3',
     paragraph: '#999',
     sectionBg: '#f7f7f7',
-    footerBg: '#eaeff2',
+    footerBg: '#656d7f',
     footerText: '#363a45',
   },
   fonts: {

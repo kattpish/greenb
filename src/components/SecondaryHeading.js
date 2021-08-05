@@ -2,13 +2,14 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import { Flex, Text } from 'theme-ui'
 
-const SecondaryHeading = ({ title, subtitle }) => (
+const SecondaryHeading = ({ title, subtitle, children }) => (
   <>
     <Flex
       sx={{
         flexDirection: 'column',
         alignItems: 'center',
       }}
+      mb={5}
     >
       <Text
         sx={{
@@ -18,9 +19,7 @@ const SecondaryHeading = ({ title, subtitle }) => (
           textAlign: 'center',
         }}
       >
-        {title[0]}
-        <br />
-        {title[1]}
+        {title}
       </Text>
       <Text
         sx={{
@@ -30,12 +29,10 @@ const SecondaryHeading = ({ title, subtitle }) => (
           textAlign: 'center',
         }}
         mt={2}
-        mb={4}
       >
-        {subtitle[0]}
-        <br />
-        {subtitle[1]}
+        {subtitle}
       </Text>
+      {children}
     </Flex>
   </>
 )
@@ -43,6 +40,7 @@ const SecondaryHeading = ({ title, subtitle }) => (
 export default SecondaryHeading
 
 SecondaryHeading.propTypes = {
-  title: PropTypes.array.isRequired,
-  subtitle: PropTypes.array,
+  title: PropTypes.string.isRequired,
+  subtitle: PropTypes.string,
+  children: PropTypes.node,
 }

@@ -8,7 +8,7 @@ const PrimaryHeading = (props) => (
       sx={{
         fontFamily: 'heading',
         fontWeight: 'bold',
-        fontSize: [6, null, null, null, props.primary ? 8 : 7],
+        fontSize: [5, null, null, null, 7],
         color: props.primary ? 'primary' : 'text',
         wordSpacing: ['0px', null, null, null, '-4px'],
         position: 'relative',

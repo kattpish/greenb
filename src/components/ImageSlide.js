@@ -1,7 +1,9 @@
 import React from 'react'
 import Carousel from 'react-multi-carousel'
+import { Button } from 'theme-ui'
 import PropTypes from 'prop-types'
 import 'react-multi-carousel/lib/styles.css'
+import { IoIosArrowBack, IoIosArrowForward } from 'react-icons/io'
 
 const responsive = {
   superLargeDesktop: {
@@ -22,6 +24,15 @@ const responsive = {
   },
 }
 
+const CustomRightArrow = ({ onClick, ...rest }) => {
+  const {
+    onMove,
+    carouselState: { currentSlide, deviceType },
+  } = rest
+  // onMove means if dragging or swiping in progress.
+  return <button onClick={() => onClick()}>sfee</button>
+}
+
 export default function ImageSlide({ children }) {
   return (
     <Carousel
@@ -31,12 +42,11 @@ export default function ImageSlide({ children }) {
       ssr={true}
       infinite={true}
       autoPlay={true}
-      autoPlaySpeed={2000}
+      autoPlaySpeed={3000}
       keyBoardControl={true}
       transitionDuration={500}
-      containerClass="carousel-container"
       removeArrowOnDeviceType={['tablet', 'mobile']}
-      itemClass="carousel-item-padding-40-px"
+      customRightArrow={<button>ㅅㅅ</button>}
     >
       {children}
     </Carousel>

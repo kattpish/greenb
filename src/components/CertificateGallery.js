@@ -1,7 +1,9 @@
 import React, { useState, useCallback } from 'react'
-import Gallery from 'react-photo-gallery'
-import Carousel, { Modal, ModalGateway } from 'react-images'
+import { Box, Image } from 'theme-ui'
 import Fade from 'react-reveal/Fade'
+import 'react-responsive-carousel/lib/styles/carousel.min.css' // requires a loader
+import { Carousel } from 'react-responsive-carousel'
+import Modal from 'react-modal'
 
 const photos = [
   {
@@ -68,37 +70,46 @@ const photos = [
 
 export default function CertificateGallery() {
   const [currentImage, setCurrentImage] = useState(0)
-  const [viewerIsOpen, setViewerIsOpen] = useState(false)
+  const [modalIsOpen, setModalIsOpen] = useState(false)
 
-  const openLightbox = useCallback((event, { photo, index }) => {
+  const openModal = useCallback((index) => {
+    console.log(index)
     setCurrentImage(index)
-    setViewerIsOpen(true)
+    setModalIsOpen(true)
   }, [])
 
-  const closeLightbox = () => {
+  const closeModal = () => {
     setCurrentImage(0)
-    setViewerIsOpen(false)
+    setModalIsOpen(false)
   }
 
   return (
     <div>
       <Fade bottom opposite distance="50px">
-        <Gallery photos={photos} onClick={openLightbox} margin={10} />
+        <Carousel>
+          {[...Array(19)].map((u, i) => (
+            <Box key={i} onClick={() => openModal(i + 1)}>
+              <Image
+                sx={{ width: '100px' }}
+                src={`../technology/certificate-${i + 1}.jpg`}
+              />
+            </Box>
+          ))}
+        </Carousel>
       </Fade>
-      <ModalGateway>
-        {viewerIsOpen ? (
-          <Modal onClose={closeLightbox}>
-            <Carousel
-              currentIndex={currentImage}
-              views={photos.map((x) => ({
-                ...x,
-                srcset: x.srcSet,
-                caption: x.title,
-              }))}
-            />
-          </Modal>
-        ) : null}
-      </ModalGateway>
+      <Modal isOpen={modalIsOpen} onRequestClose={closeModal}>
+        <form>
+          <input />
+          <button>tab navigation</button>
+          <button>stays</button>
+          <button>inside</button>
+          <button>the modal</button>
+        </form>
+        <Image
+          sx={{ width: '100px' }}
+          src={`../technology/certificate-${currentImage + 1}.jpg`}
+        />
+      </Modal>
     </div>
   )
 }

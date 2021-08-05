@@ -11,6 +11,7 @@ export default function PrimaryBtn(props) {
         fontWeight: 'bold',
         fontSize: 1,
         border: '1px solid #fff',
+        cursor: 'pointer',
         ':hover': {
           borderWidth: '1px',
           borderStyle: 'solid',

@@ -1,5 +1,5 @@
 import React, { useState, useCallback } from 'react'
-import { Flex, Box, Image, Text } from 'theme-ui'
+import { Flex, Box, Image, Text, Link } from 'theme-ui'
 import Gallery from 'react-photo-gallery'
 import Carousel, { Modal, ModalGateway } from 'react-images'
 import Fade from 'react-reveal/Fade'
@@ -10,72 +10,84 @@ const photos = [
     width: 5,
     height: 3,
     title: '생분해 수지',
+    url: '/product/resin',
   },
   {
     src: '../product/thumbnail-2.jpg',
     width: 2,
     height: 3,
     title: '생분해 쇼핑백',
+    url: '/product/shopping-bag',
   },
   {
     src: '../product/thumbnail-3.jpg',
     width: 5,
     height: 3,
     title: '생분해 그릇',
+    url: '/product/plate',
   },
   {
     src: '../product/thumbnail-4.jpg',
     width: 5,
     height: 3,
     title: '생분해 플라스틱 컵',
+    url: '/product/cup',
   },
   {
     src: '../product/thumbnail-5.jpg',
     width: 5,
     height: 3,
     title: '생분해 커트러리',
+    url: '/product/cutlery',
   },
   {
     src: '../product/thumbnail-6.jpg',
     width: 5,
     height: 3,
     title: '생분해 용기',
+    url: '/product/container',
   },
   {
     src: '../product/thumbnail-7.jpg',
     width: 5,
     height: 3,
     title: '생분해 식탁보',
+    url: '/product/tablecloth',
   },
   {
     src: '../product/thumbnail-8.jpg',
     width: 2,
     height: 3,
     title: '생분해 롤백',
+    url: '/product/rollbag',
   },
   {
     src: '../product/thumbnail-9.jpg',
     width: 2,
     height: 3,
     title: '생분해 캠핑용 수세미',
+    url: '/product/sponge',
   },
   {
     src: '../product/thumbnail-10.jpg',
     width: 5,
     height: 3,
     title: '생분해 빨대',
+    url: '/product/straw',
   },
   {
     src: '../product/thumbnail-11.jpg',
     width: 5,
     height: 3,
     title: '생분해 에어캡',
+    url: '/product/aircap',
   },
   {
     src: '../product/thumbnail-12.jpg',
     width: 5,
     height: 3,
     title: '생분해 랩',
+    url: '/product/wrap',
   },
 ]
 
@@ -95,41 +107,43 @@ export default function ProductGallery() {
 
   const imageRenderer = useCallback(
     ({ index, photo, margin }) => (
-      <Box
-        sx={{
-          width: photo.width,
-          height: photo.height,
-          position: 'relative',
-          ':hover > :last-child': {
-            color: 'background',
-            background: 'rgba(0, 0, 0, 0.7)',
-          },
-        }}
-        m="2px"
-      >
-        <Image sx={{ height: '100%' }} alt={photo.title} {...photo} />
-        <Flex
+      <Link href={photo.url}>
+        <Box
           sx={{
-            position: 'absolute',
-            width: '100%',
-            height: '100%',
-            zIndex: 9,
-            top: 0,
-            left: '50%',
-            transform: 'translateX(-50%)',
-            color: 'transparent',
-            textAlign: 'center',
-            transition: 'all .3s ease-out',
-            justifyContent: 'center',
-            alignItems: 'center',
-            fontSize: 3,
-            cursor: 'pointer',
-            fontWeight: 'medium',
+            width: photo.width,
+            height: photo.height,
+            position: 'relative',
+            ':hover > :last-child': {
+              color: 'background',
+              background: 'rgba(0, 0, 0, 0.7)',
+            },
           }}
+          m="2px"
         >
-          <Text>{photo.title}</Text>
-        </Flex>
-      </Box>
+          <Image sx={{ height: '100%' }} alt={photo.title} {...photo} />
+          <Flex
+            sx={{
+              position: 'absolute',
+              width: '100%',
+              height: '100%',
+              zIndex: 9,
+              top: 0,
+              left: '50%',
+              transform: 'translateX(-50%)',
+              color: 'transparent',
+              textAlign: 'center',
+              transition: 'all .3s ease-out',
+              justifyContent: 'center',
+              alignItems: 'center',
+              fontSize: 3,
+              cursor: 'pointer',
+              fontWeight: 'medium',
+            }}
+          >
+            <Text>{photo.title}</Text>
+          </Flex>
+        </Box>
+      </Link>
     ),
     []
   )

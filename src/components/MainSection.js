@@ -29,7 +29,6 @@ export default function MainSection({
             flexDirection: 'column',
             alignItems: ['center', null, null, null, 'start'],
             justifyContent: [null, null, null, null, 'center'],
-            width: '50%',
           }}
         >
           {children ? (
@@ -51,16 +50,16 @@ export default function MainSection({
               fontSize: 2,
               color: 'light',
               py: '3',
-              wordBreak: 'keep-all',
               textAlign: ['center', null, null, null, 'left'],
-              width: '70%',
+              width: '50%',
+              wordBreak: 'keep-all',
             }}
           >
             {subtitle}
           </Text>
           {children}
         </Flex>
-        <Box sx={{ width: '50%' }}>
+        <Box sx={{ width: '760px', position: 'relative', left: '2rem' }}>
           <Fade bottom opposite distance="50px">
             <Image sx={imgStyle} src={url} />
           </Fade>

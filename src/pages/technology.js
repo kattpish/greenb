@@ -6,18 +6,23 @@ import { CgMathEqual } from 'react-icons/cg'
 import Fade from 'react-reveal/Fade'
 
 import PrimaryContainer from '../components/PrimaryContainer'
-import PrimaryHeading from '../components/PrimaryHeading'
 import SecondaryHeading from '../components/SecondaryHeading'
 import ImageSlide from '../components/ImageSlide'
 import CertificateGallery from '../components/CertificateGallery'
 
 const BioplasticSectionItem = ({ url, title }) => (
-  <Flex sx={{ flexDirection: 'column', alignItems: 'center' }}>
+  <Flex
+    sx={{
+      flexDirection: 'column',
+      alignItems: 'center',
+      justifyContent: 'space-between',
+    }}
+  >
     <Image
-      sx={{ maxWidth: '15rem' }}
-      src={`../technology/bioplastic-${url}.jpg`}
+      sx={{ maxHeight: '10rem' }}
+      src={`../technology/bioplastic-${url}.png`}
     />
-    <Text sx={{ fontSize: '3', fontWeight: 'bold' }} my={2}>
+    <Text sx={{ fontSize: '3', fontWeight: 'bold' }} mt={4} mb={2}>
       {title}
     </Text>
   </Flex>
@@ -44,15 +49,15 @@ const BioplasticSection = () => (
   <Box bg="sectionBg" sx={{ width: '100%' }}>
     <PrimaryContainer paddingY={[5, null, null, null, 6]}>
       <SecondaryHeading
-        title={['Green B의 생분해성 플라스틱?', '']}
-        subtitle={['그린비의 생분해성 플라스틱을 소개합니다.', '']}
+        title="생분해성 플라스틱?"
+        subtitle="그린비의 생분해성 플라스틱을 소개합니다."
       />
       <Fade bottom opposite distance="200px">
         <Flex
           sx={{
             flexDirection: ['column', null, null, null, 'row'],
             alignItems: ['center', null, null, null, 'flex-start'],
-            justifyContent: 'center',
+            justifyContent: 'space-between',
           }}
         >
           <BioplasticSectionItem url={1} title="옥수수 전분" />
@@ -129,7 +134,6 @@ export default function TechPage() {
           height: '100%',
           position: 'relative',
         }}
-        mb={['5', null, null, null, '0']}
       >
         <Image src={'../technology/main.jpg'} />
         <PrimaryContainer>
@@ -137,12 +141,11 @@ export default function TechPage() {
             sx={{
               fontFamily: 'heading',
               fontWeight: 'bold',
-              fontSize: [6, null, null, null, 8],
-              color: ['text', null, null, null, 'background'],
+              fontSize: [4, null, null, null, 8],
+              color: 'background',
               zIndex: 1,
-              position: ['relative', null, null, null, 'absolute'],
-              bottom: [-3, null, null, null, '15%'],
-              left: [0, null, null, null, '5%'],
+              position: 'absolute',
+              bottom: '15%',
               textShadow: [
                 '',
                 null,
@@ -154,7 +157,7 @@ export default function TechPage() {
             }}
             mt="3"
           >
-            <PrimaryHeading primary>Green B</PrimaryHeading>
+            <Text sx={{ color: 'primary' }}>Green B</Text>
             &apos;s
             <br />
             Biodegradable Plastic
@@ -163,10 +166,7 @@ export default function TechPage() {
       </Box>
       <BioplasticSection />
       <PrimaryContainer paddingY={6}>
-        <SecondaryHeading
-          title={['생분해성 플라스틱의', '4가지 장점']}
-          subtitle={['', '']}
-        />
+        <SecondaryHeading title="생분해성 플라스틱의 4가지 장점" subtitle="" />
         <Flex sx={{ flexDirection: 'column', alignItems: 'center' }}>
           <Flex
             sx={{
@@ -219,10 +219,9 @@ export default function TechPage() {
       </Flex>
       <PrimaryContainer paddingY={6}>
         <SecondaryHeading
-          title={['생분해성 플라스틱이', '만들어지려면?']}
+          title="생분해성 플라스틱이 만들어지려면?"
           subtitle={[
-            'Green B의 생분해성 플라스틱',
-            '생산 공정에 대해 소개합니다.',
+            'Green B의 생분해성 플라스틱 생산 공정에 대해 소개합니다.',
           ]}
         />
         <Flex

@@ -1,41 +1,34 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import { Box, Divider, Flex, Image, Text } from 'theme-ui'
+import { Box, Divider, Flex, Image, Text, Card } from 'theme-ui'
 import Fade from 'react-reveal/Fade'
 
 import MainSection from '../components/MainSection'
 import PrimaryContainer from '../components/PrimaryContainer'
-import SectionContent from '../components/SectionContent'
+
 import SecondaryHeading from '../components/SecondaryHeading'
 
 const BackgroundSectionItem = ({ idx, title, children }) => (
-  <Box mb={5}>
-    <Fade bottom opposite distance="50px">
-      <Flex
-        sx={{
-          flexDirection: ['column', null, null, null, 'row'],
-          justifyContent: 'center',
-          alignItems: 'center',
-        }}
-      >
-        <Image
-          sx={{ width: ['80%', '50%', null, null, '35%'] }}
-          src={`../about/background-${idx}.jpg`}
-          mr={[0, null, null, null, 4]}
-          mb={[4, null, null, null, 0]}
-        />
-        <SectionContent
-          pt={[4, null, 0]}
-          title={title}
-          size={4}
-          sectionSize={['80%', '50%', null, null, '35%']}
-          hideLink
-        >
-          {children}
-        </SectionContent>
-      </Flex>
-    </Fade>
-  </Box>
+  <Fade bottom opposite distance="50px">
+    <Card
+      sx={{
+        maxWidth: 400,
+        bg: 'background',
+        height: '100%',
+      }}
+      m="3"
+    >
+      <Image src={`../about/background-${idx}.jpg`} />
+      <Box px="3" py="3">
+        <Box>
+          <Text sx={{ fontSize: 3, fontWeight: 'bold' }}>{title}</Text>
+        </Box>
+        <Box mt="3">
+          <Text sx={{ wordBreak: 'keep-all' }}>{children}</Text>
+        </Box>
+      </Box>
+    </Card>
+  </Fade>
 )
 
 BackgroundSectionItem.propTypes = {
@@ -47,44 +40,49 @@ BackgroundSectionItem.propTypes = {
 const BackgroundSection = () => (
   <Box bg="sectionBg" sx={{ width: '100%' }}>
     <PrimaryContainer paddingY={6}>
-      <SecondaryHeading
-        title={['환경을 살리는', '생분해성 ‘플라스틱’의 탄생']}
-        subtitle={[
-          '세계 생분해성 플라스틱 시장을',
-          '선도하기 위한 GreenB의 노력',
-        ]}
-      />
-      <BackgroundSectionItem idx={1} title="환경오염의 주범, 플라스틱">
-        편리함으로 소비자들의 선호가 높은 플라스틱은 분해가 되지 않고 소각 시
-        유해가스 배출로 환경오염의 주범으로 인식되었지만 대안이 없어 사용 제한을
-        두기 어려웠습니다.
-      </BackgroundSectionItem>
-      <BackgroundSectionItem idx={2} title="고가의 생분해 플라스틱">
-        단순 매립으로 6개월 안에 완전히 분해되는 기존 생분해 플라스틱은
-        저렴하지만 가공성, 강도, 내수성, 성형성 등 품질이 우수하지 못하거나
-        가격이 높아 대중화가 어려웠습니다.
-      </BackgroundSectionItem>
-      <BackgroundSectionItem idx={3} title="고강도의 생분해성 플라스틱">
-        2018년 GreenB는 자체 제조 시설 구축으로 일반 플라스틱과 유사한 강도,
-        내수성, 내열성, 성형 가공성 등을 갖춘 다양한 수지와 완제품으로 기술 및
-        원가 경쟁력을 확보하게 되었습니다.
-      </BackgroundSectionItem>
+      <SecondaryHeading title="남다른 그린비의 생분해 플라스틱" subtitle="" />
+      <Flex
+        sx={{
+          justifyContent: 'space-between',
+          flexDirection: ['column', null, null, null, 'row'],
+          alignItems: 'stretch',
+        }}
+      >
+        <BackgroundSectionItem idx={1} title="환경오염의 주범, 플라스틱!">
+          플라스틱은 편리하지만 분해가 되지 않고 소각할 때 유해가스를
+          만들어냅니다. 지구의 골칫덩이가 되어버렸죠.
+        </BackgroundSectionItem>
+        <BackgroundSectionItem idx={2} title="생분해 플라스틱의 한계">
+          땅에 묻었을 때 6개월 안에 완전히 분해되는 생분해 플라스틱의 탄생!
+          그러나 저렴한 대신 품질이 좋지 못했고 좋은 품질은 가격이 높아 대중화가
+          어려웠죠.
+        </BackgroundSectionItem>
+        <BackgroundSectionItem
+          idx={3}
+          title="한계를 극복한 그린비의 생분해 플라스틱"
+        >
+          2018년, 그린비는 자체 제조 시설을 만들어 기술과 원가에서 경쟁력을 갖게
+          되었습니다. 일반 플라스틱과 유사한 강도와 내구성을 갖춘 다양한 수지와
+          제품을 생산하고 있죠.
+        </BackgroundSectionItem>
+      </Flex>
     </PrimaryContainer>
   </Box>
 )
 
 const FeatureCard = ({ idx, title, children }) => (
-  <Flex sx={{ flexDirection: 'column', minWidth: '400px', padding: 4 }}>
+  <Card
+    sx={{
+      maxWidth: [300, null, null, null, 400, 450],
+      height: '100%',
+    }}
+    my="4"
+  >
     <Fade bottom opposite distance="50px">
       <Image src={`../about/feature-${idx}.png`} />
-      <Box
-        mt={3}
-        sx={{
-          width: '35px',
-          height: '5px',
-          bg: 'primary',
-        }}
-      />
+      <Box sx={{ width: '30px' }}>
+        <Image src={'../small-logo.png'} />
+      </Box>
       <Flex sx={{ flexDirection: 'column' }} pt={2}>
         <Text
           sx={{
@@ -105,7 +103,7 @@ const FeatureCard = ({ idx, title, children }) => (
         </Text>
       </Flex>
     </Fade>
-  </Flex>
+  </Card>
 )
 
 FeatureCard.propTypes = {
@@ -119,24 +117,25 @@ export default function AboutPage() {
     <>
       <MainSection
         title={['Be awesome for', 'earth & us']}
-        subtitle="지구를 위한 것이 우리를 위한 것!
-        지구의 자연을 지키는 멋진 일을 우리를 위해서
-        실천하는 것이 그린비의 목적입니다."
+        subtitle="그린비는 친환경 생분해성 플라스틱 제품을 만드는 브랜드입니다.
+        환경에 유해한 물질들을 대체할 수 있는 미래지향적인 제품을 개발해 생활의 편리함은 물론 보다 자연 친화적인 미래를 맞이하기 위해 노력하고 있습니다."
         url="../about/company.jpg"
       />
       <BackgroundSection />
       <PrimaryContainer paddingY={6}>
         <Flex sx={{ flexDirection: 'column' }}>
           <SecondaryHeading
-            title={['그린비가 걸어온', '발자취']}
+            title={'그린비가 걸어온 발자취'}
             subtitle={['', '']}
           />
           <Fade bottom opposite distance="50px">
-            <Image
-              sx={{ display: ['none', null, null, 'block'] }}
-              py={4}
-              src={'../about/history.jpg'}
-            />
+            <Flex sx={{ justifyContent: 'center' }}>
+              <Image
+                sx={{ display: ['none', null, null, 'block'] }}
+                py={4}
+                src={'../about/history.jpg'}
+              />
+            </Flex>
           </Fade>
           <Fade bottom opposite distance="50px">
             <Flex sx={{ justifyContent: 'center' }}>
@@ -155,37 +154,33 @@ export default function AboutPage() {
       <PrimaryContainer paddingY={6}>
         <Flex sx={{ flexDirection: 'column' }}>
           <SecondaryHeading
-            title={['편리함, 그 이상을 지향하는', 'GreenB의 특별함']}
+            title="편리함, 그 이상을 지향하는 GreenB의 특별함"
             subtitle={['', '']}
           />
-          <Flex sx={{ flexWrap: 'wrap', justifyContent: 'center' }}>
-            <FeatureCard idx={1} title="수직계열화 구조로 높은 생산성">
-              생분해 수지 생산과 자체 컴파운딩 기술로 원단 압출부터 완제품
-              제작까지 수직계열화를 통한 높은 생산성으로 가치를 높입니다.
+          <Flex sx={{ flexWrap: 'wrap', justifyContent: 'space-between' }}>
+            <FeatureCard idx={1} title="높은 생산성의 수직화 시스템">
+              생분해 수지 생산은 물론 자체 컴파운딩 기술로 완제품 제작까지
+              가능한 수직계열 구조는 높은 생산성을 자랑합니다.
             </FeatureCard>
-            <FeatureCard idx={2} title="컴파운딩에 대한 자체 기술력">
-              원재료 직접 수입을 통한 생산 원가절감과 재료 안정성을 확보하고
-              직접 생산으로 다양한 제품 및 고객 맞춤 제품 생산이 가능합니다.
+            <FeatureCard idx={2} title="믿을 수 있는 품질과 높은 안전성">
+              원재료를 직접 수입해 원가를 절감하면서도 품질이 높은 그린비
+              제품들은 환경부 인증 및 환경 경영 품질 인증을 받고 있습니다.
             </FeatureCard>
-            <FeatureCard
-              idx={3}
-              title="국내 최초 다양한 수지
-            및 완제품"
-            >
-              생분해성 플라스틱 수지 컴파운딩 기술 보유와 이전 및 특허 50여 가지
-              제휴로 다양한 수지와 완제품을 생산합니다.
+            <FeatureCard idx={3} title="국내 유일의 다양한 수지와 제품들">
+              자체 컴파운딩 기술을 갖고 있으며 여러가지 특허 및 제휴로 고객
+              맞춤의 다양한 수지와 완제품을 만들고 있습니다.
             </FeatureCard>
-            <FeatureCard idx={4} title="직접 수입으로 믿을 수 있는 원재료">
-              생분해 수지 생산 공장 및 생산시설을 직접 운영하며 생분해 재료
-              합성에 대한 자체 기술력을 구축하고 있습니다.
+            <FeatureCard idx={4} title="국내 유일의 원스탑 프로세스">
+              생분해 수지 생산부터 압출, 인쇄, 가공까지 직접 운영해 안정된
+              공급이 가능합니다.
             </FeatureCard>
-            <FeatureCard idx={5} title="글로벌을 사로잡는 GreenB">
-              국내와 말레이시아, 태국 등 해외에 수지를 공급합니다. 깨끗한 변화의
-              중심에 GreenB가 있습니다.
+            <FeatureCard idx={5} title="세계로 뻗어나가는 그린비의 수지">
+              그린비는 국내는 물론 말레이시아, 태국 등 해외에 수지를 공급하고
+              있습니다.
             </FeatureCard>
-            <FeatureCard idx={6} title="대량 판매 및 수출 가능">
-              물류 시스템 구축을 통해 공급 일정을 준수하며 긴급 공급 요청 시
-              생산량 확대 운영을 통한 요청 응대가 가능합니다.
+            <FeatureCard idx={6} title="대량 판매 및 고객 중심 서비스">
+              물류 시스템을 갖춰 공급 일정을 준수하며 긴급 공급 요청 시 생산량
+              확대 운영으로 응대가 가능합니다.
             </FeatureCard>
           </Flex>
         </Flex>

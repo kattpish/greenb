@@ -1,6 +1,6 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import { Flex, Box, Text, Link } from 'theme-ui'
+import { Flex, Box, Text, Link, Image } from 'theme-ui'
 import { AiOutlineArrowRight } from 'react-icons/ai'
 
 function SectionContent({
@@ -18,20 +18,15 @@ function SectionContent({
     <Flex
       {...props}
       sx={{
-        maxWidth: '450px',
         flexDirection: 'column',
-        width: sectionSize,
+        maxWidth: sectionSize,
         alignSelf: mobileAlign,
         wordBreak: 'keep-all',
       }}
     >
-      <Box
-        sx={{
-          width: '35px',
-          height: '5px',
-          bg: 'primary',
-        }}
-      />
+      <Box sx={{ width: '30px' }}>
+        <Image src={'../small-logo.png'} />
+      </Box>
       <Text
         sx={{
           color: 'text',
@@ -52,11 +47,15 @@ function SectionContent({
         <Box color="primary" sx={{ fontWeight: 'bold' }}>
           <AiOutlineArrowRight />
           <Link
-            url={url}
+            href={url}
             sx={{
               borderBottomWidth: '1px',
               borderBottomStyle: 'solid',
               borderBottomColor: 'primary',
+              textDecoration: 'none',
+              color: 'primary',
+              cursor: 'pointer',
+              ml: '2',
             }}
           >
             더 알아보기

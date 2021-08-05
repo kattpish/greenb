@@ -19,7 +19,7 @@ export default function Layout({ children }) {
         <link rel="stylesheet" href="https://use.typekit.net/kcq0zin.css" />
       </Helmet>
       <Navbar />
-      <Box pt={[3, null, null, 5]}>{children}</Box>
+      <Box sx={{ pt: '72px' }}>{children}</Box>
       <Footer />
     </>
   )
