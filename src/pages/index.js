@@ -1,7 +1,6 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import { Box, Flex, Text, Image, Link, Card } from 'theme-ui'
-import { AiOutlineArrowRight } from 'react-icons/ai'
+import { Box, Flex, Text, Image, Link, Card, Button } from 'theme-ui'
 import Fade from 'react-reveal/Fade'
 
 import PrimaryBtn from '../components/PrimaryBtn'
@@ -21,7 +20,10 @@ const AboutSection = ({ children }) => (
             alignItems: 'center',
           }}
         >
-          <Image src={'./about.jpeg'} sx={{ maxWidth: '600px' }} />
+          <Image
+            src={'./about.jpeg'}
+            sx={{ maxWidth: ['100%', null, null, null, '600px'] }}
+          />
           {children}
         </Flex>
       </Fade>
@@ -92,13 +94,16 @@ ProductSection.propTypes = {
   reverse: PropTypes.bool,
 }
 
-const ProductCard = ({ idx, title, children }) => (
-  <Fade bottom opposite distance="50px">
+const ProductCard = ({ idx, title, children, ...props }) => (
+  <Flex sx={{ height: '100%' }}>
     <Card
       sx={{
         maxWidth: 450,
         bg: 'background',
+        height: '100%',
       }}
+      mx="4"
+      {...props}
     >
       <Image src={`../product-${idx}.jpg`} />
       <Box px="4" py="3">
@@ -112,7 +117,7 @@ const ProductCard = ({ idx, title, children }) => (
         </Box>
       </Box>
     </Card>
-  </Fade>
+  </Flex>
 )
 
 ProductCard.propTypes = {
@@ -125,13 +130,29 @@ export default function IndexPage() {
   return (
     <>
       <MainSection
-        title={['Be My Eco Friend,', 'Green B']}
         subtitle="자연을 위해 노력하는 멋진 당신의 친구, 그린비"
         url="../main.png"
+        bgColor="#3ab483"
       >
-        <PrimaryBtn>
+        <Button
+          sx={{
+            borderRadius: '0px',
+            fontWeight: 'regular',
+            fontSize: 1,
+            cursor: 'pointer',
+            ':hover': {
+              color: 'primary',
+              bg: 'background',
+              fontWeight: 'bold',
+            },
+          }}
+          color="primary"
+          bg="white"
+          px={4}
+          py="12px"
+        >
           <Text>그린비를 소개해요</Text>
-        </PrimaryBtn>
+        </Button>
       </MainSection>
       <AboutSection>
         <SectionContent
@@ -169,10 +190,10 @@ export default function IndexPage() {
                   null,
                   null,
                   null,
-                  'space-evenly',
+                  'center',
                 ],
                 flexDirection: ['column', null, null, null, 'row'],
-                alignItems: 'center',
+                alignItems: ['center', null, null, null, 'flex-start'],
               }}
             >
               <ProductCard idx={1} title="생분해성 수지">
@@ -180,7 +201,11 @@ export default function IndexPage() {
                 인증마크를 받은 그린비의 생분해성 수지는 100% 다시 자연으로
                 돌아갑니다.
               </ProductCard>
-              <ProductCard idx={2} title="생분해성 플라스틱 제품">
+              <ProductCard
+                idx={2}
+                title="생분해성 플라스틱 제품"
+                mt={[5, null, null, null, 0]}
+              >
                 그린비는 다양한 생분해성 플라스틱 완제품을 생산합니다. 맞춤
                 디자인은 물론 높은 강도와 내구성을 자랑합니다. 그린비의 생분해성
                 제품은 다시 자연으로 돌아갑니다.

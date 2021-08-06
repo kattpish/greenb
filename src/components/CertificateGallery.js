@@ -6,69 +6,6 @@ import Carousel from 'react-multi-carousel'
 import Lightbox from 'react-image-lightbox'
 import 'react-image-lightbox/style.css'
 
-const photos = [
-  {
-    src: '../technology/certificate-1.jpg',
-    width: 3,
-    height: 4,
-  },
-  {
-    src: '../technology/certificate-2.jpg',
-    width: 3,
-    height: 4,
-  },
-  {
-    src: '../technology/certificate-3.jpg',
-    width: 3,
-    height: 4,
-  },
-  {
-    src: '../technology/certificate-4.jpg',
-    width: 3,
-    height: 4,
-  },
-  {
-    src: '../technology/certificate-5.jpg',
-    width: 3,
-    height: 4,
-  },
-  {
-    src: '../technology/certificate-6.jpg',
-    width: 3,
-    height: 4,
-  },
-  {
-    src: '../technology/certificate-7.jpg',
-    width: 3,
-    height: 4,
-  },
-  {
-    src: '../technology/certificate-8.jpg',
-    width: 3,
-    height: 4,
-  },
-  {
-    src: '../technology/certificate-9.jpg',
-    width: 3,
-    height: 4,
-  },
-  {
-    src: '../technology/certificate-10.jpg',
-    width: 3,
-    height: 4,
-  },
-  {
-    src: '../technology/certificate-11.jpg',
-    width: 3,
-    height: 4,
-  },
-  {
-    src: '../technology/certificate-12.jpg',
-    width: 3,
-    height: 4,
-  },
-]
-
 const responsive = {
   superLargeDesktop: {
     breakpoint: { max: 4000, min: 3000 },
@@ -101,10 +38,32 @@ export default function CertificateGallery() {
     [setCurrentImage, setIsOpen]
   )
 
-  const closeModal = () => {
+  const closeModal = useCallback(() => {
     setCurrentImage(0)
     setIsOpen(false)
-  }
+  }, [setCurrentImage, setIsOpen])
+
+  const onPrevClick = useCallback(
+    (e) => {
+      if (currentImage < 1) {
+        setCurrentImage(0)
+        return
+      }
+      setCurrentImage(currentImage - 1)
+    },
+    [currentImage]
+  )
+
+  const onNextClick = useCallback(
+    (e) => {
+      if (currentImage >= 18) {
+        setCurrentImage(0)
+        return
+      }
+      setCurrentImage(currentImage + 1)
+    },
+    [currentImage]
+  )
 
   return (
     <div>
@@ -126,8 +85,8 @@ export default function CertificateGallery() {
           {[...Array(19)].map((u, i) => (
             <Box key={i} onClick={() => openModal(i)}>
               <Image
-                // sx={{ width: '100px' }}
-                src={`../technology/certificate-${i}.jpg`}
+                sx={{ width: '300px' }}
+                src={`../technology/certificate-${i + 1}.jpg`}
               />
             </Box>
           ))}
@@ -135,8 +94,12 @@ export default function CertificateGallery() {
       </Fade>
       {isOpen && (
         <Lightbox
-          mainSrc={`../technology/certificate-${currentImage}.jpg`}
-          onCloseRequest={() => closeModal}
+          mainSrc={`../technology/certificate-${currentImage + 1}.jpg`}
+          nextSrc={`../technology/certificate-${(currentImage + 1) % 19}.jpg`}
+          prevSrc={`../technology/certificate-${(currentImage - 1) % 19}.jpg`}
+          onCloseRequest={() => closeModal()}
+          onMovePrevRequest={() => onPrevClick()}
+          onMoveNextRequest={() => onNextClick()}
         />
       )}
     </div>

@@ -40,7 +40,7 @@ const BioplasticSection = () => (
           sx={{
             flexDirection: ['column', null, null, null, 'row'],
             alignItems: ['center', null, null, null, 'flex-start'],
-            justifyContent: 'space-between',
+            justifyContent: 'center',
           }}
         >
           <BioplasticSectionItem url={1} title="옥수수 전분" />
@@ -62,6 +62,7 @@ const BioplasticSection = () => (
             color: 'paragraph',
             lineHeight: '1.8',
             pt: '5',
+            textAlign: 'center',
           }}
         >
           생분해 플라스틱은 옥수수 전분에 생분해 플라스틱을 만드는 원료인 생분해
@@ -83,7 +84,13 @@ const BioplasticSection = () => (
 const AdvantageCard = ({ url, title, children }) => (
   <Fade bottom opposite distance="50px">
     <Flex
-      sx={{ wordBreak: 'keep-all', justifyContent: 'center' }}
+      sx={{
+        wordBreak: 'keep-all',
+        justifyContent: 'center',
+        flexDirection: ['column', null, null, null, 'row'],
+        alignItems: 'center',
+        textAlign: ['center', null, null, null, 'left'],
+      }}
       mx="4"
       mb="5"
     >
@@ -95,7 +102,12 @@ const AdvantageCard = ({ url, title, children }) => (
         />
       </Box>
       <Box>
-        <Flex sx={{ flexDirection: 'column', width: '300px' }}>
+        <Flex
+          sx={{
+            flexDirection: 'column',
+            width: ['', '300px'],
+          }}
+        >
           <Text sx={{ fontWeight: 'bold', fontSize: '3' }} mb="2">
             {title}
           </Text>
@@ -212,32 +224,33 @@ export default function TechPage() {
         <Flex
           sx={{
             flexDirection: ['column', null, null, null, 'row'],
-            justifyContent: 'center',
+            justifyContent: 'space-between',
             alignItems: ['center', null, null, null, 'flex-start'],
           }}
         >
           <Fade bottom opposite distance="50px">
-            <Flex sx={{ flexDirection: 'column', maxWidth: '450px' }} p="3">
+            <Flex sx={{ flexDirection: 'column', maxWidth: '350px' }} p="3">
               <Button
                 sx={{
                   bg: 'primary',
                   borderRadius: '0px',
-                  px: 5,
                   py: 3,
                   fontWeight: 'bold',
                   wordBreak: 'keep-all',
                 }}
               >
-                Green B 생분해성 수지 생산공정
+                생분해성 수지 생산공정
               </Button>
               <Box>
                 <Image src={'../technology/process-1.jpg'} />
               </Box>
             </Flex>
+          </Fade>
+          <Fade bottom opposite distance="50px">
             <Flex
               sx={{
                 flexDirection: 'column',
-                maxWidth: '450px',
+                maxWidth: '350px',
               }}
               p="3"
             >
@@ -245,13 +258,12 @@ export default function TechPage() {
                 sx={{
                   bg: 'primary',
                   borderRadius: '0px',
-                  px: 5,
                   py: 3,
                   fontWeight: 'bold',
                   wordBreak: 'keep-all',
                 }}
               >
-                Green B 생분해성 봉투 생산공정
+                생분해성 봉투 생산공정
               </Button>
               <Flex>
                 <Image
@@ -260,33 +272,26 @@ export default function TechPage() {
                 />
               </Flex>
             </Flex>
-            <Flex
-              sx={{
-                flexDirection: 'column',
-                justifyContent: 'center',
-                alignSelf: 'center',
-              }}
-            >
-              <Text
-                variant="paragraph"
-                sx={{ display: ['none', null, null, null, 'flex'] }}
-              >
-                1. 생분해 수지 투입
-                <br /> 2. 수지가열/압출
-                <br /> 3. 링투입/버블공정
-                <br /> 4. 냉각장치/온도조절
-                <br /> 5. 에어 블로우
-                <br /> 6. 중간케이지/필름홀드
-                <br /> 7. 필름 평면 공정
-                <br /> 8. 가젯보드 / 압출
-                <br /> 9. 닙롤러/압출
-                <br /> 10. 프린트 / 씨링 가공기
-                <br /> 11. 개별 봉투 생산 / 재단
-                <br /> 12. 검수 작업
-                <br /> 13. 포장
-              </Text>
-            </Flex>
           </Fade>
+          <Flex sx={{ alignSelf: 'center' }}>
+            <Text variant="paragraph" mr="3">
+              1. 생분해 수지 투입
+              <br /> 2. 수지가열 / 압출
+              <br /> 3. 링투입 / 버블공정
+              <br /> 4. 냉각장치 / 온도조절
+              <br /> 5. 에어 블로우
+              <br /> 6. 중간케이지 / 필름홀드
+              <br /> 7. 필름 평면 공정
+            </Text>
+            <Text variant="paragraph">
+              8. 가젯보드 / 압출
+              <br /> 9. 닙롤러/압출
+              <br /> 10. 프린트 / 씨링 가공기
+              <br /> 11. 개별 봉투 생산 / 재단
+              <br /> 12. 검수 작업
+              <br /> 13. 포장
+            </Text>
+          </Flex>
         </Flex>
       </PrimaryContainer>
       <Box bg="sectionBg" sx={{ width: '100%' }}>

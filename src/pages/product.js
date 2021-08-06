@@ -9,7 +9,7 @@ export default function ProductPage() {
     <>
       <PrimaryContainer paddingY={5}>
         <SecondaryHeading
-          title={['Green B의 생분해성 플라스틱', '']}
+          title={['그린비의 생분해성 플라스틱', '']}
           subtitle={['그린비의 생분해성 플라스틱 제품을 소개합니다.', '']}
         />
         <ProductGallery />

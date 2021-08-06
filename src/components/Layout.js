@@ -13,15 +13,16 @@ const FloatButton = () => (
     sx={{
       flexDirection: 'column',
       position: 'fixed',
-      bottom: '8rem',
-      right: '5rem',
-      fontSize: 5,
+      bottom: ['2em', null, null, null, '3em'],
+      right: ['2em', null, null, null, '4em'],
+      fontSize: 4,
       display: ['none', null, null, null, 'block'],
     }}
   >
     <Flex
       sx={{
         bg: 'background',
+        color: 'primary',
         borderRadius: '50%',
         boxShadow: '0px 0px 30px 0px rgba(0, 0, 0, 0.2)',
       }}
@@ -38,6 +39,7 @@ const FloatButton = () => (
     <Flex
       sx={{
         bg: 'background',
+        color: 'primary',
         borderRadius: '50%',
         boxShadow: '0px 0px 30px 0px rgba(0, 0, 0, 0.2)',
       }}

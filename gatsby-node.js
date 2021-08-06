@@ -6,12 +6,12 @@ exports.createPages = ({ actions }) => {
 
   const template = path.resolve('./src/templates/product.js')
 
-  data.forEach((product_obj) => {
-    const path = product_obj.url
+  data.forEach((product) => {
+    const path = product.url
     createPage({
       path,
       component: template,
-      context: product_obj,
+      context: product,
     })
   })
 }
