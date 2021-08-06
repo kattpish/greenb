@@ -1,6 +1,6 @@
 import React from 'react'
 import Carousel from 'react-multi-carousel'
-import { Button } from 'theme-ui'
+import { Box } from 'theme-ui'
 import PropTypes from 'prop-types'
 import 'react-multi-carousel/lib/styles.css'
 import { IoIosArrowBack, IoIosArrowForward } from 'react-icons/io'
@@ -24,32 +24,72 @@ const responsive = {
   },
 }
 
+const CustomLeftArrow = ({ onClick, ...rest }) => {
+  const {
+    onMove,
+    carouselState: { currentSlide, deviceType },
+  } = rest
+  // onMove means if dragging or swiping in progress.
+  return (
+    <Box
+      sx={{
+        position: 'fixed',
+        top: '40%',
+        left: '-6%',
+        cursor: 'pointer',
+        color: 'primary',
+        fontSize: '6',
+      }}
+      onClick={() => onClick()}
+    >
+      <IoIosArrowBack />
+    </Box>
+  )
+}
+
 const CustomRightArrow = ({ onClick, ...rest }) => {
   const {
     onMove,
     carouselState: { currentSlide, deviceType },
   } = rest
   // onMove means if dragging or swiping in progress.
-  return <button onClick={() => onClick()}>sfee</button>
+  return (
+    <Box
+      sx={{
+        position: 'fixed',
+        top: '40%',
+        right: '-6%',
+        cursor: 'pointer',
+        color: 'primary',
+        fontSize: '6',
+      }}
+      onClick={() => onClick()}
+    >
+      <IoIosArrowForward />
+    </Box>
+  )
 }
 
 export default function ImageSlide({ children }) {
   return (
-    <Carousel
-      swipeable={true}
-      draggable={false}
-      responsive={responsive}
-      ssr={true}
-      infinite={true}
-      autoPlay={true}
-      autoPlaySpeed={3000}
-      keyBoardControl={true}
-      transitionDuration={500}
-      removeArrowOnDeviceType={['tablet', 'mobile']}
-      customRightArrow={<button>ㅅㅅ</button>}
-    >
-      {children}
-    </Carousel>
+    <Box sx={{ position: 'relative', transform: 'translateY(1px)' }}>
+      <Carousel
+        swipeable={true}
+        draggable={false}
+        responsive={responsive}
+        ssr={true}
+        infinite={true}
+        autoPlay={true}
+        autoPlaySpeed={3000}
+        keyBoardControl={true}
+        transitionDuration={500}
+        removeArrowOnDeviceType={['tablet', 'mobile']}
+        customLeftArrow={<CustomLeftArrow />}
+        customRightArrow={<CustomRightArrow />}
+      >
+        {children}
+      </Carousel>
+    </Box>
   )
 }
 

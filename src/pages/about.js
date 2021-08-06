@@ -15,10 +15,16 @@ const BackgroundSectionItem = ({ idx, title, children }) => (
         maxWidth: 400,
         bg: 'background',
         height: '100%',
+        borderTopColor: 'primary',
+        borderTopWidth: '4px',
+        borderTopStyle: 'solid',
+        lineHeight: '1.5',
       }}
-      m="3"
+      mx="3"
     >
-      <Image src={`../about/background-${idx}.jpg`} />
+      <Flex sx={{ justifyContent: 'center', pt: '2' }}>
+        <Image src={`../about/background-${idx}.png`} />
+      </Flex>
       <Box px="3" py="3">
         <Box>
           <Text sx={{ fontSize: 3, fontWeight: 'bold' }}>{title}</Text>
@@ -40,7 +46,10 @@ BackgroundSectionItem.propTypes = {
 const BackgroundSection = () => (
   <Box bg="sectionBg" sx={{ width: '100%' }}>
     <PrimaryContainer paddingY={6}>
-      <SecondaryHeading title="남다른 그린비의 생분해 플라스틱" subtitle="" />
+      <SecondaryHeading
+        title="남다른 그린비의 생분해 플라스틱"
+        subtitle="세계 생분해성 플라스틱 시장을 선도하기 위한 그린비의 노력"
+      />
       <Flex
         sx={{
           justifyContent: 'space-between',
@@ -79,11 +88,19 @@ const FeatureCard = ({ idx, title, children }) => (
     my="4"
   >
     <Fade bottom opposite distance="50px">
-      <Image src={`../about/feature-${idx}.png`} />
-      <Box sx={{ width: '30px' }}>
+      <Box
+        sx={{
+          backgroundImage: `url(../about/feature-${idx}.jpg)`,
+          backgroundSize: 'cover',
+          width: '450px',
+          height: '300px',
+          overflow: 'hidden',
+        }}
+      ></Box>
+      <Box sx={{ width: '20px' }} pt={1}>
         <Image src={'../small-logo.png'} />
       </Box>
-      <Flex sx={{ flexDirection: 'column' }} pt={2}>
+      <Flex sx={{ flexDirection: 'column' }} pt={1}>
         <Text
           sx={{
             color: 'text',
@@ -94,7 +111,7 @@ const FeatureCard = ({ idx, title, children }) => (
           {title}
         </Text>
         <Text
-          sx={{ lineHeight: '1.5' }}
+          sx={{ lineHeight: '1.5', wordBreak: 'keep-all' }}
           variant="paragraph"
           color="paragraph"
           mt={2}
@@ -117,17 +134,13 @@ export default function AboutPage() {
     <>
       <MainSection
         title={['Be awesome for', 'earth & us']}
-        subtitle="그린비는 친환경 생분해성 플라스틱 제품을 만드는 브랜드입니다.
-        환경에 유해한 물질들을 대체할 수 있는 미래지향적인 제품을 개발해 생활의 편리함은 물론 보다 자연 친화적인 미래를 맞이하기 위해 노력하고 있습니다."
+        subtitle={`자연을 위한 것이 우리를 위한 것! \r\n그린비는 지구의 자연과 생태계를 지키기 위한 멋진 일을 만들어 나갑니다.`}
         url="../about/company.jpg"
       />
       <BackgroundSection />
       <PrimaryContainer paddingY={6}>
         <Flex sx={{ flexDirection: 'column' }}>
-          <SecondaryHeading
-            title={'그린비가 걸어온 발자취'}
-            subtitle={['', '']}
-          />
+          <SecondaryHeading title={'그린비가 걸어온 길'} subtitle={['', '']} />
           <Fade bottom opposite distance="50px">
             <Flex sx={{ justifyContent: 'center' }}>
               <Image
@@ -153,10 +166,7 @@ export default function AboutPage() {
       </Flex>
       <PrimaryContainer paddingY={6}>
         <Flex sx={{ flexDirection: 'column' }}>
-          <SecondaryHeading
-            title="편리함, 그 이상을 지향하는 GreenB의 특별함"
-            subtitle={['', '']}
-          />
+          <SecondaryHeading title="그린비 6가지 특별함" subtitle={['', '']} />
           <Flex sx={{ flexWrap: 'wrap', justifyContent: 'space-between' }}>
             <FeatureCard idx={1} title="높은 생산성의 수직화 시스템">
               생분해 수지 생산은 물론 자체 컴파운딩 기술로 완제품 제작까지

@@ -28,28 +28,11 @@ const BioplasticSectionItem = ({ url, title }) => (
   </Flex>
 )
 
-BioplasticSectionItem.propTypes = {
-  url: PropTypes.number,
-  title: PropTypes.string,
-}
-
-const BioplasticDescription = ({ children, ...props }) => (
-  <Box {...props} sx={{ textAlign: 'center' }} py="3">
-    <Text variant="paragraph" sx={{ wordBreak: 'keep-all' }}>
-      {children}
-    </Text>
-  </Box>
-)
-
-BioplasticDescription.propTypes = {
-  children: PropTypes.node.isRequired,
-}
-
 const BioplasticSection = () => (
   <Box bg="sectionBg" sx={{ width: '100%' }}>
     <PrimaryContainer paddingY={[5, null, null, null, 6]}>
       <SecondaryHeading
-        title="생분해성 플라스틱?"
+        title="생분해성 플라스틱이란?"
         subtitle="그린비의 생분해성 플라스틱을 소개합니다."
       />
       <Fade bottom opposite distance="200px">
@@ -72,22 +55,26 @@ const BioplasticSection = () => (
         </Flex>
       </Fade>
       <Fade bottom opposite distance="200px">
-        <BioplasticDescription mt="4">
+        <Flex
+          variant="paragraph"
+          sx={{
+            justifyContent: 'center',
+            color: 'paragraph',
+            lineHeight: '1.8',
+            pt: '5',
+          }}
+        >
           생분해 플라스틱은 옥수수 전분에 생분해 플라스틱을 만드는 원료인 생분해
-          수지를 특수혼련공법으로 결합한 소재입니다.
-        </BioplasticDescription>
-        <BioplasticDescription>
+          수지를 특수혼련공법으로 결합한 소재입니다. <br />
           분해되는 데 500년이 걸리는 석유화학 플라스틱 제품과 달리 6개월만에
           분해돼 자연으로 돌아가는 자연순환형 소재라고 할 수 있습니다.
-        </BioplasticDescription>
-        <BioplasticDescription>
+          <br />
           그린비는 이와 같은 두 가지 이상의 생분해 소재를 혼합해 가공하는
           컴파운딩에 대한 자체 기술로 국내 시장 경쟁력을 확보하고 있습니다.
-        </BioplasticDescription>
-        <BioplasticDescription>
+          <br />
           원단 압출부터 완제품 제작까지 수직계열화해 생산성이 높고 다양한 제품을
           만들 수 있습니다.
-        </BioplasticDescription>
+        </Flex>
       </Fade>
     </PrimaryContainer>
   </Box>
@@ -220,9 +207,7 @@ export default function TechPage() {
       <PrimaryContainer paddingY={6}>
         <SecondaryHeading
           title="생분해성 플라스틱이 만들어지려면?"
-          subtitle={[
-            'Green B의 생분해성 플라스틱 생산 공정에 대해 소개합니다.',
-          ]}
+          subtitle="그린비의 생산 공정을 소개합니다"
         />
         <Flex
           sx={{
@@ -307,8 +292,8 @@ export default function TechPage() {
       <Box bg="sectionBg" sx={{ width: '100%' }}>
         <PrimaryContainer paddingY={[5, null, null, null, 6]}>
           <SecondaryHeading
-            title={['Green B의 시설과 장비들', '']}
-            subtitle={['생분해성 플라스틱이 제작되는 곳을 소개합니다.', '']}
+            title="그린비의 시설과 장비"
+            subtitle="이곳에서 생분해성 플라스틱을 만들고 있습니다"
           />
           <ImageSlide>
             {[...Array(6)].map((u, i) => (
@@ -321,8 +306,8 @@ export default function TechPage() {
       </Box>
       <PrimaryContainer paddingY={[5, null, null, null, 6]}>
         <SecondaryHeading
-          title={['인증서 및 성적서', '']}
-          subtitle={['Green B의 각종 인증서 및 성적서를 소개합니다.', '']}
+          title="인증서 및 성적서"
+          subtitle="그린비는 고품질의 친환경 생분해성 플라스틱을 생산합니다."
         />
         <CertificateGallery />
       </PrimaryContainer>

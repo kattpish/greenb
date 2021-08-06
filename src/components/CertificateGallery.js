@@ -1,9 +1,10 @@
 import React, { useState, useCallback } from 'react'
 import { Box, Image } from 'theme-ui'
 import Fade from 'react-reveal/Fade'
-import 'react-responsive-carousel/lib/styles/carousel.min.css' // requires a loader
-import { Carousel } from 'react-responsive-carousel'
-import Modal from 'react-modal'
+import 'react-multi-carousel/lib/styles.css'
+import Carousel from 'react-multi-carousel'
+import Lightbox from 'react-image-lightbox'
+import 'react-image-lightbox/style.css'
 
 const photos = [
   {
@@ -68,48 +69,76 @@ const photos = [
   },
 ]
 
+const responsive = {
+  superLargeDesktop: {
+    breakpoint: { max: 4000, min: 3000 },
+    items: 5,
+  },
+  desktop: {
+    breakpoint: { max: 3000, min: 1024 },
+    items: 3,
+  },
+  tablet: {
+    breakpoint: { max: 1024, min: 464 },
+    items: 2,
+  },
+  mobile: {
+    breakpoint: { max: 464, min: 0 },
+    items: 1,
+  },
+}
+
 export default function CertificateGallery() {
   const [currentImage, setCurrentImage] = useState(0)
-  const [modalIsOpen, setModalIsOpen] = useState(false)
+  const [isOpen, setIsOpen] = useState(false)
 
-  const openModal = useCallback((index) => {
-    console.log(index)
-    setCurrentImage(index)
-    setModalIsOpen(true)
-  }, [])
+  const openModal = useCallback(
+    (index) => {
+      console.log(index)
+      setCurrentImage(index)
+      setIsOpen(true)
+    },
+    [setCurrentImage, setIsOpen]
+  )
 
   const closeModal = () => {
     setCurrentImage(0)
-    setModalIsOpen(false)
+    setIsOpen(false)
   }
 
   return (
     <div>
       <Fade bottom opposite distance="50px">
-        <Carousel>
+        <Carousel
+          swipeable={true}
+          draggable={false}
+          responsive={responsive}
+          ssr={true}
+          infinite={true}
+          autoPlay={true}
+          autoPlaySpeed={2000}
+          keyBoardControl={true}
+          transitionDuration={500}
+          removeArrowOnDeviceType={['tablet', 'mobile']}
+          customLeftArrow={<div />}
+          customRightArrow={<div />}
+        >
           {[...Array(19)].map((u, i) => (
-            <Box key={i} onClick={() => openModal(i + 1)}>
+            <Box key={i} onClick={() => openModal(i)}>
               <Image
-                sx={{ width: '100px' }}
-                src={`../technology/certificate-${i + 1}.jpg`}
+                // sx={{ width: '100px' }}
+                src={`../technology/certificate-${i}.jpg`}
               />
             </Box>
           ))}
         </Carousel>
       </Fade>
-      <Modal isOpen={modalIsOpen} onRequestClose={closeModal}>
-        <form>
-          <input />
-          <button>tab navigation</button>
-          <button>stays</button>
-          <button>inside</button>
-          <button>the modal</button>
-        </form>
-        <Image
-          sx={{ width: '100px' }}
-          src={`../technology/certificate-${currentImage + 1}.jpg`}
+      {isOpen && (
+        <Lightbox
+          mainSrc={`../technology/certificate-${currentImage}.jpg`}
+          onCloseRequest={() => closeModal}
         />
-      </Modal>
+      )}
     </div>
   )
 }

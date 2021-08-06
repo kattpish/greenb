@@ -37,6 +37,7 @@ const theme = {
     },
     paragraph: {
       color: 'paragraph',
+      lineHeight: '1.5',
     },
   },
   styles: {

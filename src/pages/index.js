@@ -21,10 +21,7 @@ const AboutSection = ({ children }) => (
             alignItems: 'center',
           }}
         >
-          <Image
-            sx={{ pr: ['0', null, null, null, '5rem'] }}
-            src={'./about.png'}
-          />
+          <Image src={'./about.jpeg'} sx={{ maxWidth: '600px' }} />
           {children}
         </Flex>
       </Fade>
@@ -129,28 +126,26 @@ export default function IndexPage() {
     <>
       <MainSection
         title={['Be My Eco Friend,', 'Green B']}
-        subtitle="환경을 위해 노력하는 사람들의 곁에 있는 친구 같은 그린비"
+        subtitle="자연을 위해 노력하는 멋진 당신의 친구, 그린비"
         url="../main.png"
       >
         <PrimaryBtn>
           <Text>그린비를 소개해요</Text>
-          <AiOutlineArrowRight />
         </PrimaryBtn>
       </MainSection>
       <AboutSection>
         <SectionContent
           pt={[4, null, 0]}
-          title="자연으로 다시 되돌아가는
+          title="자연으로 다시 돌아가는
           생분해성 플라스틱"
           size={5}
           url="/about"
-          sectionSize={['80%', null, null, '700px', '500px']}
+          sectionSize={['80%', null, null, '700px', '1000px']}
+          linkText="기술을 살펴봐요"
         >
-          그린비의 생분해성 플라스틱은 천연 식물성 소재로 만들어져 6개월 안에
-          완전히 생분해되어 자연으로 되돌아갑니다. 연소 등의 다른 처리 과정이
-          필요하지 않아 지구의 생태계를 보호할 수 있으며, 사람에게 유해한 물질은
-          포함되어 있지 않습니다. 그린비의 플라스틱이 생분해되고 난 땅에는 다시
-          작물을 재배할 수 있습니다.
+          그린비의 생분해성 플라스틱은 완전히 생분해되어 다시 자연으로
+          돌아갑니다. 천연 식물성 소재로 만들어 지구의 생태계를 보호합니다.
+          생분해되고 난 땅에는 다시 작물을 키울 수 있답니다.
         </SectionContent>
       </AboutSection>
       <Box sx={{ width: '100%', bg: 'sectionBg' }}>
@@ -181,10 +176,14 @@ export default function IndexPage() {
               }}
             >
               <ProductCard idx={1} title="생분해성 수지">
-                생분해성 수지는~~
+                그린비는 여러 용도에 맞는 생분해성 수지를 생산합니다. 환경부
+                인증마크를 받은 그린비의 생분해성 수지는 100% 다시 자연으로
+                돌아갑니다.
               </ProductCard>
-              <ProductCard idx={2} title="생분해성 완제품">
-                생분해성 수지를 이용한~~
+              <ProductCard idx={2} title="생분해성 플라스틱 제품">
+                그린비는 다양한 생분해성 플라스틱 완제품을 생산합니다. 맞춤
+                디자인은 물론 높은 강도와 내구성을 자랑합니다. 그린비의 생분해성
+                제품은 다시 자연으로 돌아갑니다.
               </ProductCard>
             </Flex>
           </Flex>
@@ -193,8 +192,8 @@ export default function IndexPage() {
       <PrimaryContainer paddingY={6}>
         <Flex sx={{ flexDirection: 'column', alignItems: 'center' }}>
           <SecondaryHeading
-            title={['그린비와 함께합니다.', '']}
-            subtitle={['그린비의 클라이언트를 소개합니다.', '']}
+            title="그린비와 함께합니다."
+            subtitle="그린비는 최고의 고객들과 함께하고 있습니다."
           />
           {[
             [1, 2, 3, 4],

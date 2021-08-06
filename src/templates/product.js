@@ -28,18 +28,18 @@ export default function ProductPage({ data }) {
   const product = data.allSitePage.edges[0].node.context
 
   const LinkData = [
-    { name: '생분해 에어캡', url: '/product/aircap' },
-    { name: '생분해 쇼핑백', url: '/product/shopping-bag' },
-    { name: '생분해 그릇', url: '/product/plate' },
-    { name: '생분해 플라스틱 컵', url: '/product/cup' },
-    { name: '생분해 커트러리', url: '/product/cutlery' },
-    { name: '생분해 용기', url: '/product/container' },
-    { name: '생분해 식탁보', url: '/product/tablecloth' },
-    { name: '생분해 수지', url: '/product/resin' },
-    { name: '생분해 롤백', url: '/product/rollbag' },
-    { name: '생분해 캠핑용 수세미', url: '/product/sponge' },
-    { name: '생분해 빨대', url: '/product/straw' },
-    { name: '생분해 랩', url: '/product/wrap' },
+    { name: '생분해성 에어캡', url: '/product/aircap' },
+    { name: '생분해성 쇼핑백', url: '/product/shopping-bag' },
+    { name: '생분해성 그릇', url: '/product/plate' },
+    { name: '생분해성 플라스틱 컵', url: '/product/cup' },
+    { name: '생분해성 커트러리', url: '/product/cutlery' },
+    { name: '생분해성 용기', url: '/product/container' },
+    { name: '생분해성 식탁보', url: '/product/tablecloth' },
+    { name: '생분해성 수지', url: '/product/resin' },
+    { name: '생분해성 롤백', url: '/product/rollbag' },
+    { name: '생분해성 캠핑용 수세미', url: '/product/sponge' },
+    { name: '생분해성 빨대', url: '/product/straw' },
+    { name: '생분해성 랩', url: '/product/wrap' },
   ]
   return (
     <>
@@ -93,16 +93,7 @@ export default function ProductPage({ data }) {
             >
               {product.subtitle}
             </Text>
-            <Text
-              sx={{
-                color: '#8f8f8f',
-                fontSize: 1,
-                fontWeight: 'regular',
-                letterSpacing: 1.1,
-                lineHeight: 1.8,
-              }}
-              my={4}
-            >
+            <Text variant="paragraph" my={4}>
               {product.firstText}
             </Text>
           </Flex>
@@ -121,7 +112,8 @@ export default function ProductPage({ data }) {
               textAlign: 'center',
             }}
           >
-            <Text sx={{ color: 'primary' }}>Green B</Text> 플라스틱의 6가지 특징
+            <Text sx={{ color: 'primary' }}>그린비</Text> 생분해성 플라스틱의
+            6가지 특징
           </Text>
         </Flex>
         <Flex sx={{ justifyContent: 'center' }} pt={4}>
@@ -181,14 +173,7 @@ export default function ProductPage({ data }) {
                 {product.secondSubtitle}
               </Text>
               <Text
-                sx={{
-                  color: 'text',
-                  fontSize: 3,
-                  fontWeight: 'regular',
-                  letterSpacing: 0.7,
-                  lineHeight: 1.8,
-                  wordBreak: 'keep-all',
-                }}
+                variant="paragraph"
                 my={[1, null, null, null, 3]}
                 mr={[0, null, null, null, 6]}
               >
