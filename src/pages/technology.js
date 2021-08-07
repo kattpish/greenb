@@ -223,13 +223,13 @@ export default function TechPage() {
         />
         <Flex
           sx={{
-            flexDirection: ['column', null, null, null, 'row'],
+            flexDirection: ['column', null, 'row'],
             justifyContent: 'space-between',
-            alignItems: ['center', null, null, null, 'flex-start'],
+            alignItems: ['center', null, 'flex-start'],
           }}
         >
           <Fade bottom opposite distance="50px">
-            <Flex sx={{ flexDirection: 'column', maxWidth: '350px' }} p="3">
+            <Flex sx={{ flexDirection: 'column' }} p="3">
               <Button
                 sx={{
                   bg: 'primary',
@@ -250,7 +250,6 @@ export default function TechPage() {
             <Flex
               sx={{
                 flexDirection: 'column',
-                maxWidth: '350px',
               }}
               p="3"
             >
@@ -267,31 +266,12 @@ export default function TechPage() {
               </Button>
               <Flex>
                 <Image
-                  sx={{ width: '80%' }}
+                  sx={{ width: '100%' }}
                   src={'../technology/process-2.jpg'}
                 />
               </Flex>
             </Flex>
           </Fade>
-          <Flex sx={{ alignSelf: 'center' }}>
-            <Text variant="paragraph" mr="3">
-              1. 생분해 수지 투입
-              <br /> 2. 수지가열 / 압출
-              <br /> 3. 링투입 / 버블공정
-              <br /> 4. 냉각장치 / 온도조절
-              <br /> 5. 에어 블로우
-              <br /> 6. 중간케이지 / 필름홀드
-              <br /> 7. 필름 평면 공정
-            </Text>
-            <Text variant="paragraph">
-              8. 가젯보드 / 압출
-              <br /> 9. 닙롤러/압출
-              <br /> 10. 프린트 / 씨링 가공기
-              <br /> 11. 개별 봉투 생산 / 재단
-              <br /> 12. 검수 작업
-              <br /> 13. 포장
-            </Text>
-          </Flex>
         </Flex>
       </PrimaryContainer>
       <Box bg="sectionBg" sx={{ width: '100%' }}>
