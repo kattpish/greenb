@@ -46,6 +46,7 @@ export default function Navbar() {
         width: '100%',
         bg: 'background',
         zIndex: '10',
+        boxShadow: '0px 2px 20px -10px rgba(0,0,0,0.2)',
       }}
       paddingY={3}
     >
@@ -57,7 +58,7 @@ export default function Navbar() {
           sx={{ alignSelf: ['flex-start', null, null, null, 'center'] }}
           href="/"
         >
-          <img src={'/logo.png'} width="100" alt="Logo" />
+          <img src={'/logo.png'} width="120" alt="Logo" />
         </Link>
         <Box
           sx={{

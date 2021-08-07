@@ -8,7 +8,7 @@ import ImageSlide from '../components/ImageSlide'
 import SecondaryHeading from '../components/SecondaryHeading'
 
 const Feature = ({ idx, title }) => (
-  <Flex sx={{ flexDirection: 'column', alignItems: 'center' }} px="5" py="4">
+  <Flex sx={{ flexDirection: 'column', alignItems: 'center' }} px="4" py="4">
     <Image
       sx={{ maxWidth: '8em' }}
       src={`../../product/common/icon-${idx}.png`}
@@ -120,7 +120,6 @@ export default function ProductPage({ data }) {
           <Flex
             sx={{
               flexWrap: 'wrap',
-              maxWidth: '80%',
               justifyContent: 'center',
             }}
           >
@@ -200,7 +199,14 @@ export default function ProductPage({ data }) {
           >
             <Text sx={{ color: 'primary' }}>생분해성</Text> 플라스틱 시험 결과
           </Text>
-          <Image src={'../../product/common/result.png'} />
+          <Image
+            sx={{ width: '80%', display: ['none', null, 'block'] }}
+            src={'../../product/common/result.svg'}
+          />
+          <Image
+            sx={{ width: '80%', display: ['block', null, 'none'] }}
+            src={'../../product/common/small-result.svg'}
+          />
         </Flex>
       </PrimaryContainer>
       <Flex sx={{ justifyContent: 'center' }}>

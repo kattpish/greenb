@@ -24,7 +24,7 @@ function SectionContent({
         wordBreak: 'keep-all',
       }}
     >
-      <Box sx={{ width: '20px' }}>
+      <Box sx={{ width: '15px' }}>
         <Image src={'../small-logo.png'} />
       </Box>
       <Text
@@ -33,7 +33,7 @@ function SectionContent({
           fontSize: size,
           fontWeight: 'bold',
         }}
-        mt={2}
+        mt={1}
         mb={1}
       >
         {title}

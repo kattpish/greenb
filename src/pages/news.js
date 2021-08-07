@@ -1,6 +1,8 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import { Box, Link, Card, Text, Image, Flex } from 'theme-ui'
+import { AiFillCaretRight } from 'react-icons/ai'
+
 import SecondaryHeading from '../components/SecondaryHeading'
 import PrimaryContainer from '../components/PrimaryContainer'
 
@@ -197,49 +199,58 @@ const webzineObj = [
 ]
 
 const NewsCard = ({ title, date, url, imgUrl }) => (
-  <Link sx={{ mx: 1, mb: 5, textDecoration: 'none' }} href={url}>
-    <Card
+  <Card
+    sx={{
+      maxWidth: 300,
+      color: 'text',
+      px: 3,
+      py: 3,
+      height: '100%',
+      mx: 1,
+      mb: 5,
+    }}
+  >
+    <Flex
       sx={{
-        maxWidth: 300,
-        bg: 'background',
-        color: 'text',
-        boxShadow: '0px 0px 20px 0px rgba(0, 0, 0, 0.1)',
-        borderTopColor: 'text',
-        borderTopStyle: 'solid',
-        borderTopWidth: '3px',
-        px: 3,
-        py: 3,
+        flexDirection: 'column',
+        justifyContent: 'space-between',
         height: '100%',
-        cursor: 'pointer',
-        transition: 'transform .3s ease-out',
-        ':hover': {
-          borderTopColor: 'primary',
-          color: 'primary',
-          transform: 'scale(1.05)',
-        },
       }}
     >
-      <Flex
-        sx={{
-          flexDirection: 'column',
-          justifyContent: 'space-between',
-          height: '100%',
-        }}
-      >
-        <Box>
-          <Box>
-            <Text sx={{ fontSize: 3, fontWeight: 'bold' }}>{title}</Text>
-          </Box>
-          <Box py="2">
-            <Text variant="paragraph">{date}</Text>
-          </Box>
-        </Box>
-        <Flex sx={{ height: '170px', justifyContent: 'center' }}>
-          <Image sx={{ height: '100%' }} src={`../news/news-${imgUrl}.jpg`} />
-        </Flex>
+      <Flex sx={{ height: '170px', justifyContent: 'center' }}>
+        <Image sx={{ height: '100%' }} src={`../news/news-${imgUrl}.jpg`} />
       </Flex>
-    </Card>
-  </Link>
+      <Box>
+        <Box mt="3">
+          <Text sx={{ fontSize: 2, fontWeight: 'bold' }}>{title}</Text>
+        </Box>
+        <Box pt="1" pb="2">
+          <Text variant="paragraph">{date}</Text>
+        </Box>
+        <Link
+          sx={{
+            color: 'primary',
+            textDecoration: 'none',
+            fontWeight: 'medium',
+          }}
+          href={url}
+        >
+          더 알아보기
+          <Text
+            sx={{
+              position: 'relative',
+              top: '2px',
+              left: '2px',
+              cursor: 'pointer',
+              fontSize: 1,
+            }}
+          >
+            <AiFillCaretRight />
+          </Text>
+        </Link>
+      </Box>
+    </Flex>
+  </Card>
 )
 
 NewsCard.propTypes = {
@@ -250,52 +261,61 @@ NewsCard.propTypes = {
 }
 
 const WebzineCard = ({ title, date, url, imgUrl }) => (
-  <Link sx={{ mx: 1, mb: 5, textDecoration: 'none' }} href={url}>
-    <Card
+  <Card
+    sx={{
+      maxWidth: 300,
+      color: 'text',
+      px: 3,
+      py: 3,
+      height: '100%',
+      mx: 1,
+      mb: 5,
+    }}
+  >
+    <Flex
       sx={{
-        maxWidth: 300,
-        bg: 'background',
-        color: 'text',
-        boxShadow: '0px 0px 20px 0px rgba(0, 0, 0, 0.1)',
-        borderTopColor: 'text',
-        borderTopStyle: 'solid',
-        borderTopWidth: '3px',
-        px: 3,
-        py: 3,
+        flexDirection: 'column',
+        justifyContent: 'space-between',
         height: '100%',
-        cursor: 'pointer',
-        transition: 'transform .3s ease-out',
-        ':hover': {
-          borderTopColor: 'primary',
-          color: 'primary',
-          transform: 'scale(1.05)',
-        },
       }}
     >
-      <Flex
-        sx={{
-          flexDirection: 'column',
-          justifyContent: 'space-between',
-          height: '100%',
-        }}
-      >
-        <Box>
-          <Box>
-            <Text sx={{ fontSize: 3, fontWeight: 'bold' }}>{title}</Text>
-          </Box>
-          <Box py="2">
-            <Text variant="paragraph">{date}</Text>
-          </Box>
-        </Box>
-        <Flex sx={{ height: '200px', justifyContent: 'center' }}>
-          <Image
-            sx={{ width: '100%', height: '100%' }}
-            src={`../news/webzine-${imgUrl}.jpg`}
-          />
-        </Flex>
+      <Flex sx={{ height: '170px', justifyContent: 'center' }}>
+        <Image
+          sx={{ width: '100%', height: '100%' }}
+          src={`../news/webzine-${imgUrl}.jpg`}
+        />
       </Flex>
-    </Card>
-  </Link>
+      <Box>
+        <Box mt="3">
+          <Text sx={{ fontSize: 2, fontWeight: 'bold' }}>{title}</Text>
+        </Box>
+        <Box pt="1" pb="2">
+          <Text variant="paragraph">{date}</Text>
+        </Box>
+        <Link
+          sx={{
+            color: 'primary',
+            textDecoration: 'none',
+            fontWeight: 'medium',
+          }}
+          href={url}
+        >
+          더 알아보기
+          <Text
+            sx={{
+              position: 'relative',
+              top: '2px',
+              left: '2px',
+              cursor: 'pointer',
+              fontSize: 1,
+            }}
+          >
+            <AiFillCaretRight />
+          </Text>
+        </Link>
+      </Box>
+    </Flex>
+  </Card>
 )
 
 WebzineCard.propTypes = {
@@ -307,7 +327,43 @@ WebzineCard.propTypes = {
 
 export default function NewsPage() {
   return (
-    <Box bg="sectionBg">
+    <>
+      <Box
+        sx={{
+          width: '100%',
+          height: '100%',
+          position: 'relative',
+        }}
+      >
+        <Image src={'../news/main.jpg'} />
+        <PrimaryContainer>
+          <Text
+            sx={{
+              fontFamily: 'heading',
+              fontWeight: 'bold',
+              fontSize: [4, null, null, null, 8],
+              color: 'background',
+              zIndex: 1,
+              position: 'absolute',
+              bottom: '15%',
+              textShadow: [
+                '',
+                null,
+                null,
+                null,
+                '0px 3px 7px rgba(0, 0, 0, 0.3)',
+              ],
+              wordBreak: 'break-word',
+            }}
+            mt="3"
+          >
+            <Text sx={{ color: 'primary' }}>Green B</Text>
+            &apos;s
+            <br />
+            Newsroom
+          </Text>
+        </PrimaryContainer>
+      </Box>
       <PrimaryContainer paddingY={5}>
         <SecondaryHeading
           title="그린비 소식"
@@ -315,20 +371,28 @@ export default function NewsPage() {
         />
         <Flex
           sx={{
-            flexWrap: 'wrap',
-            justifyContent: ['center', null, 'space-evenly'],
-            alignItems: 'stretch',
+            width: '100%',
+            justifyContent: 'center',
+            alignItems: 'flex-start',
           }}
         >
-          {newsObj.map((news) => (
-            <NewsCard
-              title={news.title}
-              date={news.date}
-              url={news.url}
-              imgUrl={news.imgUrl}
-              key={news.imgUrl}
-            />
-          ))}
+          <Flex
+            sx={{
+              flexWrap: 'wrap',
+              justifyContent: ['center', null, 'space-between'],
+            }}
+          >
+            {newsObj.map((news) => (
+              <NewsCard
+                title={news.title}
+                date={news.date}
+                url={news.url}
+                imgUrl={news.imgUrl}
+                key={news.imgUrl}
+              />
+            ))}
+            <Box sx={{ width: 300 }} />
+          </Flex>
         </Flex>
       </PrimaryContainer>
       <PrimaryContainer paddingY={5}>
@@ -352,8 +416,9 @@ export default function NewsPage() {
               key={webzine.imgUrl}
             />
           ))}
+          <Box sx={{ width: 300 }} />
         </Flex>
       </PrimaryContainer>
-    </Box>
+    </>
   )
 }

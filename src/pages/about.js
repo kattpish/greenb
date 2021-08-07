@@ -86,7 +86,7 @@ const FeatureCard = ({ idx, title, children }) => (
   >
     <Fade bottom opposite distance="50px">
       <Image src={`../about/feature-${idx}.jpg`} />
-      <Box sx={{ width: '20px' }} pt={1}>
+      <Box sx={{ width: '15px' }} pt={1}>
         <Image src={'../small-logo.png'} />
       </Box>
       <Flex sx={{ flexDirection: 'column' }} pt={1}>

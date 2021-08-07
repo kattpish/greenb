@@ -126,6 +126,30 @@ ProductCard.propTypes = {
   children: PropTypes.node,
 }
 
+const ClientImage = ({ width, idx, top }) => (
+  <Flex
+    sx={{
+      width: '200px',
+      justifyContent: 'center',
+      position: 'relative',
+      top: top,
+    }}
+  >
+    <Image
+      width={width}
+      src={`../clients/client-${idx}.png`}
+      mx={['4', null, null, null, '0']}
+      py={4}
+    />
+  </Flex>
+)
+
+ClientImage.propTypes = {
+  width: PropTypes.string,
+  idx: PropTypes.number,
+  top: PropTypes.string,
+}
+
 export default function IndexPage() {
   return (
     <>
@@ -220,32 +244,36 @@ export default function IndexPage() {
             title="그린비와 함께합니다"
             subtitle="그린비는 최고의 고객들과 함께하고 있습니다."
           />
-          {[
-            [1, 2, 3, 4],
-            [5, 6, 7, 8],
-          ].map((row, key) => (
-            <Flex
-              sx={{
-                justifyContent: ['center', null, null, 'space-between'],
-                alignItems: 'center',
-                width: ['80%', null, null, null, '100%'],
-                flexWrap: 'wrap',
-              }}
-              key={key}
-            >
-              <Fade bottom opposite distance="50px">
-                {row.map((col, key) => (
-                  <Image
-                    sx={{ width: '130px' }}
-                    mx={['4', null, null, null, '0']}
-                    py={4}
-                    src={`./clients/client-${col}.png`}
-                    key={key}
-                  />
-                ))}
-              </Fade>
-            </Flex>
-          ))}
+          <Flex
+            sx={{
+              justifyContent: ['center', null, null, 'space-between'],
+              alignItems: 'center',
+              width: ['80%', null, null, null, '100%'],
+              flexWrap: 'wrap',
+            }}
+          >
+            <Fade bottom opposite distance="50px">
+              <ClientImage width="90" idx={1} top="10px" />
+              <ClientImage width="130" idx={2} top="-7px" />
+              <ClientImage width="150" idx={3} />
+              <ClientImage width="150" idx={4} />
+            </Fade>
+          </Flex>
+          <Flex
+            sx={{
+              justifyContent: ['center', null, null, 'space-between'],
+              alignItems: 'center',
+              width: ['80%', null, null, null, '100%'],
+              flexWrap: 'wrap',
+            }}
+          >
+            <Fade bottom opposite distance="50px">
+              <ClientImage width="130" idx={5} />
+              <ClientImage width="130" idx={6} />
+              <ClientImage width="110" idx={7} />
+              <ClientImage width="110" idx={8} />
+            </Fade>
+          </Flex>
         </Flex>
       </PrimaryContainer>
     </>

@@ -159,7 +159,7 @@ export default function TechPage() {
             <Text sx={{ color: 'primary' }}>Green B</Text>
             &apos;s
             <br />
-            Biodegradable Plastic
+            Technology
           </Text>
         </PrimaryContainer>
       </Box>

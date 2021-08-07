@@ -38,7 +38,7 @@ export default function MainSection({
 }) {
   return (
     <Box sx={{ bg: bgColor }}>
-      <PrimaryContainer paddingY={6}>
+      <PrimaryContainer paddingY={5}>
         <Flex
           sx={{
             width: '100%',

@@ -226,7 +226,14 @@ export default function ProductPage() {
           >
             <Text sx={{ color: 'primary' }}>생분해성</Text> 플라스틱 시험 결과
           </Text>
-          <Image src={'../../product/common/resin-result.png'} />
+          <Image
+            sx={{ width: '80%', display: ['none', null, 'block'] }}
+            src={'../../product/common/resin-result.svg'}
+          />
+          <Image
+            sx={{ width: '80%', display: ['block', null, 'none'] }}
+            src={'../../product/common/small-resin-result.svg'}
+          />
         </Flex>
       </PrimaryContainer>
       <Flex sx={{ justifyContent: 'center' }}>

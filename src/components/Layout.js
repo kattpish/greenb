@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react'
 import PropTypes from 'prop-types'
-import { Box, Flex } from 'theme-ui'
+import { Box, Flex, Link } from 'theme-ui'
 import { Helmet } from 'react-helmet'
 import { FaArrowUp, FaQuestion } from 'react-icons/fa'
 import './layout.css'
@@ -25,6 +25,7 @@ const FloatButton = () => (
         color: 'primary',
         borderRadius: '50%',
         boxShadow: '0px 0px 30px 0px rgba(0, 0, 0, 0.2)',
+        cursor: 'pointer',
       }}
       p="3"
       onClick={() =>
@@ -36,18 +37,21 @@ const FloatButton = () => (
     >
       <FaArrowUp />
     </Flex>
-    <Flex
-      sx={{
-        bg: 'background',
-        color: 'primary',
-        borderRadius: '50%',
-        boxShadow: '0px 0px 30px 0px rgba(0, 0, 0, 0.2)',
-      }}
-      mt="3"
-      p="3"
-    >
-      <FaQuestion />
-    </Flex>
+    <Link href="/qna">
+      <Flex
+        sx={{
+          bg: 'background',
+          color: 'primary',
+          borderRadius: '50%',
+          boxShadow: '0px 0px 30px 0px rgba(0, 0, 0, 0.2)',
+          cursor: 'pointer',
+        }}
+        mt="3"
+        p="3"
+      >
+        <FaQuestion />
+      </Flex>
+    </Link>
   </Flex>
 )
 
