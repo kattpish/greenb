@@ -92,9 +92,112 @@ export default function Navbar() {
           <NavbarLink url="/qna">
             <Text>질문에 답해요</Text>
           </NavbarLink>
-          <PrimaryBtn ml={4}>
-            사업소개서 <FiDownload />
-          </PrimaryBtn>
+          <Box
+            sx={{
+              position: 'relative',
+              ':hover > :last-child': {
+                display: 'block',
+              },
+            }}
+            ml={4}
+          >
+            <Button
+              sx={{
+                borderRadius: '0px',
+                borderWidth: '1px',
+                borderStyle: 'solid',
+                borderColor: '#fff',
+                fontWeight: 'bold',
+                fontSize: 1,
+                cursor: 'pointer',
+                wordBreak: 'keep-all',
+                minWidth: '150px',
+                ':hover': {
+                  borderWidth: '1px',
+                  borderStyle: 'solid',
+                  borderColor: 'primary',
+                  color: 'primary',
+                  bg: 'background',
+                },
+              }}
+              color="white"
+              bg="primary"
+              px={4}
+              py="12px"
+            >
+              사업소개서 <FiDownload />
+            </Button>
+            <Box sx={{ display: 'none', position: 'absolute' }}>
+              <Flex
+                sx={{
+                  flexDirection: 'column',
+                  minWidth: '150px',
+                  textAlign: 'center',
+                  borderBottomColor: 'primary',
+                  borderBottomWidth: '3px',
+                  borderBottomStyle: 'solid',
+                }}
+              >
+                <Link
+                  sx={{
+                    textDecoration: 'none',
+                    color: 'text',
+                    display: 'block',
+                  }}
+                  href="/그린비-사업계획서-20200308.pdf"
+                >
+                  <Box
+                    sx={{
+                      width: '100%',
+                      backgroundColor: 'background',
+                      pt: 3,
+                      ':hover': { color: 'primary' },
+                    }}
+                  >
+                    한국어
+                  </Box>
+                </Link>
+                <Link
+                  sx={{
+                    textDecoration: 'none',
+                    color: 'text',
+                    display: 'block',
+                  }}
+                  href="/그린비-사업계획서_Eng-20200216.pdf"
+                >
+                  <Box
+                    sx={{
+                      width: '100%',
+                      backgroundColor: 'background',
+                      pt: 3,
+                      ':hover': { color: 'primary' },
+                    }}
+                  >
+                    English
+                  </Box>
+                </Link>
+                <Link
+                  sx={{
+                    textDecoration: 'none',
+                    color: 'text',
+                    display: 'block',
+                  }}
+                  href="/그린비-사업계획서_Chn-20200308.pdf"
+                >
+                  <Box
+                    sx={{
+                      width: '100%',
+                      backgroundColor: 'background',
+                      py: 3,
+                      ':hover': { color: 'primary' },
+                    }}
+                  >
+                    中文
+                  </Box>
+                </Link>
+              </Flex>
+            </Box>
+          </Box>
         </Box>
         <Button
           color="black"
@@ -122,7 +225,9 @@ export default function Navbar() {
         <NavbarLink url="/news">소식을 전해요</NavbarLink>
         <NavbarLink url="/qna">질문에 답해요</NavbarLink>
         <PrimaryBtn>
-          사업소개서 <FiDownload />
+          <Text>
+            사업소개서 <FiDownload />
+          </Text>
         </PrimaryBtn>
       </Box>
     </PrimaryContainer>

@@ -11,14 +11,13 @@ const StyledInput = ({ ...props }) => (
     {...props}
     sx={{
       bg: 'sectionBg',
-      borderColor: '#eaeaea',
-      borderRadius: '0px',
-      borderWidth: '2px',
-      ':focus,:active': {
-        borderColor: 'primary',
-        outline: 'none',
-      },
+      px: 2,
+      py: 3,
+      outline: 'none',
+      border: 'none',
+      ':focus,:active': {},
     }}
+    p="2"
   />
 )
 
@@ -87,37 +86,46 @@ export default function ProductPage() {
         <Flex sx={{ justifyContent: 'center' }}>
           <Box sx={{ width: '50%' }}>
             <form className="contact-form" onSubmit={sendEmail}>
-              <StyledLabel>이름(상호)</StyledLabel>
-              <StyledInput type="text" name="user_name" mb={3} />
-              <StyledLabel>이메일</StyledLabel>
+              <Flex>
+                <StyledInput
+                  type="text"
+                  name="user_name"
+                  mb={3}
+                  mr={2}
+                  placeholder="이름(상호)"
+                />
+                <StyledInput
+                  type="text"
+                  name="contact"
+                  mb={3}
+                  ml={2}
+                  placeholder="연락처"
+                />
+              </Flex>
               <StyledInput
                 type="email"
                 name="user_email"
                 mb={3}
-                placeholder="ex) 010-1234-1234"
+                placeholder="이메일"
               />
-              <StyledLabel>연락처</StyledLabel>
-              <StyledInput type="text" name="contact" mb={3} />
-              <StyledLabel>제목</StyledLabel>
-              <StyledInput type="text" name="title" mb={3} />
-              <StyledLabel>문의 내용</StyledLabel>
+              <StyledInput type="text" name="title" mb={3} placeholder="제목" />
               <Textarea
                 sx={{
                   bg: 'sectionBg',
-                  borderColor: '#eaeaea',
-                  borderRadius: '0px',
-                  borderWidth: '2px',
-                  ':focus,:active': {
-                    borderColor: 'primary',
-                    outline: 'none',
-                  },
+                  px: 2,
+                  py: 3,
+                  outline: 'none',
+                  border: 'none',
+                  ':focus,:active': {},
+                  fontSize: 2,
                 }}
                 name="message"
                 rows={6}
                 mb={3}
+                placeholder="문의 내용"
               />
-              <Flex>
-                <Button sx={{ width: '100%' }} my={2}>
+              <Flex sx={{ justifyContent: 'flex-end' }}>
+                <Button sx={{ width: '25%' }} my={2}>
                   전송
                 </Button>
               </Flex>

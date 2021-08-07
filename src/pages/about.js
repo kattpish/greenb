@@ -1,12 +1,22 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import { Box, Divider, Flex, Image, Text, Card, Container } from 'theme-ui'
+import {
+  Box,
+  Divider,
+  Flex,
+  Image,
+  Text,
+  Card,
+  Container,
+  Link,
+} from 'theme-ui'
 import Fade from 'react-reveal/Fade'
 
 import AboutSection from '../components/AboutSection'
 import PrimaryContainer from '../components/PrimaryContainer'
 
 import SecondaryHeading from '../components/SecondaryHeading'
+import PrimaryBtn from '../components/PrimaryBtn'
 
 const BackgroundSectionItem = ({ idx, title, children }) => (
   <Box>
@@ -134,7 +144,7 @@ const LogoContainer = ({ children }) => (
       <Flex
         sx={{
           backgroundImage: 'url(../about/logo-bg.png)',
-          backgroundSize: 'cover',
+          backgroundSize: 'contain',
           justifyContent: 'space-evenly',
           alignItems: 'center',
         }}
@@ -151,16 +161,38 @@ LogoContainer.propTypes = {
 }
 
 const ColorCard = ({ idx, name, cymk, rgb, hex }) => (
-  <Flex sx={{ flexDirection: 'column' }} mx="3" mb={[3, null, 0]}>
-    <Image src={`../about/color-${idx}.png`} sx={{ width: '150px' }} />
-    <Text sx={{ fontWeight: 'bold' }} py="2">
-      {name}
+  <Flex sx={{ flexDirection: 'column', width: '100%' }} mx="4">
+    <Text sx={{ fontWeight: 'bold', color: 'paragraph' }} py="2">
+      GreenB_{name}
     </Text>
-    <Text>{cymk}</Text>
-    <Text>{rgb}</Text>
-    <Text>{hex}</Text>
+    <Flex
+      sx={{
+        flexDirection: 'column',
+        backgroundColor: hex,
+        width: '100%',
+        height: '100px',
+        color: 'background',
+        justifyContent: 'center',
+        fontWeight: 'medium',
+        fontSize: 1,
+      }}
+      mb={[3, null, 0]}
+      p="2"
+    >
+      <Text>{cymk}</Text>
+      <Text>{rgb}</Text>
+      <Text>Web {hex}</Text>
+    </Flex>
   </Flex>
 )
+
+ColorCard.propTypes = {
+  idx: PropTypes.number,
+  name: PropTypes.string,
+  cymk: PropTypes.string,
+  rgb: PropTypes.string,
+  hex: PropTypes.string,
+}
 
 const CIandColorSystem = () => (
   <>
@@ -168,52 +200,45 @@ const CIandColorSystem = () => (
       <PrimaryContainer paddingY={6}>
         <SecondaryHeading title="CI & Color System" />
         <CITitle>CI</CITitle>
-        <Container mb={3} sx={{ wordBreak: 'keep-all', textAlign: 'center' }}>
+        <LogoContainer>
+          <Image src={'../about/ci.png'} sx={{ width: '300px' }} />
+        </LogoContainer>
+        <Container my={3} sx={{ wordBreak: 'keep-all', textAlign: 'center' }}>
           <Text variant="paragraph">
             자연을 위해 노력하는 사람들의 멋진 친구 그린비
             <br />
-            새로운 그린비의 CI는 자연친화적인 그린비의 서비스와 함께
-            <br />
-            생태계를 위한 노력으로 하나되는 움직임에
+            새로운 그린비의 CI는 자연친화적인 그린비의 서비스와 함께 생태계를
+            위한 노력으로 하나되는 움직임에
             <br />
             좋은 친구가 되고자 함을 비주얼 언어로 해석한 디자인입니다.
           </Text>
         </Container>
-        <LogoContainer>
-          <Image src={'../about/ci.png'} sx={{ width: '300px' }} />
-        </LogoContainer>
+        <Flex sx={{ justifyContent: 'center' }}>
+          <Link sx={{ px: 2 }} href="/about/그린비_CI.ai">
+            <PrimaryBtn>AI 파일 다운로드</PrimaryBtn>
+          </Link>
+          <Link sx={{ px: 2 }} href="/about/ci.png">
+            <PrimaryBtn>PNG 파일 다운로드</PrimaryBtn>
+          </Link>
+        </Flex>
         <Flex sx={{ width: '100%', justifyContent: 'center' }} my="5">
           <Divider sx={{ width: '100%' }} />
         </Flex>
-        <Flex sx={{ width: '100%' }}>
-          <CITitle>로고 타입</CITitle>
-          <CITitle>워터마크 & 심볼</CITitle>
-        </Flex>
         <LogoContainer>
-          <Box sx={{ width: '200px' }} mx="4">
-            <Image src={'../about/logotype.png'} />
-          </Box>
-          <Flex>
-            <Flex sx={{ width: '200px', alignItems: 'center' }} mx="4">
-              <Image src={'../about/watermark.png'} />
-            </Flex>
-            <Flex sx={{ alignItems: 'center' }} mx="4">
-              <Image src={'../about/symbol.png'} sx={{ width: '100px' }} />
-            </Flex>
-          </Flex>
-        </LogoContainer>
-        <Flex sx={{ width: '100%', justifyContent: 'center' }} my="5">
-          <Divider sx={{ width: '100%' }} />
-        </Flex>
-        <CITitle>시그니처</CITitle>
-        <LogoContainer>
-          <Flex sx={{ alignItems: 'center' }}>
-            <Box sx={{ width: '200px' }} mx="4">
-              <Image src={'../about/signature-1.png'} />
-            </Box>
-            <Box mx="4">
-              <Image src={'../about/signature-2.png'} sx={{ width: '100px' }} />
-            </Box>
+          <Flex
+            sx={{
+              flexDirection: ['column', null, 'row'],
+              justifyContent: 'space-evenly',
+              alignItems: 'center',
+              width: '100%',
+            }}
+          >
+            <Image
+              sx={{ display: ['none', null, 'block'] }}
+              src={'../about/color-system-1.svg'}
+              width="300"
+            />
+            <Image src={'../about/color-system-2.svg'} width="200" />
           </Flex>
         </LogoContainer>
         <Flex sx={{ width: '100%', justifyContent: 'center' }} my="5">
@@ -224,40 +249,60 @@ const CIandColorSystem = () => (
           <Fade bottom opposite distance="50px">
             <Flex
               sx={{
-                flexDirection: ['column', null, 'row'],
-                justifyContent: 'center',
+                flexDirection: 'column',
+                justifyContent: 'space-between',
                 alignItems: 'center',
                 width: '100%',
               }}
             >
-              <ColorCard
-                idx={1}
-                name="Forest Green"
-                cymk="C 70 / M 0 / Y 60 / K 0"
-                rgb="R 63 / G 186 / B 141"
-                hex="Web #3FBD8D"
-              />
-              <ColorCard
-                idx={2}
-                name="Leaf Green"
-                cymk="C 30 / M 0 / Y 55 / K 0"
-                rgb="R 184 / G 218 / B 146"
-                hex="Web #B8DA92"
-              />
-              <ColorCard
-                idx={3}
-                name="Sky Blue"
-                cymk="C 40 / M 15 / Y 0 / K 0"
-                rgb="R 148 / G 189 / B 229"
-                hex="Web #94BDE5"
-              />
-              <ColorCard
-                idx={4}
-                name="Earth Grey"
-                cymk="C 0 / M 0 / Y 0 / K 50"
-                rgb="R 147 / G 149 / B 151"
-                hex="Web #939598"
-              />
+              <Flex
+                sx={{
+                  flexDirection: ['column', null, 'row'],
+                  width: '100%',
+                  justifyContent: 'center',
+                  alignItems: 'center',
+                }}
+                my={[0, null, 3]}
+              >
+                <ColorCard
+                  idx={1}
+                  name="Forest Green"
+                  cymk="C 70 / M 0 / Y 60 / K 0"
+                  rgb="R 63 / G 186 / B 141"
+                  hex="#3FBD8D"
+                />
+                <ColorCard
+                  idx={2}
+                  name="Leaf Green"
+                  cymk="C 30 / M 0 / Y 55 / K 0"
+                  rgb="R 184 / G 218 / B 146"
+                  hex="#B8DA92"
+                />
+              </Flex>
+              <Flex
+                sx={{
+                  flexDirection: ['column', null, 'row'],
+                  width: '100%',
+                  justifyContent: 'center',
+                  alignItems: 'center',
+                }}
+                my={[0, null, 3]}
+              >
+                <ColorCard
+                  idx={3}
+                  name="Sky Blue"
+                  cymk="C 40 / M 15 / Y 0 / K 0"
+                  rgb="R 148 / G 189 / B 229"
+                  hex="#94BDE5"
+                />
+                <ColorCard
+                  idx={4}
+                  name="Earth Grey"
+                  cymk="C 0 / M 0 / Y 0 / K 50"
+                  rgb="R 147 / G 149 / B 151"
+                  hex="#939598"
+                />
+              </Flex>
             </Flex>
           </Fade>
         </Box>

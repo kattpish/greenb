@@ -1,11 +1,10 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import { Flex, Image, Box, Text, Divider, Link } from 'theme-ui'
-import { graphql } from 'gatsby'
 
-import PrimaryContainer from '../components/PrimaryContainer'
-import ImageSlide from '../components/ImageSlide'
-import SecondaryHeading from '../components/SecondaryHeading'
+import PrimaryContainer from '../../components/PrimaryContainer'
+import ImageSlide from '../../components/ImageSlide'
+import SecondaryHeading from '../../components/SecondaryHeading'
 
 const Feature = ({ idx, title }) => (
   <Flex sx={{ flexDirection: 'column', alignItems: 'center' }} px="4" py="4">
@@ -24,9 +23,17 @@ Feature.propTypes = {
   title: PropTypes.string,
 }
 
-export default function ProductPage({ data }) {
-  const product = data.allSitePage.edges[0].node.context
+const CITitle = ({ children }) => (
+  <Flex sx={{ width: '100%', justifyContent: 'center' }} my="3">
+    <Text sx={{ fontSize: 3, fontWeight: 'medium' }}>{children}</Text>
+  </Flex>
+)
 
+CITitle.propTypes = {
+  children: PropTypes.node,
+}
+
+export default function ShoppingBagPage() {
   const LinkData = [
     { name: '생분해성 에어캡', url: '/product/aircap' },
     { name: '생분해성 쇼핑백', url: '/product/shopping-bag' },
@@ -53,12 +60,12 @@ export default function ProductPage({ data }) {
         >
           <Image
             sx={{ width: ['80%', null, null, null, '45%'] }}
-            src={product.mainImage}
+            src="../../product/shopping-bag/shopping-bag-1.png"
           />
           <Flex
             sx={{
               flexDirection: 'column',
-              width: ['80%', null, null, null, '40%'],
+              width: ['80%', null, null, null, '41%'],
               alignSelf: 'center',
             }}
             ml={['0', null, null, null, '5']}
@@ -80,7 +87,7 @@ export default function ProductPage({ data }) {
                 letterSpacing: 1.3,
               }}
             >
-              {product.name}
+              생분해성 쇼핑백
             </Text>
             <Text
               sx={{
@@ -91,10 +98,17 @@ export default function ProductPage({ data }) {
               }}
               my={2}
             >
-              {product.subtitle}
+              다양한 크기와 디자인. 튼튼한 내구성.
             </Text>
             <Text variant="paragraph" my={4}>
-              {product.firstText}
+              그린비는 다양한 사이즈의 쇼핑백을 제작하고 있습니다. 그린비의
+              쇼핑백은 ‘자원의 절약과 재활용 촉진에 관한 법률’에 따라 무상 제공
+              가능한 제품으로 걱정 없이 사용 가능한 일회용 봉투입니다.
+              <br />
+              그린비의 생분해성 쇼핑백은 매장 내 무상제공 가능한 친환경 인증
+              제품입니다. 생분해성 인증서 EL724 환경표지 인증서를 받았으며 일반
+              플라스틱 봉투와 유사한 강도와 내구성을 갖추고 있습니다. 그린비의
+              생분해 쇼핑백은 매립 후 완전히 분해되어 자연으로 돌아갑니다.
             </Text>
           </Flex>
         </Flex>
@@ -169,17 +183,59 @@ export default function ProductPage({ data }) {
                 }}
                 mt="3"
               >
-                {product.secondSubtitle}
+                그린비는 친환경 수성잉크 그라비어 인쇄로
+                <br />
+                친환경에 더욱 가깝게 디자인합니다.
               </Text>
               <Text
                 variant="paragraph"
                 my={[1, null, null, null, 3]}
                 mr={[0, null, null, null, 6]}
               >
-                {product.secondText}
+                소형, 중형, 대형 사이즈는 물론 고객 맞춤 제작도 가능합니다.
+                플라스틱으로 만든 장바구니, 플라스틱 비닐 재활용보다 편리하고
+                좋은 방법은 바로 생분해성 비닐을 사용하는 것입니다.
               </Text>
             </Flex>
-            <Image src={product.subImage} sx={{ maxWidth: '500px' }} />
+            <Image
+              src="../../product/shopping-bag/shopping-bag-2.jpg"
+              sx={{ maxWidth: '500px' }}
+            />
+          </Flex>
+        </Flex>
+      </PrimaryContainer>
+      <Flex sx={{ justifyContent: 'center' }}>
+        <Divider />
+      </Flex>
+      <PrimaryContainer paddingY={6}>
+        <Flex sx={{ flexDirection: 'column', alignItems: 'center' }}>
+          <Image
+            sx={{ width: '50%' }}
+            src="../shopping-bag/shopping-bags.png"
+          />
+          <Text
+            sx={{
+              color: 'text',
+              fontSize: 3,
+              fontWeight: 'bold',
+            }}
+            my={3}
+          >
+            쇼핑백의 기본 사이즈는 소형, 중형, 대형으로 규격은 아래와 같습니다.
+          </Text>
+          <Flex>
+            <Text sx={{ textAlign: 'center' }} variant="paragraph" mx="3">
+              소형 <br />
+              27cm x 50cm
+            </Text>
+            <Text sx={{ textAlign: 'center' }} variant="paragraph" mx="3">
+              중형 <br />
+              35cm x 58cm
+            </Text>
+            <Text sx={{ textAlign: 'center' }} variant="paragraph" mx="3">
+              소형 <br />
+              38cm x 64cm
+            </Text>
           </Flex>
         </Flex>
       </PrimaryContainer>
@@ -199,13 +255,32 @@ export default function ProductPage({ data }) {
           >
             <Text sx={{ color: 'primary' }}>생분해성</Text> 플라스틱 시험 결과
           </Text>
+          <CITitle>소형 쇼핑백</CITitle>
           <Image
             sx={{ width: '80%', display: ['none', null, 'block'] }}
-            src={'../../product/common/result.svg'}
+            src={'../../product/shopping-bag/small-bag-1.svg'}
           />
           <Image
             sx={{ width: '80%', display: ['block', null, 'none'] }}
-            src={'../../product/common/small-result.svg'}
+            src={'../../product/shopping-bag/small-bag-2.svg'}
+          />
+          <CITitle>중형 쇼핑백</CITitle>
+          <Image
+            sx={{ width: '80%', display: ['none', null, 'block'] }}
+            src={'../../product/shopping-bag/mid-bag-1.svg'}
+          />
+          <Image
+            sx={{ width: '80%', display: ['block', null, 'none'] }}
+            src={'../../product/shopping-bag/mid-bag-2.svg'}
+          />
+          <CITitle>대형 쇼핑백</CITitle>
+          <Image
+            sx={{ width: '80%', display: ['none', null, 'block'] }}
+            src={'../../product/shopping-bag/big-bag-1.svg'}
+          />
+          <Image
+            sx={{ width: '80%', display: ['block', null, 'none'] }}
+            src={'../../product/shopping-bag/big-bag-2.svg'}
           />
         </Flex>
       </PrimaryContainer>
@@ -232,7 +307,7 @@ export default function ProductPage({ data }) {
         </Flex>
       </PrimaryContainer>
       <PrimaryContainer paddingY={[5, null, null, null, 6]}>
-        <SecondaryHeading title="다른 제품 보기" subtitle="" />
+        <SecondaryHeading title={['다른 제품 보기', '']} subtitle={['', '']} />
         <ImageSlide>
           {LinkData.map((u, i) => (
             <Flex
@@ -273,24 +348,3 @@ export default function ProductPage({ data }) {
     </>
   )
 }
-
-export const query = graphql`
-  query ($path: String!) {
-    allSitePage(filter: { path: { eq: $path } }) {
-      edges {
-        node {
-          context {
-            name
-            url
-            subtitle
-            mainImage
-            firstText
-            subImage
-            secondSubtitle
-            secondText
-          }
-        }
-      }
-    }
-  }
-`
