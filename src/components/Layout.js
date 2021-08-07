@@ -68,6 +68,12 @@ export default function Layout({ children }) {
           href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css"
         />
         <link rel="stylesheet" href="https://use.typekit.net/kcq0zin.css" />
+        <script
+          async
+          defer
+          data-website-id="bf822b83-9441-4422-9293-c8d18a1550d5"
+          src="https://umami.a1p4ca.com/umami.js"
+        ></script>
       </Helmet>
       <Navbar />
       <Box sx={{ pt: '72px' }}>{children}</Box>
