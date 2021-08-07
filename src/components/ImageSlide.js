@@ -1,4 +1,5 @@
-import React from 'react'
+/** @jsxImportSource theme-ui */
+
 import Carousel from 'react-multi-carousel'
 import { Box } from 'theme-ui'
 import PropTypes from 'prop-types'

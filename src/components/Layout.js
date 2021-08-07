@@ -1,4 +1,6 @@
-import React, { useEffect } from 'react'
+/** @jsxImportSource theme-ui */
+
+import { useEffect } from 'react'
 import PropTypes from 'prop-types'
 import { Box, Flex, Link } from 'theme-ui'
 import { Helmet } from 'react-helmet'

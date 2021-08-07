@@ -1,4 +1,5 @@
-import React from 'react'
+/** @jsxImportSource theme-ui */
+
 import PropTypes from 'prop-types'
 import { Box, Divider, Flex, Image, Text, Card, Container } from 'theme-ui'
 import Fade from 'react-reveal/Fade'

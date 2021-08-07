@@ -1,4 +1,5 @@
-import React from 'react'
+/** @jsxImportSource theme-ui */
+
 import { Box, Image, Text } from 'theme-ui'
 
 import ProductGallery from '../components/ProductGallery'

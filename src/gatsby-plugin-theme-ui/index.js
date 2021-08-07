@@ -34,6 +34,7 @@ const theme = {
   text: {
     default: {
       fontFamily: 'body',
+      wordBreak: 'keep-all',
     },
     paragraph: {
       color: 'paragraph',

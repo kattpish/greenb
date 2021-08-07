@@ -45,6 +45,7 @@
     "theme-ui": "^0.8.0"
   },
   "devDependencies": {
+    "babel-preset-gatsby": "^1.11.0",
     "eslint": "^7.31.0",
     "eslint-config-standard": "^16.0.3",
     "eslint-plugin-import": "^2.23.4",

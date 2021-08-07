@@ -1,4 +1,6 @@
-import React, { useState, useCallback } from 'react'
+/** @jsxImportSource theme-ui */
+
+import { useState, useCallback } from 'react'
 import { Flex, Box, Image, Text, Link } from 'theme-ui'
 import Gallery from 'react-photo-gallery'
 import Carousel, { Modal, ModalGateway } from 'react-images'
