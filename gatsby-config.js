@@ -1,9 +1,11 @@
 module.exports = {
   siteMetadata: {
-    siteUrl: 'https://www.yourdomain.tld',
-    title: 'greenb',
-    description: '생분해 플라스틱 전문 업체 그린비입니다.',
-    author: '그린비',
+    siteUrl: 'https://greenb.co.kr',
+    title: '그린비',
+    description:
+      '생분해성 플라스틱 전문 브랜드, 그린비(GreenB)의 생분해성 기술력은 국내 최고입니다.',
+    author: '(주)코마글로벌',
+    image: '/og-image.jpg',
   },
   plugins: [
     'gatsby-plugin-image',
@@ -11,6 +13,7 @@ module.exports = {
     'gatsby-transformer-sharp',
     'gatsby-plugin-theme-ui',
     'gatsby-plugin-react-helmet',
+    'gatsby-plugin-sitemap',
     {
       resolve: 'gatsby-plugin-layout',
       options: {

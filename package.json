@@ -23,6 +23,7 @@
     "gatsby-plugin-prettier-eslint": "^1.0.6",
     "gatsby-plugin-react-helmet": "^3.10.0",
     "gatsby-plugin-sharp": "^2.14.4",
+    "gatsby-plugin-sitemap": "^4.7.0",
     "gatsby-plugin-theme-ui": "^0.10.1",
     "gatsby-source-filesystem": "^2.11.1",
     "gatsby-transformer-sharp": "^2.12.1",

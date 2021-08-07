@@ -1,5 +1,5 @@
 const path = require('path')
-const data = require('./product.json')
+const data = require('./src/fixtures/product.json')
 
 exports.createPages = ({ actions }) => {
   const { createPage } = actions
