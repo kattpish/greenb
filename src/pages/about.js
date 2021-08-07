@@ -1,6 +1,6 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import { Box, Divider, Flex, Image, Text, Card } from 'theme-ui'
+import { Box, Divider, Flex, Image, Text, Card, Container } from 'theme-ui'
 import Fade from 'react-reveal/Fade'
 
 import AboutSection from '../components/AboutSection'
@@ -44,7 +44,7 @@ BackgroundSectionItem.propTypes = {
 }
 
 const BackgroundSection = () => (
-  <Box bg="sectionBg" sx={{ width: '100%' }}>
+  <Box bg="background" sx={{ width: '100%' }}>
     <PrimaryContainer paddingY={6}>
       <SecondaryHeading
         title="남다른 그린비의 생분해 플라스틱"
@@ -58,18 +58,18 @@ const BackgroundSection = () => (
         }}
       >
         <BackgroundSectionItem idx={1} title="환경오염의 주범, 플라스틱!">
-          플라스틱은 편리하지만 분해가 되지 않고 소각할 때 유해가스를
+          플라스틱은 편리하지만 자연적으로 분해되지 않고 소각할 때 유해가스를
           만들어냅니다. 지구의 골칫덩이가 되어버렸죠.
         </BackgroundSectionItem>
         <BackgroundSectionItem idx={2} title="생분해 플라스틱의 한계">
-          땅에 묻었을 때 6개월 안에 완전히 분해되는 생분해 플라스틱의 탄생!
-          그러나 저렴한 대신 품질이 좋지 못했고 좋은 품질은 가격이 높아 대중화가
-          어려웠죠.
+          땅에 묻으면 6개월 안에 완전히 분해되는 생분해 플라스틱의 탄생! 그러나
+          저렴한 것은 품질이 좋지 못했고 좋은 품질은 가격이 높아 대중화가
+          어려웠습니다.
         </BackgroundSectionItem>
         <BackgroundSectionItem idx={3} title="한계를 넘어선 그린비">
           2018년, 그린비는 자체 제조 시설을 만들어 기술과 원가에서 경쟁력을 갖게
           되었습니다. 일반 플라스틱과 유사한 강도와 내구성을 갖춘 다양한 수지와
-          제품을 생산하고 있죠.
+          제품을 생산하고 있습니다.
         </BackgroundSectionItem>
       </Flex>
     </PrimaryContainer>
@@ -129,15 +129,21 @@ CITitle.propTypes = {
 }
 
 const LogoContainer = ({ children }) => (
-  <Flex
-    sx={{
-      backgroundImage: 'url(../about/logo-bg.png)',
-      justifyContent: 'center',
-    }}
-    py={5}
-  >
-    {children}
-  </Flex>
+  <Box>
+    <Fade bottom opposite distance="50px">
+      <Flex
+        sx={{
+          backgroundImage: 'url(../about/logo-bg.png)',
+          backgroundSize: 'cover',
+          justifyContent: 'space-evenly',
+          alignItems: 'center',
+        }}
+        py={5}
+      >
+        {children}
+      </Flex>
+    </Fade>
+  </Box>
 )
 
 LogoContainer.propTypes = {
@@ -161,28 +167,45 @@ const CIandColorSystem = () => (
     <Box sx={{ bg: 'sectionBg' }}>
       <PrimaryContainer paddingY={6}>
         <SecondaryHeading title="CI & Color System" />
-        <CITitle>로고타입 Logotype</CITitle>
+        <CITitle>CI</CITitle>
+        <Container mb={3} sx={{ wordBreak: 'keep-all', textAlign: 'center' }}>
+          <Text variant="paragraph">
+            자연을 위해 노력하는 사람들의 멋진 친구 그린비
+            <br />
+            새로운 그린비의 CI는 자연친화적인 그린비의 서비스와 함께
+            <br />
+            생태계를 위한 노력으로 하나되는 움직임에
+            <br />
+            좋은 친구가 되고자 함을 비주얼 언어로 해석한 디자인입니다.
+          </Text>
+        </Container>
         <LogoContainer>
-          <Image src={'../about/logotype.png'} sx={{ width: '200px' }} />
+          <Image src={'../about/ci.png'} sx={{ width: '300px' }} />
         </LogoContainer>
         <Flex sx={{ width: '100%', justifyContent: 'center' }} my="5">
           <Divider sx={{ width: '100%' }} />
         </Flex>
-        <CITitle>워터마크 & 심볼</CITitle>
+        <Flex sx={{ width: '100%' }}>
+          <CITitle>로고 타입</CITitle>
+          <CITitle>워터마크 & 심볼</CITitle>
+        </Flex>
         <LogoContainer>
-          <Flex sx={{ alignItems: 'center' }}>
-            <Box sx={{ width: '200px' }} mx="4">
+          <Box sx={{ width: '200px' }} mx="4">
+            <Image src={'../about/logotype.png'} />
+          </Box>
+          <Flex>
+            <Flex sx={{ width: '200px', alignItems: 'center' }} mx="4">
               <Image src={'../about/watermark.png'} />
-            </Box>
-            <Box mx="4">
+            </Flex>
+            <Flex sx={{ alignItems: 'center' }} mx="4">
               <Image src={'../about/symbol.png'} sx={{ width: '100px' }} />
-            </Box>
+            </Flex>
           </Flex>
         </LogoContainer>
         <Flex sx={{ width: '100%', justifyContent: 'center' }} my="5">
           <Divider sx={{ width: '100%' }} />
         </Flex>
-        <CITitle>시그니처 Signature</CITitle>
+        <CITitle>시그니처</CITitle>
         <LogoContainer>
           <Flex sx={{ alignItems: 'center' }}>
             <Box sx={{ width: '200px' }} mx="4">
@@ -193,48 +216,53 @@ const CIandColorSystem = () => (
             </Box>
           </Flex>
         </LogoContainer>
+        <Flex sx={{ width: '100%', justifyContent: 'center' }} my="5">
+          <Divider sx={{ width: '100%' }} />
+        </Flex>
+        <CITitle>컬러 시스템 소개</CITitle>
+        <Box>
+          <Fade bottom opposite distance="50px">
+            <Flex
+              sx={{
+                flexDirection: ['column', null, 'row'],
+                justifyContent: 'center',
+                alignItems: 'center',
+                width: '100%',
+              }}
+            >
+              <ColorCard
+                idx={1}
+                name="Forest Green"
+                cymk="C 70 / M 0 / Y 60 / K 0"
+                rgb="R 63 / G 186 / B 141"
+                hex="Web #3FBD8D"
+              />
+              <ColorCard
+                idx={2}
+                name="Leaf Green"
+                cymk="C 30 / M 0 / Y 55 / K 0"
+                rgb="R 184 / G 218 / B 146"
+                hex="Web #B8DA92"
+              />
+              <ColorCard
+                idx={3}
+                name="Sky Blue"
+                cymk="C 40 / M 15 / Y 0 / K 0"
+                rgb="R 148 / G 189 / B 229"
+                hex="Web #94BDE5"
+              />
+              <ColorCard
+                idx={4}
+                name="Earth Grey"
+                cymk="C 0 / M 0 / Y 0 / K 50"
+                rgb="R 147 / G 149 / B 151"
+                hex="Web #939598"
+              />
+            </Flex>
+          </Fade>
+        </Box>
       </PrimaryContainer>
     </Box>
-    <PrimaryContainer paddingY={6}>
-      <SecondaryHeading title="컬러 시스템 소개" />
-      <Flex
-        sx={{
-          flexDirection: ['column', null, 'row'],
-          justifyContent: 'center',
-          alignItems: 'center',
-          width: '100%',
-        }}
-      >
-        <ColorCard
-          idx={1}
-          name="Forest Green"
-          cymk="C 70 / M 0 / Y 60 / K 0"
-          rgb="R 63 / G 186 / B 141"
-          hex="Web #3FBD8D"
-        />
-        <ColorCard
-          idx={2}
-          name="Leaf Green"
-          cymk="C 30 / M 0 / Y 55 / K 0"
-          rgb="R 184 / G 218 / B 146"
-          hex="Web #B8DA92"
-        />
-        <ColorCard
-          idx={3}
-          name="Sky Blue"
-          cymk="C 40 / M 15 / Y 0 / K 0"
-          rgb="R 148 / G 189 / B 229"
-          hex="Web #94BDE5"
-        />
-        <ColorCard
-          idx={4}
-          name="Earth Grey"
-          cymk="C 0 / M 0 / Y 0 / K 50"
-          rgb="R 147 / G 149 / B 151"
-          hex="Web #939598"
-        />
-      </Flex>
-    </PrimaryContainer>
   </>
 )
 
@@ -248,6 +276,9 @@ export default function AboutPage() {
       />
       <CIandColorSystem />
       <BackgroundSection />
+      <Flex sx={{ width: '100%', justifyContent: 'center' }}>
+        <Divider />
+      </Flex>
       <PrimaryContainer paddingY={6}>
         <Flex sx={{ flexDirection: 'column' }}>
           <SecondaryHeading title="그린비가 걸어온 길" />
@@ -276,7 +307,7 @@ export default function AboutPage() {
       </Flex>
       <PrimaryContainer paddingY={6}>
         <Flex sx={{ flexDirection: 'column' }}>
-          <SecondaryHeading title="그린비 6가지 특별함" subtitle={['', '']} />
+          <SecondaryHeading title="그린비의 6가지 특별함" subtitle={['', '']} />
           <Flex
             sx={{
               flexWrap: 'wrap',

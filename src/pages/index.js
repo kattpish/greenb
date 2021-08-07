@@ -173,7 +173,7 @@ export default function IndexPage() {
         <PrimaryContainer paddingY={6}>
           <Flex sx={{ flexDirection: 'column' }}>
             <SecondaryHeading
-              title="그린비가 만들어나가는 지속가능한 순환 경제"
+              title="그린비가 만드는 지속가능한 순환 경제"
               subtitle="그린비의 생분해성 플라스틱 제품을 소개합니다."
             >
               <Flex sx={{ justifyContent: 'center', mt: '4' }}>
@@ -208,7 +208,7 @@ export default function IndexPage() {
               >
                 그린비는 다양한 생분해성 플라스틱 완제품을 생산합니다. 맞춤
                 디자인은 물론 높은 강도와 내구성을 자랑합니다. 그린비의 생분해성
-                제품은 다시 자연으로 돌아갑니다.
+                제품은 100% 다시 자연으로 돌아갑니다.
               </ProductCard>
             </Flex>
           </Flex>
@@ -217,7 +217,7 @@ export default function IndexPage() {
       <PrimaryContainer paddingY={6}>
         <Flex sx={{ flexDirection: 'column', alignItems: 'center' }}>
           <SecondaryHeading
-            title="그린비와 함께합니다."
+            title="그린비와 함께합니다"
             subtitle="그린비는 최고의 고객들과 함께하고 있습니다."
           />
           {[

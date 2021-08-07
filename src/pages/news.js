@@ -200,7 +200,7 @@ const NewsCard = ({ title, date, url, imgUrl }) => (
   <Link sx={{ mx: 1, mb: 5, textDecoration: 'none' }} href={url}>
     <Card
       sx={{
-        maxWidth: 350,
+        maxWidth: 300,
         bg: 'background',
         color: 'text',
         boxShadow: '0px 0px 20px 0px rgba(0, 0, 0, 0.1)',
@@ -253,7 +253,7 @@ const WebzineCard = ({ title, date, url, imgUrl }) => (
   <Link sx={{ mx: 1, mb: 5, textDecoration: 'none' }} href={url}>
     <Card
       sx={{
-        maxWidth: 350,
+        maxWidth: 300,
         bg: 'background',
         color: 'text',
         boxShadow: '0px 0px 20px 0px rgba(0, 0, 0, 0.1)',

@@ -4,6 +4,7 @@ import Fade from 'react-reveal/Fade'
 import 'react-multi-carousel/lib/styles.css'
 import Carousel from 'react-multi-carousel'
 import Lightbox from 'react-image-lightbox'
+import { IoIosArrowBack, IoIosArrowForward } from 'react-icons/io'
 import 'react-image-lightbox/style.css'
 
 const responsive = {
@@ -65,8 +66,54 @@ export default function CertificateGallery() {
     [currentImage]
   )
 
+  const CustomLeftArrow = ({ onClick, ...rest }) => {
+    const {
+      onMove,
+      carouselState: { currentSlide, deviceType },
+    } = rest
+    // onMove means if dragging or swiping in progress.
+    return (
+      <Box
+        sx={{
+          position: 'fixed',
+          top: '40%',
+          left: '-6%',
+          cursor: 'pointer',
+          color: 'primary',
+          fontSize: '6',
+        }}
+        onClick={() => onClick()}
+      >
+        <IoIosArrowBack />
+      </Box>
+    )
+  }
+
+  const CustomRightArrow = ({ onClick, ...rest }) => {
+    const {
+      onMove,
+      carouselState: { currentSlide, deviceType },
+    } = rest
+    // onMove means if dragging or swiping in progress.
+    return (
+      <Box
+        sx={{
+          position: 'fixed',
+          top: '40%',
+          right: '-6%',
+          cursor: 'pointer',
+          color: 'primary',
+          fontSize: '6',
+        }}
+        onClick={() => onClick()}
+      >
+        <IoIosArrowForward />
+      </Box>
+    )
+  }
+
   return (
-    <div>
+    <Box sx={{ transform: 'translateY(1px)' }}>
       <Fade bottom opposite distance="50px">
         <Carousel
           swipeable={true}
@@ -79,16 +126,15 @@ export default function CertificateGallery() {
           keyBoardControl={true}
           transitionDuration={500}
           removeArrowOnDeviceType={['tablet', 'mobile']}
-          customLeftArrow={<div />}
-          customRightArrow={<div />}
+          customLeftArrow={<CustomLeftArrow />}
+          customRightArrow={<CustomRightArrow />}
         >
           {[...Array(19)].map((u, i) => (
-            <Box key={i} onClick={() => openModal(i)}>
-              <Image
-                sx={{ width: '300px' }}
-                src={`../technology/certificate-${i + 1}.jpg`}
-              />
-            </Box>
+            <Image
+              key={i}
+              onClick={() => openModal(i)}
+              src={`../technology/certificate-${i + 1}.jpg`}
+            />
           ))}
         </Carousel>
       </Fade>
@@ -102,6 +148,6 @@ export default function CertificateGallery() {
           onMoveNextRequest={() => onNextClick()}
         />
       )}
-    </div>
+    </Box>
   )
 }
