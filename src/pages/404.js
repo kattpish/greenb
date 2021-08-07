@@ -1,4 +1,5 @@
-import * as React from 'react'
+/** @jsxImportSource theme-ui */
+
 import { Link } from 'gatsby'
 
 // styles

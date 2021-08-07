@@ -1,4 +1,6 @@
-import React, { useState, useCallback } from 'react'
+/** @jsxImportSource theme-ui */
+
+import { useState, useCallback } from 'react'
 import { Box, Image } from 'theme-ui'
 import Fade from 'react-reveal/Fade'
 import 'react-multi-carousel/lib/styles.css'

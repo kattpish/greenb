@@ -1,4 +1,5 @@
-import React from 'react'
+/** @jsxImportSource theme-ui */
+
 import PropTypes from 'prop-types'
 import { Flex, Box, Image, Text, Heading, Link } from 'theme-ui'
 

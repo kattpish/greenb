@@ -1,11 +1,12 @@
-import React from 'react'
+/** @jsxImportSource theme-ui */
+
 import PropTypes from 'prop-types'
 import { Button } from 'theme-ui'
 
 export default function PrimaryBtn(props) {
   return (
     <Button
-      {...props}
+      className={props.className}
       sx={{
         borderRadius: '0px',
         fontWeight: 'bold',
@@ -32,5 +33,8 @@ export default function PrimaryBtn(props) {
 }
 
 PrimaryBtn.propTypes = {
-  children: PropTypes.array,
+  children: PropTypes.node,
+  className: PropTypes.string,
+  sx: PropTypes.object,
+  variant: PropTypes.string,
 }

@@ -1,6 +1,8 @@
-import React, { useState } from 'react'
+/** @jsxImportSource theme-ui */
+
+import { Flex, Box, Link, Button, Text } from 'theme-ui'
+import { useState } from 'react'
 import PropTypes from 'prop-types'
-import { Flex, Box, Link, Text, Button } from 'theme-ui'
 import { FiDownload } from 'react-icons/fi'
 
 import PrimaryBtn from './PrimaryBtn'
@@ -19,6 +21,8 @@ const NavbarLink = (props) => (
       ':hover,:focus,.active': {
         color: 'primary',
       },
+      textAlign: 'center',
+      wordBreak: 'keep-all',
     }}
     href={props.url}
   >
@@ -224,10 +228,8 @@ export default function Navbar() {
         <NavbarLink url="/product">제품보기</NavbarLink>
         <NavbarLink url="/news">소식을 전해요</NavbarLink>
         <NavbarLink url="/qna">질문에 답해요</NavbarLink>
-        <PrimaryBtn>
-          <Text>
-            사업소개서 <FiDownload />
-          </Text>
+        <PrimaryBtn sx={{ minWidth: '145px' }}>
+          사업소개서 <FiDownload />
         </PrimaryBtn>
       </Box>
     </PrimaryContainer>

@@ -1,4 +1,5 @@
-import React from 'react'
+/** @jsxImportSource theme-ui */
+
 import { Label, Input, Textarea, Text, Button, Flex, Box } from 'theme-ui'
 import emailjs from 'emailjs-com'
 import PropTypes from 'prop-types'
