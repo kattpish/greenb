@@ -9,7 +9,11 @@ import ImageSlide from '../components/ImageSlide'
 import SecondaryHeading from '../components/SecondaryHeading'
 
 const Feature = ({ idx, title }) => (
-  <Flex sx={{ flexDirection: 'column', alignItems: 'center' }} px="4" py="4">
+  <Flex
+    sx={{ flexDirection: 'column', alignItems: 'center', width: 230 }}
+    px="4"
+    py="4"
+  >
     <Image
       sx={{ maxWidth: '8em' }}
       src={`../../product/common/icon-${idx}.png`}
@@ -117,17 +121,57 @@ export default function ProductPage({ data }) {
             6가지 특징
           </Text>
         </Flex>
-        <Flex sx={{ justifyContent: 'center' }} pt={4}>
+        <Flex
+          sx={{ flexDirection: 'column', display: ['none', null, 'block'] }}
+          pt={4}
+        >
           <Flex
             sx={{
-              flexWrap: 'wrap',
               justifyContent: 'center',
             }}
           >
             <Feature idx={1} title="맞춤 사이즈와 디자인" />
             <Feature idx={2} title="매장 내 사용 가능" />
             <Feature idx={3} title="환경표지 인증서 획득" />
+          </Flex>
+          <Flex
+            sx={{
+              justifyContent: 'center',
+            }}
+          >
             <Feature idx={4} title="높은 강도와 내구성" />
+            <Feature idx={5} title="100% 자연 생분해" />
+            <Feature idx={6} title="친환경 수성잉크 인쇄" />
+          </Flex>
+        </Flex>
+        <Flex
+          sx={{ flexDirection: 'column', display: ['block', null, 'none'] }}
+          pt={4}
+        >
+          <Flex
+            sx={{
+              justifyContent: 'center',
+              flexWrap: 'wrap',
+            }}
+          >
+            <Feature idx={1} title="맞춤 사이즈와 디자인" />
+            <Feature idx={2} title="매장 내 사용 가능" />
+          </Flex>
+          <Flex
+            sx={{
+              justifyContent: 'center',
+              flexWrap: 'wrap',
+            }}
+          >
+            <Feature idx={3} title="환경표지 인증서 획득" />
+            <Feature idx={4} title="높은 강도와 내구성" />
+          </Flex>
+          <Flex
+            sx={{
+              justifyContent: 'center',
+              flexWrap: 'wrap',
+            }}
+          >
             <Feature idx={5} title="100% 자연 생분해" />
             <Feature idx={6} title="친환경 수성잉크 인쇄" />
           </Flex>
@@ -242,7 +286,7 @@ export default function ProductPage({ data }) {
             >
               <Box
                 sx={{
-                  width: ['150px', null, '250px'],
+                  width: ['150px', null, '300px'],
                   height: ['150px', null, '250px'],
                   backgroundImage: `url(../../product/link/link-${i + 1}.jpg)`,
                   backgroundSize: 'cover',

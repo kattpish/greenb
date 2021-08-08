@@ -25,8 +25,8 @@ function SectionContent({
         wordBreak: 'keep-all',
       }}
     >
-      <Box sx={{ width: '15px' }}>
-        <Image src={'../small-logo.png'} />
+      <Box sx={{ width: '10px' }}>
+        <Image src={'../small-logo.svg'} />
       </Box>
       <Text
         sx={{
@@ -34,7 +34,6 @@ function SectionContent({
           fontSize: size,
           fontWeight: 'bold',
         }}
-        mt={1}
         mb={1}
       >
         {title}
@@ -55,7 +54,6 @@ function SectionContent({
               textDecoration: 'none',
               color: 'primary',
               cursor: 'pointer',
-              ml: '2',
             }}
           >
             {linkText}

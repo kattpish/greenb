@@ -1,6 +1,15 @@
 /** @jsxImportSource theme-ui */
 
-import { Label, Input, Textarea, Text, Button, Flex, Box } from 'theme-ui'
+import {
+  Label,
+  Input,
+  Textarea,
+  Text,
+  Button,
+  Flex,
+  Box,
+  Image,
+} from 'theme-ui'
 import emailjs from 'emailjs-com'
 import PropTypes from 'prop-types'
 
@@ -58,6 +67,41 @@ export default function ProductPage() {
 
   return (
     <>
+      <Box
+        sx={{
+          width: '100%',
+          height: '100%',
+          position: 'relative',
+        }}
+      >
+        <Image src={'../qna/main.jpeg'} />
+        <PrimaryContainer>
+          <Text
+            sx={{
+              fontFamily: 'heading',
+              fontWeight: 'bold',
+              fontSize: [4, null, null, null, 8],
+              color: 'background',
+              zIndex: 1,
+              position: 'absolute',
+              bottom: '15%',
+              textShadow: [
+                '',
+                null,
+                null,
+                null,
+                '0px 3px 7px rgba(0, 0, 0, 0.3)',
+              ],
+              wordBreak: 'break-word',
+            }}
+            mt="3"
+          >
+            <Text sx={{ color: 'primary' }}>Green B</Text>
+            &apos;s
+            <br />Q & A
+          </Text>
+        </PrimaryContainer>
+      </Box>
       <PrimaryContainer paddingY={5}>
         <SecondaryHeading
           title="1:1 문의하기"
@@ -85,7 +129,7 @@ export default function ProductPage() {
           </Text>
         </Flex>
         <Flex sx={{ justifyContent: 'center' }}>
-          <Box sx={{ width: '50%' }}>
+          <Box sx={{ width: ['100%', null, '50%'] }}>
             <form className="contact-form" onSubmit={sendEmail}>
               <Flex>
                 <StyledInput

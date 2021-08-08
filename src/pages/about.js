@@ -87,20 +87,22 @@ const BackgroundSection = () => (
   </Box>
 )
 
-const FeatureCard = ({ idx, title, children }) => (
+const FeatureCard = ({ idx, title, children, ...props }) => (
   <Card
     sx={{
-      maxWidth: [300, null, null, null, 400, 450],
+      maxWidth: 350,
       height: '100%',
     }}
     my="4"
+    mx="50px"
+    {...props}
   >
     <Fade bottom opposite distance="50px">
       <Image src={`../about/feature-${idx}.jpg`} />
-      <Box sx={{ width: '15px' }} pt={1}>
-        <Image src={'../small-logo.png'} />
+      <Box sx={{ width: '10px' }} pt={1}>
+        <Image src={'../small-logo.svg'} />
       </Box>
-      <Flex sx={{ flexDirection: 'column' }} pt={1}>
+      <Flex sx={{ flexDirection: 'column' }}>
         <Text
           sx={{
             color: 'text',
@@ -200,7 +202,6 @@ const CIandColorSystem = () => (
     <Box sx={{ bg: 'sectionBg' }}>
       <PrimaryContainer paddingY={6}>
         <SecondaryHeading title="CI & Color System" />
-        <CITitle>CI</CITitle>
         <LogoContainer>
           <Image src={'../about/ci.png'} sx={{ width: '300px' }} />
         </LogoContainer>
@@ -245,7 +246,6 @@ const CIandColorSystem = () => (
         <Flex sx={{ width: '100%', justifyContent: 'center' }} my="5">
           <Divider sx={{ width: '100%' }} />
         </Flex>
-        <CITitle>컬러 시스템 소개</CITitle>
         <Box>
           <Fade bottom opposite distance="50px">
             <Flex
@@ -305,6 +305,102 @@ const CIandColorSystem = () => (
                 />
               </Flex>
             </Flex>
+            <Flex sx={{ width: '100%', justifyContent: 'center' }} my="5">
+              <Divider sx={{ width: '100%' }} />
+            </Flex>
+            <Flex sx={{ width: '100%', justifyContent: 'center' }}>
+              <Flex
+                sx={{
+                  width: ['80%', null, null, '100%'],
+                  justifyContent: ['center', null, null, 'space-between'],
+                  flexWrap: 'wrap',
+                }}
+              >
+                <Flex
+                  sx={{
+                    flexDirection: 'column',
+                    alignItems: 'center',
+                    mx: 2,
+                  }}
+                >
+                  <Image
+                    sx={{ maxWidth: '100px' }}
+                    src="../about/character-1.svg"
+                  />
+                  <Text sx={{ fontSize: 3, fontWeight: 'bold', pt: 3, pb: 2 }}>
+                    앤썸
+                  </Text>
+                  <Text sx={{ textAlign: 'center' }}>
+                    지구환경을 항상 걱정하는
+                    <br />
+                    소심한 겁쟁이
+                  </Text>
+                </Flex>
+                <Flex
+                  sx={{
+                    flexDirection: 'column',
+                    alignItems: 'center',
+                    mx: 2,
+                    mt: [4, 5],
+                  }}
+                >
+                  <Image
+                    sx={{ maxWidth: '100px' }}
+                    src="../about/character-2.svg"
+                  />
+                  <Text sx={{ fontSize: 3, fontWeight: 'bold', pt: 3, pb: 2 }}>
+                    비썸
+                  </Text>
+                  <Text sx={{ textAlign: 'center' }}>
+                    지구를 위한 일이라면
+                    <br />
+                    무엇이든 해결하는 해결사
+                  </Text>
+                </Flex>
+                <Flex
+                  sx={{
+                    flexDirection: 'column',
+                    alignItems: 'center',
+                    mx: 2,
+                    mt: [4, 0],
+                  }}
+                >
+                  <Image
+                    sx={{ maxWidth: '100px' }}
+                    src="../about/character-3.svg"
+                  />
+                  <Text sx={{ fontSize: 3, fontWeight: 'bold', pt: 3, pb: 2 }}>
+                    이썸
+                  </Text>
+                  <Text sx={{ textAlign: 'center' }}>
+                    항상 탐구하고 연구하는
+                    <br />
+                    그린비의 탐색가
+                  </Text>
+                </Flex>
+                <Flex
+                  sx={{
+                    flexDirection: 'column',
+                    alignItems: 'center',
+                    mx: 2,
+                    mt: 4,
+                  }}
+                >
+                  <Image
+                    sx={{ maxWidth: '100px' }}
+                    src="../about/character-4.svg"
+                  />
+                  <Text sx={{ fontSize: 3, fontWeight: 'bold', pt: 3, pb: 2 }}>
+                    지썸
+                  </Text>
+                  <Text sx={{ textAlign: 'center' }}>
+                    환경문제에 대해서는
+                    <br />
+                    언제나 깐깐한 환경운동가
+                  </Text>
+                </Flex>
+              </Flex>
+            </Flex>
           </Fade>
         </Box>
       </PrimaryContainer>
@@ -318,7 +414,6 @@ export default function AboutPage() {
       <AboutSection
         title={['Be awesome for', 'earth & us']}
         subtitle={`자연을 위한 것이 우리를 위한 것! \r\n그린비는 지구의 자연과 생태계를 지키기 위한 멋진 일을 만들어 나갑니다.`}
-        url="../about/company.jpg"
       />
       <CIandColorSystem />
       <BackgroundSection />
@@ -333,7 +428,7 @@ export default function AboutPage() {
               <Image
                 sx={{ display: ['none', null, null, 'block'] }}
                 py={4}
-                src={'../about/history.jpg'}
+                src={'../about/history.svg'}
               />
             </Flex>
           </Fade>
@@ -342,7 +437,7 @@ export default function AboutPage() {
               <Image
                 sx={{ display: ['block', null, null, 'none'] }}
                 py={4}
-                src={'../about/history-mobile.jpg'}
+                src={'../about/history-mobile.svg'}
               />
             </Flex>
           </Fade>
@@ -357,7 +452,7 @@ export default function AboutPage() {
           <Flex
             sx={{
               flexWrap: 'wrap',
-              justifyContent: ['center', 'space-between'],
+              justifyContent: 'center',
             }}
           >
             <FeatureCard idx={1} title="높은 생산성의 수직화 시스템">

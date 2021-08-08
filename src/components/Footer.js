@@ -28,9 +28,9 @@ export default function Footer() {
         <PrimaryContainer paddingY={4}>
           <Flex
             sx={{
-              flexDirection: ['column', null, null, null, 'row'],
+              flexDirection: ['column', null, 'row'],
               justifyContent: 'space-between',
-              alignItems: 'center',
+              alignItems: ['flex-start', null, 'flex-end'],
             }}
           >
             <Flex sx={{ flexDirection: 'column' }}>
@@ -45,24 +45,28 @@ export default function Footer() {
                 </Text>
               </FooterItem>
             </Flex>
-            <Flex sx={{ alignItems: 'center' }}>
-              <FooterItem>
-                <Text color="light" sx={{ fontSize: 1 }}>
-                  본사 | 서울시 용산구 청파로 40 삼구빌딩 1812호 04373,
-                  02-337-3399
-                  <br />
-                  공장 | 경기도 김포시 통진읍 가현리 647-4 다동 10030,
-                  031-996-8768
-                  <br />
-                </Text>
-                <Text color="light">hj.lim@komaglobal.com</Text>
-              </FooterItem>
-              <Box>
-                <Link ml="4" href="https://blog.naver.com/komagreenb">
-                  <Image width="30px" src={'../blog.png'} />
-                </Link>
-              </Box>
-            </Flex>
+            <Box sx={{ display: ['none', null, 'block'] }}>
+              <Flex sx={{ alignItems: 'flex-start' }}>
+                <FooterItem>
+                  <Text color="light" sx={{ fontSize: 1 }}>
+                    본사 | 서울시 용산구 청파로 40 삼구빌딩 1812호 04373,
+                    02-337-3399
+                    <br />
+                    공장 | 경기도 김포시 통진읍 가현리 647-4 다동 10030,
+                    031-996-8768
+                    <br />
+                  </Text>
+                  <Text color="light">hj.lim@komaglobal.com</Text>
+                </FooterItem>
+                <FooterItem>
+                  <Box>
+                    <Link ml="4" href="https://blog.naver.com/komagreenb">
+                      <Image width="30px" src={'../blog.png'} />
+                    </Link>
+                  </Box>
+                </FooterItem>
+              </Flex>
+            </Box>
           </Flex>
         </PrimaryContainer>
       </Box>

@@ -62,13 +62,15 @@ export default function ProductPage() {
             ml={['0', null, null, null, '5']}
             mt={['5', null, null, null, '0']}
           >
-            <Box sx={{ bg: 'primary', width: '15px', height: '15px' }} />
+            <Box sx={{ width: '10px' }}>
+              <Image src={'../../small-logo.svg'} />
+            </Box>
             <Text
               sx={{
                 color: '#000',
                 fontSize: 5,
                 fontWeight: 'bold',
-                my: 2,
+                mb: 2,
                 letterSpacing: 1.3,
               }}
             >
@@ -85,16 +87,7 @@ export default function ProductPage() {
             >
               더욱 멋진 미래를 위한 멋진 기술.
             </Text>
-            <Text
-              sx={{
-                color: '#8f8f8f',
-                fontSize: 1,
-                fontWeight: 'regular',
-                letterSpacing: 1.1,
-                lineHeight: 1.8,
-              }}
-              my={4}
-            >
+            <Text variant="paragraph" my={3}>
               그린비는 여러 용도에 맞는 친환경 생분해성 컴파운드 수지 생산기술을
               가지고 있습니다. 환경부 인증마크를 받은 컴파운드 수지로 6개월 이내
               100% 자연으로 돌아간답니다.
@@ -102,30 +95,104 @@ export default function ProductPage() {
           </Flex>
         </Flex>
       </PrimaryContainer>
-      <Box bg="sectionBg" sx={{ width: '100%' }}>
+      <Box bg="sectionBg" sx={{ width: '100%', textAlign: 'center' }}>
         <PrimaryContainer paddingY={6}>
-          <Flex mb="5">
+          <Flex mb="5" sx={{ flexDirection: ['column', null, 'row'] }}>
             <Flex sx={{ flexDirection: 'column', alignItems: 'center' }} p="2">
               <Image src={'../../product/resin/resin-2.jpg'} />
-              <Text sx={{ fontSize: 3 }} pt="2">
+              <Text
+                sx={{
+                  color: '#666',
+                  fontSize: 3,
+                  fontWeight: 'medium',
+                  letterSpacing: 1.1,
+                }}
+                pt="2"
+              >
                 필름수지
+              </Text>
+              <Text
+                sx={{
+                  color: '#8f8f8f',
+                  fontSize: 1,
+                  fontWeight: 'regular',
+                  letterSpacing: 1.1,
+                  lineHeight: 1.5,
+                  mt: 1,
+                }}
+              >
+                PBAT는 유연성이 좋아 부드럽고 강도도 우수합니다. 필름의 주원료로
+                사용되고 내열성과 유연성이 약한 PLA의 개질제로 사용하기도
+                합니다. 필름을 생산할 때 PBAT가 많이 포함될수록 부드럽기
+                때문이죠.
               </Text>
             </Flex>
             <Flex sx={{ flexDirection: 'column', alignItems: 'center' }} p="2">
               <Image src={'../../product/resin/resin-3.jpg'} />
-              <Text sx={{ fontSize: 3 }} pt="2">
+              <Text
+                sx={{
+                  color: '#666',
+                  fontSize: 3,
+                  fontWeight: 'medium',
+                  letterSpacing: 1.1,
+                }}
+                pt="2"
+              >
                 사출수지
+              </Text>
+              <Text
+                sx={{
+                  color: '#8f8f8f',
+                  fontSize: 1,
+                  lineHeight: 1.5,
+                  mt: 1,
+                }}
+              >
+                PLA는 식물 추출물로 생산되어 친환경적입니다. PLA는 내열성과
+                유연성이 약해 다른 부드러운 특성을 가진 원료 또는 무기물과 함께
+                혼용해서 사용된답니다.
               </Text>
             </Flex>
             <Flex sx={{ flexDirection: 'column', alignItems: 'center' }} p="2">
               <Image src={'../../product/resin/resin-4.jpg'} />
-              <Text sx={{ fontSize: 3 }} pt="2">
+              <Text
+                sx={{
+                  color: '#666',
+                  fontSize: 3,
+                  fontWeight: 'medium',
+                  letterSpacing: 1.1,
+                }}
+                pt="2"
+              >
                 빨대수지
+              </Text>
+              <Text
+                sx={{
+                  color: '#8f8f8f',
+                  fontSize: 1,
+                  fontWeight: 'regular',
+                  letterSpacing: 1.1,
+                  lineHeight: 1.5,
+                  mt: 1,
+                }}
+              >
+                PBS는 위의 PBAT와 PLA의 중간 성질을 가진 원료입니다. 사출용과
+                섬유용으로 사용되는 만큼 적당한 강도와 좋은 유연성을 가지고
+                있죠. 테이크아웃 음료와 같이 주는 빨대를 제작할 때도 사용됩니다.
+                시트를 만들기도 하고요.
               </Text>
             </Flex>
             <Flex sx={{ flexDirection: 'column', alignItems: 'center' }} p="2">
               <Image src={'../../product/resin/resin-5.jpg'} />
-              <Text sx={{ fontSize: 3 }} pt="2">
+              <Text
+                sx={{
+                  color: '#666',
+                  fontSize: 3,
+                  fontWeight: 'medium',
+                  letterSpacing: 1.1,
+                }}
+                pt="2"
+              >
                 기타수지
               </Text>
             </Flex>
@@ -144,76 +211,6 @@ export default function ProductPage() {
           </Flex>
         </PrimaryContainer>
       </Box>
-      <PrimaryContainer paddingY={6}>
-        <Flex sx={{ justifyContent: 'center', width: '100%' }}>
-          <Box>
-            <Flex sx={{ alignItems: 'center' }} py="4">
-              <Text
-                sx={{
-                  fontSize: 5,
-                  fontWeight: 'bold',
-                }}
-              >
-                필름수지
-              </Text>
-              <Box sx={{ width: '5px', height: '70px', bg: 'text' }} mx="4" />
-              <Text sx={{ fontSize: 3 }} mx="3">
-                PBAT는 유연성이 좋아 부드럽고 강도도 우수합니다.
-                <br /> 필름의 주원료로 사용되고 내열성과 유연성이 약한 PLA의
-                개질제로 사용하기도 합니다.
-                <br />
-                필름을 생산할 때 PBAT가 많이 포함될수록 부드럽기 때문이죠.
-              </Text>
-            </Flex>
-            <Flex sx={{ alignItems: 'center' }} py="4">
-              <Text
-                sx={{
-                  fontSize: 5,
-                  fontWeight: 'bold',
-                }}
-              >
-                사출수지
-              </Text>
-              <Box sx={{ width: '5px', height: '70px', bg: 'text' }} mx="4" />
-              <Text sx={{ fontSize: 3 }} mx="3">
-                PLA는 식물 추출물로 생산되어 친환경적입니다.
-                <br />
-                PLA는 내열성과 유연성이 약해 다른 부드러운 특성을 가진 원료 또는
-                무기물과 함께 혼용해서 사용된답니다.
-              </Text>
-            </Flex>
-            <Flex sx={{ alignItems: 'center' }} py="4">
-              <Text
-                sx={{
-                  fontSize: 5,
-                  fontWeight: 'bold',
-                }}
-              >
-                빨대수지
-              </Text>
-              <Box sx={{ width: '5px', height: '70px', bg: 'text' }} mx="4" />
-              <Text sx={{ fontSize: 3 }} mx="3">
-                PBS는 위의 PBAT와 PLA의 중간 성질을 가진 원료입니다.
-                <br />
-                사출용과 섬유용으로 사용되는 만큼 적당한 강도와 좋은 유연성을
-                가지고 있죠.
-                <br />
-                테이크아웃 음료와 같이 주는 빨대를 제작할 때도 사용됩니다.
-                시트를 만들기도 하고요.
-              </Text>
-            </Flex>
-            <Flex sx={{ justifyContent: 'center' }} mt="4">
-              <Text variant="paragraph" sx={{ textAlign: 'center' }}>
-                이와 같이 다양한 생분해 수지들은 적용하고자 하는 용도와 특징에
-                맞는 수지를 선택해 가공하게 됩니다.
-              </Text>
-            </Flex>
-          </Box>
-        </Flex>
-      </PrimaryContainer>
-      <Flex sx={{ justifyContent: 'center' }}>
-        <Divider />
-      </Flex>
       <PrimaryContainer paddingY={6}>
         <Flex sx={{ flexDirection: 'column', alignItems: 'center' }}>
           <Text
@@ -269,7 +266,7 @@ export default function ProductPage() {
             >
               <Box
                 sx={{
-                  width: ['150px', null, '250px'],
+                  width: ['150px', null, '300px'],
                   height: ['150px', null, '250px'],
                   backgroundImage: `url(../../product/link/link-${i + 1}.jpg)`,
                   backgroundSize: 'cover',

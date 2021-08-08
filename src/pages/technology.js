@@ -1,9 +1,7 @@
 /** @jsxImportSource theme-ui */
 
 import PropTypes from 'prop-types'
-import { Box, Image, Text, Flex, Divider, Link, Button } from 'theme-ui'
-import { AiOutlinePlus } from 'react-icons/ai'
-import { CgMathEqual } from 'react-icons/cg'
+import { Box, Image, Text, Flex, Divider, Link, Button, Embed } from 'theme-ui'
 import Fade from 'react-reveal/Fade'
 
 import PrimaryContainer from '../components/PrimaryContainer'
@@ -12,7 +10,7 @@ import ImageSlide from '../components/ImageSlide'
 import CertificateGallery from '../components/CertificateGallery'
 import { StaticImage } from 'gatsby-plugin-image'
 
-const BioplasticSectionItem = ({ url, title }) => (
+const BioplasticSectionItem = ({ url, title, width }) => (
   <Flex
     sx={{
       flexDirection: 'column',
@@ -21,7 +19,7 @@ const BioplasticSectionItem = ({ url, title }) => (
     }}
   >
     <Image
-      sx={{ maxHeight: '10rem' }}
+      sx={{ maxHeight: '10rem', width: width }}
       src={`../technology/bioplastic-${url}.png`}
     />
     <Text sx={{ fontSize: '3', fontWeight: 'bold' }} mt={4} mb={2}>
@@ -40,19 +38,25 @@ const BioplasticSection = () => (
       <Fade bottom opposite distance="200px">
         <Flex
           sx={{
-            flexDirection: ['column', null, null, null, 'row'],
-            alignItems: ['center', null, null, null, 'flex-start'],
+            flexDirection: ['column', null, null, 'row'],
+            alignItems: ['center', null, null, 'flex-end'],
             justifyContent: 'center',
           }}
         >
-          <BioplasticSectionItem url={1} title="옥수수 전분" />
-          <Flex sx={{ fontSize: '7', alignSelf: 'center' }} p="4">
-            <AiOutlinePlus />
-          </Flex>
+          <BioplasticSectionItem url={1} title="옥수수 전분" width="90%" />
+          <Image
+            sx={{ alignSelf: 'center' }}
+            src="../technology/plus.svg"
+            width="40"
+            m="5"
+          />
           <BioplasticSectionItem url={2} title="생분해성 수지 및 첨가제" />
-          <Flex sx={{ fontSize: '7', alignSelf: 'center' }} p="4">
-            <CgMathEqual />
-          </Flex>
+          <Image
+            sx={{ alignSelf: 'center' }}
+            src="../technology/equal.svg"
+            width="40"
+            m="5"
+          />
           <BioplasticSectionItem url={3} title="생분해성 플라스틱" />
         </Flex>
       </Fade>
@@ -96,11 +100,14 @@ const AdvantageCard = ({ url, title, children }) => (
       mx="4"
       mb="5"
     >
-      <Box>
+      <Box
+        sx={{ width: '100px', height: '100px' }}
+        mr={[0, null, null, null, 4]}
+        mb={[4, null, null, null, 0]}
+      >
         <Image
-          src={`../technology/advantage-${url}.png`}
-          sx={{ width: '100px' }}
-          mx="4"
+          src={`../technology/advantage-${url}.svg`}
+          sx={{ height: '100%' }}
         />
       </Box>
       <Box>
@@ -171,8 +178,8 @@ export default function TechPage() {
         <Flex sx={{ flexDirection: 'column', alignItems: 'center' }}>
           <Flex
             sx={{
-              flexDirection: ['column', null, null, null, 'row'],
-              justifyContent: 'space-between',
+              flexDirection: ['column', null, 'row'],
+              justifyContent: 'center',
             }}
           >
             <AdvantageCard url={1} title="6개월 이내 완전히 생분해">
@@ -186,8 +193,9 @@ export default function TechPage() {
           </Flex>
           <Flex
             sx={{
-              flexDirection: ['column', null, null, null, 'row'],
-              justifyContent: 'space-between',
+              flexDirection: ['column', null, 'row'],
+              justifyContent: 'center',
+              alignItems: 'center',
             }}
           >
             <AdvantageCard url={3} title="이산화탄소 DOWN">
@@ -201,19 +209,6 @@ export default function TechPage() {
             </AdvantageCard>
           </Flex>
         </Flex>
-        <Text sx={{ display: 'none' }}>
-          Icons made by
-          <Link
-            href="https://www.flaticon.com/authors/iconixar"
-            title="iconixar"
-          >
-            iconixar
-          </Link>
-          from
-          <Link href="https://www.flaticon.com/" title="Flaticon">
-            www.flaticon.com
-          </Link>
-        </Text>
       </PrimaryContainer>
       <Flex sx={{ justifyContent: 'center' }}>
         <Divider />
@@ -274,6 +269,11 @@ export default function TechPage() {
               </Flex>
             </Flex>
           </Fade>
+        </Flex>
+        <Flex sx={{ width: '100%', justifyContent: 'center' }}>
+          <Box sx={{ width: '80%' }}>
+            <Embed autoplay={false} src="../technology/video.mp4" />
+          </Box>
         </Flex>
       </PrimaryContainer>
       <Box bg="sectionBg" sx={{ width: '100%' }}>

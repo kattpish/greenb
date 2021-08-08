@@ -213,14 +213,7 @@ export default function IndexPage() {
             </SecondaryHeading>
             <Flex
               sx={{
-                justifyContent: [
-                  'space-between',
-                  null,
-                  null,
-                  null,
-                  null,
-                  'center',
-                ],
+                justifyContent: ['space-between', null, null, null, 'center'],
                 flexDirection: ['column', null, null, null, 'row'],
                 alignItems: ['center', null, null, null, 'flex-start'],
               }}
@@ -239,13 +232,8 @@ export default function IndexPage() {
                 돌아갑니다.
               </ProductCard>
               <ProductCard
-                image={
-                  <StaticImage
-                    alt={`product-2`}
-                    src={`../images/index/product-2.jpg`}
-                  />
-                }
-                title="생분해성 플라스틱 제품"
+                idx={2}
+                title="생분해성 완제품"
                 mt={[5, null, null, null, 0]}
               >
                 그린비는 다양한 생분해성 플라스틱 완제품을 생산합니다. 맞춤
@@ -271,10 +259,10 @@ export default function IndexPage() {
             }}
           >
             <Fade bottom opposite distance="50px">
-              <ClientImage width={90} idx={1} top="10px" />
-              <ClientImage width={130} idx={2} top="-7px" />
-              <ClientImage width={150} idx={3} />
-              <ClientImage width={150} idx={4} />
+              <ClientImage width="100" idx={1} top="10px" />
+              <ClientImage width="130" idx={2} top="-7px" />
+              <ClientImage width="170" idx={3} top="5px" />
+              <ClientImage width="180" idx={4} top="10px" />
             </Fade>
           </Flex>
           <Flex
@@ -286,10 +274,10 @@ export default function IndexPage() {
             }}
           >
             <Fade bottom opposite distance="50px">
-              <ClientImage width={130} idx={5} />
-              <ClientImage width={130} idx={6} />
-              <ClientImage width={110} idx={7} />
-              <ClientImage width={110} idx={8} />
+              <ClientImage width="190" idx={5} />
+              <ClientImage width="170" idx={6} />
+              <ClientImage width="130" idx={7} />
+              <ClientImage width="100" idx={8} />
             </Fade>
           </Flex>
         </Flex>

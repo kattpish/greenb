@@ -8,7 +8,11 @@ import ImageSlide from '../../components/ImageSlide'
 import SecondaryHeading from '../../components/SecondaryHeading'
 
 const Feature = ({ idx, title }) => (
-  <Flex sx={{ flexDirection: 'column', alignItems: 'center' }} px="4" py="4">
+  <Flex
+    sx={{ flexDirection: 'column', alignItems: 'center', width: 230 }}
+    px="4"
+    py="4"
+  >
     <Image
       sx={{ maxWidth: '8em' }}
       src={`../../product/common/icon-${idx}.png`}
@@ -72,19 +76,15 @@ export default function ShoppingBagPage() {
             ml={['0', null, null, null, '5']}
             mt={['5', null, null, null, '0']}
           >
-            <Box
-              sx={{
-                width: '35px',
-                height: '5px',
-                bg: 'primary',
-              }}
-            />
+            <Box sx={{ width: '10px' }}>
+              <Image src={'../../small-logo.svg'} />
+            </Box>
             <Text
               sx={{
                 color: '#000',
                 fontSize: 5,
                 fontWeight: 'bold',
-                my: 2,
+                mb: 2,
                 letterSpacing: 1.3,
               }}
             >
@@ -101,11 +101,13 @@ export default function ShoppingBagPage() {
             >
               다양한 크기와 디자인. 튼튼한 내구성.
             </Text>
-            <Text variant="paragraph" my={4}>
+            <Text variant="paragraph" mt={4}>
               그린비는 다양한 사이즈의 쇼핑백을 제작하고 있습니다. 그린비의
               쇼핑백은 ‘자원의 절약과 재활용 촉진에 관한 법률’에 따라 무상 제공
               가능한 제품으로 걱정 없이 사용 가능한 일회용 봉투입니다.
               <br />
+            </Text>
+            <Text variant="paragraph" mt={3} mb={4}>
               그린비의 생분해성 쇼핑백은 매장 내 무상제공 가능한 친환경 인증
               제품입니다. 생분해성 인증서 EL724 환경표지 인증서를 받았으며 일반
               플라스틱 봉투와 유사한 강도와 내구성을 갖추고 있습니다. 그린비의
@@ -131,17 +133,57 @@ export default function ShoppingBagPage() {
             6가지 특징
           </Text>
         </Flex>
-        <Flex sx={{ justifyContent: 'center' }} pt={4}>
+        <Flex
+          sx={{ flexDirection: 'column', display: ['none', null, 'block'] }}
+          pt={4}
+        >
           <Flex
             sx={{
-              flexWrap: 'wrap',
               justifyContent: 'center',
             }}
           >
             <Feature idx={1} title="맞춤 사이즈와 디자인" />
             <Feature idx={2} title="매장 내 사용 가능" />
             <Feature idx={3} title="환경표지 인증서 획득" />
+          </Flex>
+          <Flex
+            sx={{
+              justifyContent: 'center',
+            }}
+          >
             <Feature idx={4} title="높은 강도와 내구성" />
+            <Feature idx={5} title="100% 자연 생분해" />
+            <Feature idx={6} title="친환경 수성잉크 인쇄" />
+          </Flex>
+        </Flex>
+        <Flex
+          sx={{ flexDirection: 'column', display: ['block', null, 'none'] }}
+          pt={4}
+        >
+          <Flex
+            sx={{
+              justifyContent: 'center',
+              flexWrap: 'wrap',
+            }}
+          >
+            <Feature idx={1} title="맞춤 사이즈와 디자인" />
+            <Feature idx={2} title="매장 내 사용 가능" />
+          </Flex>
+          <Flex
+            sx={{
+              justifyContent: 'center',
+              flexWrap: 'wrap',
+            }}
+          >
+            <Feature idx={3} title="환경표지 인증서 획득" />
+            <Feature idx={4} title="높은 강도와 내구성" />
+          </Flex>
+          <Flex
+            sx={{
+              justifyContent: 'center',
+              flexWrap: 'wrap',
+            }}
+          >
             <Feature idx={5} title="100% 자연 생분해" />
             <Feature idx={6} title="친환경 수성잉크 인쇄" />
           </Flex>
@@ -260,19 +302,23 @@ export default function ShoppingBagPage() {
           <Image
             sx={{ width: '80%', display: ['none', null, 'block'] }}
             src={'../../product/shopping-bag/small-bag-1.svg'}
+            mb="4"
           />
           <Image
             sx={{ width: '80%', display: ['block', null, 'none'] }}
             src={'../../product/shopping-bag/small-bag-2.svg'}
+            mb="4"
           />
           <CITitle>중형 쇼핑백</CITitle>
           <Image
             sx={{ width: '80%', display: ['none', null, 'block'] }}
             src={'../../product/shopping-bag/mid-bag-1.svg'}
+            mb="4"
           />
           <Image
             sx={{ width: '80%', display: ['block', null, 'none'] }}
             src={'../../product/shopping-bag/mid-bag-2.svg'}
+            mb="4"
           />
           <CITitle>대형 쇼핑백</CITitle>
           <Image
@@ -317,7 +363,7 @@ export default function ShoppingBagPage() {
             >
               <Box
                 sx={{
-                  width: ['150px', null, '250px'],
+                  width: ['150px', null, '300px'],
                   height: ['150px', null, '250px'],
                   backgroundImage: `url(../../product/link/link-${i + 1}.jpg)`,
                   backgroundSize: 'cover',

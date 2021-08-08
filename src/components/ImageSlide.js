@@ -12,11 +12,11 @@ const responsive = {
     items: 5,
   },
   desktop: {
-    breakpoint: { max: 3000, min: 1024 },
+    breakpoint: { max: 3000, min: 1136 },
     items: 3,
   },
   tablet: {
-    breakpoint: { max: 1024, min: 464 },
+    breakpoint: { max: 1136, min: 464 },
     items: 2,
   },
   mobile: {
@@ -40,6 +40,7 @@ const CustomLeftArrow = ({ onClick, ...rest }) => {
         cursor: 'pointer',
         color: 'primary',
         fontSize: '6',
+        display: ['none', null, null, null, 'block'],
       }}
       onClick={() => onClick()}
     >
@@ -63,6 +64,7 @@ const CustomRightArrow = ({ onClick, ...rest }) => {
         cursor: 'pointer',
         color: 'primary',
         fontSize: '6',
+        display: ['none', null, 'block'],
       }}
       onClick={() => onClick()}
     >

@@ -42,15 +42,28 @@ export default function ProductPage() {
             <Text sx={{ color: 'primary' }}>Green B</Text>
             &apos;s
             <br />
-            Biodegradable Plastic
+            biodegradable
+            <br />
+            plastic products
           </Text>
         </PrimaryContainer>
       </Box>
       <PrimaryContainer paddingY={5}>
-        <SecondaryHeading
-          title={['그린비의 생분해성 플라스틱', '']}
-          subtitle={['그린비의 생분해성 플라스틱 제품을 소개합니다.', '']}
-        />
+        <SecondaryHeading title="그린비의 생분해성 플라스틱 제품" subtitle="">
+          <Text
+            sx={{
+              color: 'light',
+              fontSize: 3,
+              fontWeight: 'body',
+              textAlign: 'center',
+            }}
+            mt={2}
+          >
+            그린비의 생분해성 수지와 제품들을 소개합니다.
+            <br />
+            이미지를 클릭하시면 자세히 볼 수 있습니다.
+          </Text>
+        </SecondaryHeading>
         <ProductGallery />
       </PrimaryContainer>
     </>

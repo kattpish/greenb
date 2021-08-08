@@ -5,7 +5,7 @@ import { Container } from 'theme-ui'
 
 export default function PrimaryContainer({ children, paddingY, ...props }) {
   return (
-    <Container {...props} px={[4, null, null, null, '200px']} py={paddingY}>
+    <Container {...props} px={[4, null, null, null, '10%']} py={paddingY}>
       {children}
     </Container>
   )

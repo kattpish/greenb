@@ -17,7 +17,7 @@ const NavbarLink = (props) => (
     sx={{
       textDecoration: 'none',
       cursor: 'pointer',
-      pb: [4, null, null, null, 0, null],
+      pb: [4, null, null, 0, null],
       ':hover,:focus,.active': {
         color: 'primary',
       },
@@ -58,15 +58,12 @@ export default function Navbar() {
         sx={{ width: '100%', justifyContent: 'space-between' }}
         color="black"
       >
-        <Link
-          sx={{ alignSelf: ['flex-start', null, null, null, 'center'] }}
-          href="/"
-        >
+        <Link sx={{ alignSelf: ['flex-start', null, null, 'center'] }} href="/">
           <img src={'/logo.png'} width="120" alt="Logo" />
         </Link>
         <Box
           sx={{
-            display: ['none', null, null, null, 'flex'],
+            display: ['none', null, null, 'flex'],
             justifyContent: 'flex-end',
             alignItems: 'center',
             width: '100%',
@@ -207,7 +204,7 @@ export default function Navbar() {
           color="black"
           bg="white"
           px="0px"
-          sx={{ display: ['block', null, null, null, 'none'] }}
+          sx={{ display: ['block', null, null, 'none'] }}
           onClick={handleClick}
         >
           <img src={'/bars.svg'} width="30" alt="Menu Bar" />
@@ -215,7 +212,7 @@ export default function Navbar() {
       </Flex>
       <Box
         sx={{
-          display: [isVisible ? 'flex' : 'none', null, null, null, 'none'],
+          display: [isVisible ? 'flex' : 'none', null, null, 'none'],
           flexDirection: 'column',
           justifyContent: 'flex-end',
           alignItems: 'center',
