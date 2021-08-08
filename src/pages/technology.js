@@ -10,6 +10,7 @@ import PrimaryContainer from '../components/PrimaryContainer'
 import SecondaryHeading from '../components/SecondaryHeading'
 import ImageSlide from '../components/ImageSlide'
 import CertificateGallery from '../components/CertificateGallery'
+import { StaticImage } from 'gatsby-plugin-image'
 
 const BioplasticSectionItem = ({ url, title }) => (
   <Flex
@@ -135,7 +136,7 @@ export default function TechPage() {
           position: 'relative',
         }}
       >
-        <Image src={'../technology/main.jpg'} />
+        <StaticImage src={'../images/technology/main.jpg'} alt="main" />
         <PrimaryContainer>
           <Text
             sx={{
