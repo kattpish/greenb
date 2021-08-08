@@ -6,6 +6,7 @@ import Fade from 'react-reveal/Fade'
 
 import PrimaryContainer from '../components/PrimaryContainer'
 import PrimaryHeading from '../components/PrimaryHeading'
+import { StaticImage } from 'gatsby-plugin-image'
 
 export default function AboutSection({
   title,
@@ -56,7 +57,7 @@ export default function AboutSection({
             }}
           >
             <Fade bottom opposite distance="50px">
-              <Image sx={imgStyle} src={url} />
+              <StaticImage src="../images/about/company.jpg" />
             </Fade>
           </Box>
         </Flex>
@@ -69,7 +70,6 @@ AboutSection.propTypes = {
   title: PropTypes.array,
   subtitle: PropTypes.string,
   url: PropTypes.string,
-  imgStyle: PropTypes.object,
   bgColor: PropTypes.string,
   children: PropTypes.node,
 }

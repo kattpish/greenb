@@ -318,7 +318,6 @@ export default function AboutPage() {
       <AboutSection
         title={['Be awesome for', 'earth & us']}
         subtitle={`자연을 위한 것이 우리를 위한 것! \r\n그린비는 지구의 자연과 생태계를 지키기 위한 멋진 일을 만들어 나갑니다.`}
-        url="../about/company.jpg"
       />
       <CIandColorSystem />
       <BackgroundSection />
