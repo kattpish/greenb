@@ -1,6 +1,7 @@
 /** @jsxImportSource theme-ui */
 
 import PropTypes from 'prop-types'
+import { StaticImage } from 'gatsby-plugin-image'
 import { Box, Flex, Text, Image, Link, Card, Button } from 'theme-ui'
 import Fade from 'react-reveal/Fade'
 
@@ -21,8 +22,9 @@ const AboutSection = ({ children }) => (
             alignItems: 'center',
           }}
         >
-          <Image
-            src={'./about.jpeg'}
+          <StaticImage
+            alt="about"
+            src={'../images/index/about.jpg'}
             sx={{ maxWidth: ['100%', null, null, null, '600px'] }}
           />
           {children}
@@ -67,9 +69,10 @@ const ProductSection = ({
         }}
         py={4}
       >
-        <Image
+        <StaticImage
           sx={{ width: '400px', minWidth: '120px' }}
-          src={`./product-${imageUrl}.png`}
+          src={`../images/index/product-${imageUrl}.png`}
+          alt={`product-${imageUrl}`}
         />
         <SectionContent
           pt={[5, null, 0]}
@@ -95,7 +98,7 @@ ProductSection.propTypes = {
   reverse: PropTypes.bool,
 }
 
-const ProductCard = ({ idx, title, children, ...props }) => (
+const ProductCard = ({ image, title, children, ...props }) => (
   <Flex sx={{ height: '100%' }}>
     <Card
       sx={{
@@ -106,7 +109,7 @@ const ProductCard = ({ idx, title, children, ...props }) => (
       mx="4"
       {...props}
     >
-      <Image src={`../product-${idx}.jpg`} />
+      {image}
       <Box px="4" py="3">
         <Box pt="2">
           <Text sx={{ fontSize: 4, fontWeight: 'bold' }}>{title}</Text>
@@ -122,7 +125,7 @@ const ProductCard = ({ idx, title, children, ...props }) => (
 )
 
 ProductCard.propTypes = {
-  idx: PropTypes.number,
+  image: PropTypes.node,
   title: PropTypes.string,
   children: PropTypes.node,
 }
@@ -146,7 +149,7 @@ const ClientImage = ({ width, idx, top }) => (
 )
 
 ClientImage.propTypes = {
-  width: PropTypes.string,
+  width: PropTypes.number,
   idx: PropTypes.number,
   top: PropTypes.string,
 }
@@ -221,13 +224,26 @@ export default function IndexPage() {
                 alignItems: ['center', null, null, null, 'flex-start'],
               }}
             >
-              <ProductCard idx={1} title="생분해성 수지">
+              <ProductCard
+                image={
+                  <StaticImage
+                    alt={`product-1`}
+                    src={`../images/index/product-1.jpg`}
+                  />
+                }
+                title="생분해성 수지"
+              >
                 그린비는 여러 용도에 맞는 생분해성 수지를 생산합니다. 환경부
                 인증마크를 받은 그린비의 생분해성 수지는 100% 다시 자연으로
                 돌아갑니다.
               </ProductCard>
               <ProductCard
-                idx={2}
+                image={
+                  <StaticImage
+                    alt={`product-2`}
+                    src={`../images/index/product-2.jpg`}
+                  />
+                }
                 title="생분해성 플라스틱 제품"
                 mt={[5, null, null, null, 0]}
               >
@@ -254,10 +270,10 @@ export default function IndexPage() {
             }}
           >
             <Fade bottom opposite distance="50px">
-              <ClientImage width="90" idx={1} top="10px" />
-              <ClientImage width="130" idx={2} top="-7px" />
-              <ClientImage width="150" idx={3} />
-              <ClientImage width="150" idx={4} />
+              <ClientImage width={90} idx={1} top="10px" />
+              <ClientImage width={130} idx={2} top="-7px" />
+              <ClientImage width={150} idx={3} />
+              <ClientImage width={150} idx={4} />
             </Fade>
           </Flex>
           <Flex
@@ -269,10 +285,10 @@ export default function IndexPage() {
             }}
           >
             <Fade bottom opposite distance="50px">
-              <ClientImage width="130" idx={5} />
-              <ClientImage width="130" idx={6} />
-              <ClientImage width="110" idx={7} />
-              <ClientImage width="110" idx={8} />
+              <ClientImage width={130} idx={5} />
+              <ClientImage width={130} idx={6} />
+              <ClientImage width={110} idx={7} />
+              <ClientImage width={110} idx={8} />
             </Fade>
           </Flex>
         </Flex>

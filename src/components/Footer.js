@@ -7,7 +7,7 @@ import PrimaryContainer from './PrimaryContainer'
 
 function FooterItem({ title, children, ...props }) {
   return (
-    <Box mb="4" sx={{ wordBreak: 'keep-all' }} {...props}>
+    <Box {...props} mb="4" sx={{ wordBreak: 'keep-all' }}>
       <Heading color="footerText" mb="3">
         {title}
       </Heading>
