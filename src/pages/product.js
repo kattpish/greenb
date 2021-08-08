@@ -1,6 +1,6 @@
 /** @jsxImportSource theme-ui */
 
-import { Box, Image, Text } from 'theme-ui'
+import { Box, Text } from 'theme-ui'
 
 import ProductGallery from '../components/ProductGallery'
 import SecondaryHeading from '../components/SecondaryHeading'

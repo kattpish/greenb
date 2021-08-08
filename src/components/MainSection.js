@@ -31,7 +31,7 @@ MainHeading.propTypes = {
   children: PropTypes.node,
 }
 
-export default function MainSection({ subtitle, image, bgColor, children }) {
+export default function MainSection({ subtitle, bgColor, children }) {
   return (
     <Box sx={{ bg: bgColor }}>
       <PrimaryContainer paddingY={5}>

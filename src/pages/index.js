@@ -4,7 +4,9 @@ import PropTypes from 'prop-types'
 import { StaticImage } from 'gatsby-plugin-image'
 import { Box, Flex, Text, Image, Link, Card, Button } from 'theme-ui'
 import Fade from 'react-reveal/Fade'
-
+import Slider from 'react-slick'
+import 'slick-carousel/slick/slick.css'
+import 'slick-carousel/slick/slick-theme.css'
 import PrimaryBtn from '../components/PrimaryBtn'
 import SectionContent from '../components/SectionContent'
 import PrimaryContainer from '../components/PrimaryContainer'
@@ -156,6 +158,48 @@ ClientImage.propTypes = {
   top: PropTypes.string,
 }
 
+function SimpleSlider() {
+  const settings = {
+    dots: true,
+    infinite: true,
+    speed: 500,
+    slidesToShow: 1,
+    slidesToScroll: 1,
+    autoplay: true,
+    accessibility: false,
+  }
+  return (
+    <Slider {...settings}>
+      <MainSection
+        subtitle="자연을 위해 노력하는 멋진 당신의 친구, 그린비"
+        bgColor="#3ab483"
+      >
+        <Button
+          sx={{
+            borderRadius: '0px',
+            fontWeight: 'regular',
+            fontSize: 1,
+            cursor: 'pointer',
+            ':hover': {
+              color: 'primary',
+              bg: 'background',
+              fontWeight: 'bold',
+            },
+          }}
+          color="primary"
+          bg="white"
+          px={4}
+          py="12px"
+        >
+          <Text>그린비를 소개해요</Text>
+        </Button>
+      </MainSection>
+      <StaticImage src={'../images/index/banner-1.jpg'} />
+      <StaticImage src={'../images/index/banner-1.jpg'} />
+    </Slider>
+  )
+}
+
 export default function IndexPage() {
   return (
     <>
@@ -232,8 +276,13 @@ export default function IndexPage() {
                 돌아갑니다.
               </ProductCard>
               <ProductCard
-                idx={2}
-                title="생분해성 완제품"
+                image={
+                  <StaticImage
+                    alt={`product-2`}
+                    src={`../images/index/product-2.jpg`}
+                  />
+                }
+                title="생분해성 플라스틱 제품"
                 mt={[5, null, null, null, 0]}
               >
                 그린비는 다양한 생분해성 플라스틱 완제품을 생산합니다. 맞춤

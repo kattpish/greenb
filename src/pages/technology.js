@@ -1,7 +1,7 @@
 /** @jsxImportSource theme-ui */
 
 import PropTypes from 'prop-types'
-import { Box, Image, Text, Flex, Divider, Link, Button, Embed } from 'theme-ui'
+import { Box, Image, Text, Flex, Divider, Button, Embed } from 'theme-ui'
 import Fade from 'react-reveal/Fade'
 
 import PrimaryContainer from '../components/PrimaryContainer'
