@@ -194,11 +194,15 @@ function SimpleSlider() {
           <Text>그린비를 소개해요</Text>
         </Button>
       </MainSection>
-      <Image alt="Website Renewal Banner" src={'../banner-1.jpg'} />
-      <StaticImage
-        alt="GreenB Prize Banner"
-        src={'../images/index/banner-2.jpg'}
-      />
+      <Box>
+        <Image alt="Website Renewal Banner" src={'../banner-1.jpg'} />
+      </Box>
+      <Link href="https://m.hankookilbo.com/News/Read/A2021072210360005694">
+        <StaticImage
+          alt="GreenB Prize Banner"
+          src={'../images/index/banner-2.jpg'}
+        />
+      </Link>
     </Slider>
   )
 }
@@ -233,7 +237,6 @@ export default function IndexPage() {
         </MainSection>
       </Box>
       <Box sx={{ display: ['none', null, null, null, 'block'] }}>
-        {' '}
         <SimpleSlider />
       </Box>
       <AboutSection>
