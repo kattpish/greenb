@@ -34,7 +34,7 @@ MainHeading.propTypes = {
 export default function MainSection({ subtitle, bgColor, children }) {
   return (
     <Box sx={{ bg: bgColor }}>
-      <PrimaryContainer paddingY={5}>
+      <PrimaryContainer paddingY="76px">
         <Flex
           sx={{
             width: '100%',

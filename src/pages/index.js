@@ -194,10 +194,7 @@ function SimpleSlider() {
           <Text>그린비를 소개해요</Text>
         </Button>
       </MainSection>
-      <StaticImage
-        alt="Website Renewal Banner"
-        src={'../images/index/banner-1.jpg'}
-      />
+      <Image alt="Website Renewal Banner" src={'../banner-1.jpg'} />
       <StaticImage
         alt="GreenB Prize Banner"
         src={'../images/index/banner-2.jpg'}
@@ -209,31 +206,36 @@ function SimpleSlider() {
 export default function IndexPage() {
   return (
     <>
-      {/* <MainSection
-        subtitle="자연을 위해 노력하는 멋진 당신의 친구, 그린비"
-        bgColor="#3ab483"
-      >
-        <Button
-          sx={{
-            borderRadius: '0px',
-            fontWeight: 'regular',
-            fontSize: 1,
-            cursor: 'pointer',
-            ':hover': {
-              color: 'primary',
-              bg: 'background',
-              fontWeight: 'bold',
-            },
-          }}
-          color="primary"
-          bg="white"
-          px={4}
-          py="12px"
+      <Box sx={{ display: ['block', null, null, null, 'none'] }}>
+        <MainSection
+          subtitle="자연을 위해 노력하는 멋진 당신의 친구, 그린비"
+          bgColor="#3ab483"
         >
-          <Text>그린비를 소개해요</Text>
-        </Button>
-      </MainSection> */}
-      <SimpleSlider />
+          <Button
+            sx={{
+              borderRadius: '0px',
+              fontWeight: 'regular',
+              fontSize: 1,
+              cursor: 'pointer',
+              ':hover': {
+                color: 'primary',
+                bg: 'background',
+                fontWeight: 'bold',
+              },
+            }}
+            color="primary"
+            bg="white"
+            px={4}
+            py="12px"
+          >
+            <Text>그린비를 소개해요</Text>
+          </Button>
+        </MainSection>
+      </Box>
+      <Box sx={{ display: ['none', null, null, null, 'block'] }}>
+        {' '}
+        <SimpleSlider />
+      </Box>
       <AboutSection>
         <SectionContent
           pt={[4, null, 0]}
