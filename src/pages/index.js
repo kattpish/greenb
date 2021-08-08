@@ -194,8 +194,14 @@ function SimpleSlider() {
           <Text>그린비를 소개해요</Text>
         </Button>
       </MainSection>
-      <StaticImage src={'../images/index/banner-1.jpg'} />
-      <StaticImage src={'../images/index/banner-1.jpg'} />
+      <StaticImage
+        alt="Website Renewal Banner"
+        src={'../images/index/banner-1.jpg'}
+      />
+      <StaticImage
+        alt="GreenB Prize Banner"
+        src={'../images/index/banner-2.jpg'}
+      />
     </Slider>
   )
 }
@@ -203,7 +209,7 @@ function SimpleSlider() {
 export default function IndexPage() {
   return (
     <>
-      <MainSection
+      {/* <MainSection
         subtitle="자연을 위해 노력하는 멋진 당신의 친구, 그린비"
         bgColor="#3ab483"
       >
@@ -226,7 +232,8 @@ export default function IndexPage() {
         >
           <Text>그린비를 소개해요</Text>
         </Button>
-      </MainSection>
+      </MainSection> */}
+      <SimpleSlider />
       <AboutSection>
         <SectionContent
           pt={[4, null, 0]}
