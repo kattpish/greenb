@@ -7,7 +7,7 @@ import Fade from 'react-reveal/Fade'
 import PrimaryContainer from '../components/PrimaryContainer'
 import PrimaryHeading from '../components/PrimaryHeading'
 
-export default function MainSection({
+export default function AboutSection({
   title,
   subtitle,
   url,
@@ -65,7 +65,7 @@ export default function MainSection({
   )
 }
 
-MainSection.propTypes = {
+AboutSection.propTypes = {
   title: PropTypes.array,
   subtitle: PropTypes.string,
   url: PropTypes.string,

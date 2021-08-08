@@ -38,6 +38,7 @@ AboutSection.propTypes = {
   children: PropTypes.node,
 }
 
+/*
 const ProductSection = ({
   imageUrl,
   url,
@@ -69,7 +70,7 @@ const ProductSection = ({
         }}
         py={4}
       >
-        <StaticImage
+        <Image
           sx={{ width: '400px', minWidth: '120px' }}
           src={`../images/index/product-${imageUrl}.png`}
           alt={`product-${imageUrl}`}
@@ -97,6 +98,7 @@ ProductSection.propTypes = {
   children: PropTypes.node,
   reverse: PropTypes.bool,
 }
+*/
 
 const ProductCard = ({ image, title, children, ...props }) => (
   <Flex sx={{ height: '100%' }}>
@@ -159,7 +161,6 @@ export default function IndexPage() {
     <>
       <MainSection
         subtitle="자연을 위해 노력하는 멋진 당신의 친구, 그린비"
-        url="../main.png"
         bgColor="#3ab483"
       >
         <Button

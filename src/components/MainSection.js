@@ -5,6 +5,7 @@ import { Flex, Image, Text, Box } from 'theme-ui'
 import Fade from 'react-reveal/Fade'
 
 import PrimaryContainer from '../components/PrimaryContainer'
+import { StaticImage } from 'gatsby-plugin-image'
 
 const MainHeading = (props) => (
   <>
@@ -30,13 +31,7 @@ MainHeading.propTypes = {
   children: PropTypes.node,
 }
 
-export default function MainSection({
-  subtitle,
-  url,
-  imgStyle,
-  bgColor,
-  children,
-}) {
+export default function MainSection({ subtitle, image, bgColor, children }) {
   return (
     <Box sx={{ bg: bgColor }}>
       <PrimaryContainer paddingY={5}>
@@ -94,7 +89,7 @@ export default function MainSection({
             mb={[4, null, null, null, 0]}
           >
             <Fade bottom opposite distance="50px">
-              <Image sx={imgStyle} src={url} />
+              <StaticImage src="../images/index/main.png" alt="main" />
             </Fade>
           </Box>
         </Flex>
@@ -105,8 +100,6 @@ export default function MainSection({
 
 MainSection.propTypes = {
   subtitle: PropTypes.string,
-  url: PropTypes.string,
-  imgStyle: PropTypes.object,
   bgColor: PropTypes.string,
   children: PropTypes.node,
 }
