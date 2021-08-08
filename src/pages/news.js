@@ -6,6 +6,7 @@ import { AiFillCaretRight } from 'react-icons/ai'
 
 import SecondaryHeading from '../components/SecondaryHeading'
 import PrimaryContainer from '../components/PrimaryContainer'
+import { StaticImage } from 'gatsby-plugin-image'
 
 const newsObj = [
   {
@@ -336,7 +337,7 @@ export default function NewsPage() {
           position: 'relative',
         }}
       >
-        <Image src={'../news/main.jpg'} />
+        <StaticImage src={'../images/news/main.jpg'} alt="main" />
         <PrimaryContainer>
           <Text
             sx={{

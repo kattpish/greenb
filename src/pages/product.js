@@ -5,6 +5,7 @@ import { Box, Image, Text } from 'theme-ui'
 import ProductGallery from '../components/ProductGallery'
 import SecondaryHeading from '../components/SecondaryHeading'
 import PrimaryContainer from '../components/PrimaryContainer'
+import { StaticImage } from 'gatsby-plugin-image'
 
 export default function ProductPage() {
   return (
@@ -16,7 +17,7 @@ export default function ProductPage() {
           position: 'relative',
         }}
       >
-        <Image src={'../product/copy.jpg'} />
+        <StaticImage src={'../images/product/main.jpg'} alt="main" />
         <PrimaryContainer>
           <Text
             sx={{
