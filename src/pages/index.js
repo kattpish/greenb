@@ -159,27 +159,25 @@ export default function IndexPage() {
         url="../main.png"
         bgColor="#3ab483"
       >
-        <Link href="/about">
-          <Button
-            sx={{
-              borderRadius: '0px',
-              fontWeight: 'regular',
-              fontSize: 1,
-              cursor: 'pointer',
-              ':hover': {
-                color: 'primary',
-                bg: 'background',
-                fontWeight: 'bold',
-              },
-            }}
-            color="primary"
-            bg="white"
-            px={4}
-            py="12px"
-          >
-            <Text>그린비를 소개해요</Text>
-          </Button>
-        </Link>
+        <Button
+          sx={{
+            borderRadius: '0px',
+            fontWeight: 'regular',
+            fontSize: 1,
+            cursor: 'pointer',
+            ':hover': {
+              color: 'primary',
+              bg: 'background',
+              fontWeight: 'bold',
+            },
+          }}
+          color="primary"
+          bg="white"
+          px={4}
+          py="12px"
+        >
+          <Text>그린비를 소개해요</Text>
+        </Button>
       </MainSection>
       <AboutSection>
         <SectionContent
@@ -187,7 +185,7 @@ export default function IndexPage() {
           title="자연으로 다시 돌아가는
           생분해성 플라스틱"
           size={5}
-          url="/technology"
+          url="/about"
           sectionSize={['80%', null, null, '700px', '1000px']}
           linkText="기술을 살펴봐요"
         >

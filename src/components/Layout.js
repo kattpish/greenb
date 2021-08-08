@@ -9,6 +9,7 @@ import './layout.css'
 
 import Navbar from './Navbar'
 import Footer from './Footer'
+import SEO from './SEO'
 
 const FloatButton = () => (
   <Flex
@@ -63,6 +64,7 @@ export default function Layout({ children }) {
   }, [])
   return (
     <>
+      <SEO />
       <Helmet>
         <link
           rel="stylesheet"
