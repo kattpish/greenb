@@ -1,7 +1,7 @@
 module.exports = {
   siteMetadata: {
     siteUrl: 'https://greenb.co.kr',
-    title: '그린비',
+    title: '그린비 | GreenB',
     description:
       '생분해성 플라스틱 전문 브랜드, 그린비(GreenB)의 생분해성 기술력은 국내 최고입니다.',
     author: '(주)코마글로벌',
