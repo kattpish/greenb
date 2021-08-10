@@ -42,6 +42,10 @@ const theme = {
     },
   },
   styles: {
+    root: {
+      fontFamily: 'body',
+      fontWeight: 'body',
+    },
     hr: {
       width: '80%',
       color: '#cbcbcb',

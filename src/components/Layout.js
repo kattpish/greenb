@@ -75,7 +75,8 @@ export default function Layout({ children }) {
         <script
           async
           defer
-          data-website-id="bf822b83-9441-4422-9293-c8d18a1550d5"
+          data-website-id="583cfa82-8086-4f71-abb5-d7fc2733b4bc"
+          data-domains="greenb.co.kr,www.greenb.co.kr"
           src="https://umami.a1p4ca.com/umami.js"
         ></script>
       </Helmet>
