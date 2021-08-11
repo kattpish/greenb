@@ -87,7 +87,7 @@ const BioplasticSection = () => (
   </Box>
 )
 
-const AdvantageCard = ({ url, title, children }) => (
+const AdvantageCard = ({ url, title, cover, children }) => (
   <Fade bottom opposite distance="50px">
     <Flex
       sx={{
@@ -100,16 +100,20 @@ const AdvantageCard = ({ url, title, children }) => (
       mx="4"
       mb="5"
     >
-      <Box
-        sx={{ width: '100px', height: '100px' }}
+      <Flex
+        sx={{ width: '100px', height: '100px', justifyContent: 'center' }}
         mr={[0, null, null, null, 4]}
         mb={[4, null, null, null, 0]}
       >
         <Image
           src={`../technology/advantage-${url}.svg`}
-          sx={{ height: '100%' }}
+          sx={{
+            height: '100%',
+            position: 'relative',
+            left: cover ? '8%' : '',
+          }}
         />
-      </Box>
+      </Flex>
       <Box>
         <Flex
           sx={{
@@ -182,7 +186,7 @@ export default function TechPage() {
               justifyContent: 'center',
             }}
           >
-            <AdvantageCard url={1} title="6개월 이내 완전히 생분해">
+            <AdvantageCard url={1} title="6개월 이내 완전히 생분해" cover>
               생분해 플라스틱은 천연자원으로 만들어 3~6개월 이내 완전히 생분해
               돼 자연으로 돌아갑니다.
             </AdvantageCard>
@@ -272,7 +276,7 @@ export default function TechPage() {
         </Flex>
         <Flex sx={{ width: '100%', justifyContent: 'center' }}>
           <Box sx={{ width: '80%' }}>
-            <Embed autoplay={false} src="../technology/video.mp4" />
+            <Embed src="../technology/video.mp4" sandbox />
           </Box>
         </Flex>
       </PrimaryContainer>

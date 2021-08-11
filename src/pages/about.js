@@ -132,7 +132,7 @@ FeatureCard.propTypes = {
 }
 
 const CITitle = ({ children }) => (
-  <Flex sx={{ width: '100%', justifyContent: 'center' }} mb="3">
+  <Flex sx={{ width: '100%', justifyContent: 'center' }} mb="5">
     <Text sx={{ fontSize: 3, fontWeight: 'medium' }}>{children}</Text>
   </Flex>
 )
@@ -216,7 +216,7 @@ const CIandColorSystem = () => (
           </Text>
         </Container>
         <Flex sx={{ justifyContent: 'center' }}>
-          <Link sx={{ px: 2 }} href="/about/그린비_CI.ai">
+          <Link sx={{ px: 2 }} href="/about/greenb.ai" donwload="GreenB_CI.ai">
             <PrimaryBtn>AI 파일 다운로드</PrimaryBtn>
           </Link>
           <Link sx={{ px: 2 }} href="/about/ci.png">
@@ -308,11 +308,63 @@ const CIandColorSystem = () => (
             <Flex sx={{ width: '100%', justifyContent: 'center' }} my="5">
               <Divider sx={{ width: '100%' }} />
             </Flex>
+            <CITitle>Brand Slogan & Character</CITitle>
+            <Flex
+              sx={{
+                fontSize: [5, null, 6],
+                justifyContent: 'center',
+                fontFamily: 'heading',
+                flexDirection: ['column', null, 'row'],
+                alignItems: 'center',
+              }}
+            >
+              <Flex>
+                <Text
+                  sx={{
+                    fontWeight: 'bold',
+                    fontFamily: 'heading',
+                    color: 'primary',
+                  }}
+                >
+                  B
+                </Text>
+                <Text sx={{ fontFamily: 'heading' }}>e My Eco Friend,</Text>
+              </Flex>
+              <Text
+                sx={{
+                  fontWeight: 'bold',
+                  fontFamily: 'heading',
+                  color: 'primary',
+                }}
+              >
+                &nbsp; Green B
+              </Text>
+            </Flex>
+            <Flex
+              sx={{ width: '100%', justifyContent: 'center' }}
+              mt={[3, null, 4]}
+            >
+              <Text variant="paragraph" sx={{ textAlign: 'center' }}>
+                환경을 지키는 일은 어려운 일이 아니야! 그것은 너무나도 멋진
+                일이야!!
+                <br />
+                지구를 지키기 위해 작은 노력이라도 실천하고 있는 그들.
+                <br />
+                그들 곁에는 항상 친구같은 그린비가 있다.
+                <br />
+                <Text sx={{ fontWeight: 'bold' }}>
+                  B 마이 에코 프랜드, 그린B!
+                </Text>
+              </Text>
+            </Flex>
+            <Flex sx={{ width: '100%', justifyContent: 'center' }} my="5">
+              <Divider sx={{ width: '100%' }} />
+            </Flex>
             <Flex sx={{ width: '100%', justifyContent: 'center' }}>
               <Flex
                 sx={{
                   width: ['80%', null, null, '100%'],
-                  justifyContent: ['center', null, null, 'space-between'],
+                  justifyContent: 'center',
                   flexWrap: 'wrap',
                 }}
               >
@@ -437,7 +489,7 @@ export default function AboutPage() {
               <Image
                 sx={{ display: ['block', null, null, 'none'] }}
                 py={4}
-                src={'../about/history-mobile.svg'}
+                src={'../about/history-mobile.png'}
               />
             </Flex>
           </Fade>

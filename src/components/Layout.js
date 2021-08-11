@@ -80,10 +80,12 @@ export default function Layout({ children }) {
           src="https://umami.a1p4ca.com/umami.js"
         ></script>
       </Helmet>
-      <Navbar />
-      <Box sx={{ pt: '72px' }}>{children}</Box>
-      <FloatButton />
-      <Footer />
+      <Box>
+        <Navbar />
+        <Box sx={{ pt: '72px' }}>{children}</Box>
+        <FloatButton />
+        <Footer />
+      </Box>
     </>
   )
 }

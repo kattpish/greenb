@@ -2,15 +2,14 @@
 
 import PropTypes from 'prop-types'
 import { StaticImage } from 'gatsby-plugin-image'
-import { Box, Flex, Text, Image, Link, Card, Button } from 'theme-ui'
+import { Box, Flex, Text, Image, Link, Card } from 'theme-ui'
 import Fade from 'react-reveal/Fade'
-import Slider from 'react-slick'
-import 'slick-carousel/slick/slick.css'
-import 'slick-carousel/slick/slick-theme.css'
+import { Carousel } from 'react-responsive-carousel'
+import 'react-responsive-carousel/lib/styles/carousel.min.css'
+
 import PrimaryBtn from '../components/PrimaryBtn'
 import SectionContent from '../components/SectionContent'
 import PrimaryContainer from '../components/PrimaryContainer'
-import MainSection from '../components/MainSection'
 import SecondaryHeading from '../components/SecondaryHeading'
 
 const AboutSection = ({ children }) => (
@@ -39,68 +38,6 @@ const AboutSection = ({ children }) => (
 AboutSection.propTypes = {
   children: PropTypes.node,
 }
-
-/*
-const ProductSection = ({
-  imageUrl,
-  url,
-  title,
-  children,
-  reverse,
-  ...props
-}) => {
-  const rowObj = {
-    direction: 'row',
-    pl: 4,
-    pr: 0,
-    justifyDirection: 'center',
-  }
-  const rowReverseObj = {
-    direction: 'row-reverse',
-    pl: 0,
-    pr: 4,
-    justifyDirection: 'space-between',
-  }
-  const selectedObj = reverse ? rowReverseObj : rowObj
-  return (
-    <Fade bottom opposite distance="50px">
-      <Flex
-        sx={{
-          justifyContent: 'center',
-          alignItems: 'center',
-          flexDirection: ['column', null, selectedObj.direction],
-        }}
-        py={4}
-      >
-        <Image
-          sx={{ width: '400px', minWidth: '120px' }}
-          src={`../images/index/product-${imageUrl}.png`}
-          alt={`product-${imageUrl}`}
-        />
-        <SectionContent
-          pt={[5, null, 0]}
-          pl={[0, null, 4]}
-          title={title}
-          size={4}
-          url={url}
-          sectionSize={['80%', '50%', null, null, '35%']}
-          mobileAlign={['flex-start', null, 'center']}
-        >
-          {children}
-        </SectionContent>
-      </Flex>
-    </Fade>
-  )
-}
-
-ProductSection.propTypes = {
-  imageUrl: PropTypes.number,
-  url: PropTypes.string,
-  title: PropTypes.string,
-  children: PropTypes.node,
-  reverse: PropTypes.bool,
-}
-*/
 
 const ProductCard = ({ image, title, children, ...props }) => (
   <Flex sx={{ height: '100%' }}>
@@ -159,85 +96,57 @@ ClientImage.propTypes = {
 }
 
 function SimpleSlider() {
-  const settings = {
-    dots: true,
-    infinite: true,
-    speed: 500,
-    slidesToShow: 1,
-    slidesToScroll: 1,
-    autoplay: true,
-    accessibility: false,
-  }
   return (
-    <Slider {...settings}>
-      <MainSection
-        subtitle="자연을 위해 노력하는 멋진 당신의 친구, 그린비"
-        bgColor="#3ab483"
-      >
-        <Button
-          sx={{
-            borderRadius: '0px',
-            fontWeight: 'regular',
-            fontSize: 1,
-            cursor: 'pointer',
-            ':hover': {
-              color: 'primary',
-              bg: 'background',
-              fontWeight: 'bold',
-            },
-          }}
-          color="primary"
-          bg="white"
-          px={4}
-          py="12px"
-        >
-          <Text>그린비를 소개해요</Text>
-        </Button>
-      </MainSection>
-      <Box>
-        <Image alt="Website Renewal Banner" src={'../banner-1.jpg'} />
-      </Box>
-      <Link href="https://m.hankookilbo.com/News/Read/A2021072210360005694">
-        <StaticImage
-          alt="GreenB Prize Banner"
-          src={'../images/index/banner-2.jpg'}
-        />
-      </Link>
-    </Slider>
+    <div>
+      <Carousel autoPlay={true} infiniteLoop={true} showArrows={false}>
+        <Box>
+          <Link href="/about">
+            <StaticImage
+              alt="Main Banner"
+              src={'../images/index/banner-0.jpg'}
+            />
+          </Link>
+        </Box>
+        <Box>
+          <Image alt="Website Renewal Banner" src={'../banner-1.jpg'} />
+        </Box>
+        <Box>
+          <Link href="https://m.hankookilbo.com/News/Read/A2021072210360005694">
+            <StaticImage
+              alt="GreenB Prize Banner"
+              src={'../images/index/banner-2.jpg'}
+            />
+          </Link>
+        </Box>
+      </Carousel>
+    </div>
+  )
+}
+
+function SimpleMobileSlider() {
+  return (
+    <div>
+      <Carousel autoPlay={true} infiniteLoop={true} showArrows={false}>
+        <Link href="/about">
+          <Image alt="Main Banner" src="../banner-mobile-0.png" />
+        </Link>
+        <Image alt="Website Renewal Banner" src="../banner-mobile-1.png" />
+        <Link href="https://m.hankookilbo.com/News/Read/A2021072210360005694">
+          <Image alt="GreenB Prize Banner" src="../banner-mobile-2.jpg" />
+        </Link>
+      </Carousel>
+    </div>
   )
 }
 
 export default function IndexPage() {
   return (
-    <>
-      <Box sx={{ display: ['block', null, null, null, 'none'] }}>
-        <MainSection
-          subtitle="자연을 위해 노력하는 멋진 당신의 친구, 그린비"
-          bgColor="#3ab483"
-        >
-          <Button
-            sx={{
-              borderRadius: '0px',
-              fontWeight: 'regular',
-              fontSize: 1,
-              cursor: 'pointer',
-              ':hover': {
-                color: 'primary',
-                bg: 'background',
-                fontWeight: 'bold',
-              },
-            }}
-            color="primary"
-            bg="white"
-            px={4}
-            py="12px"
-          >
-            <Text>그린비를 소개해요</Text>
-          </Button>
-        </MainSection>
-      </Box>
-      <Box sx={{ display: ['none', null, null, null, 'block'] }}>
+    <div>
+      <Box sx={{ display: ['none', 'block'] }}>
         <SimpleSlider />
+      </Box>
+      <Box sx={{ display: ['block', 'none'] }}>
+        <SimpleMobileSlider />
       </Box>
       <AboutSection>
         <SectionContent
@@ -245,7 +154,7 @@ export default function IndexPage() {
           title="자연으로 다시 돌아가는
           생분해성 플라스틱"
           size={5}
-          url="/about"
+          url="/technology"
           sectionSize={['80%', null, null, '700px', '1000px']}
           linkText="기술을 살펴봐요"
         >
@@ -343,6 +252,6 @@ export default function IndexPage() {
           </Flex>
         </Flex>
       </PrimaryContainer>
-    </>
+    </div>
   )
 }

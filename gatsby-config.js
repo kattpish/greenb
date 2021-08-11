@@ -9,8 +9,6 @@ module.exports = {
   },
   plugins: [
     'gatsby-plugin-image',
-    'gatsby-plugin-sharp',
-    'gatsby-transformer-sharp',
     'gatsby-plugin-theme-ui',
     'gatsby-plugin-react-helmet',
     'gatsby-plugin-sitemap',
@@ -41,6 +39,13 @@ module.exports = {
             cache: true,
           },
         },
+      },
+    },
+    {
+      resolve: 'gatsby-plugin-pdf',
+      options: {
+        allPages: true,
+        outputPath: '/public/exports',
       },
     },
     {

@@ -57,7 +57,8 @@ export default function ProductPage() {
       )
       .then(
         (result) => {
-          console.log(result.text)
+          alert('문의가 전송되었습니다.')
+          window.location.reload()
         },
         (error) => {
           console.log(error.text)
@@ -170,7 +171,7 @@ export default function ProductPage() {
                 placeholder="문의 내용"
               />
               <Flex sx={{ justifyContent: 'flex-end' }}>
-                <Button sx={{ width: '25%' }} my={2}>
+                <Button sx={{ width: '25%', cursor: 'pointer' }} my={2}>
                   전송
                 </Button>
               </Flex>

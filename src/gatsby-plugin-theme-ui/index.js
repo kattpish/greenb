@@ -39,6 +39,8 @@ const theme = {
     paragraph: {
       color: 'paragraph',
       lineHeight: '1.5',
+      fontFamily:
+        'Pretendard, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", sans-serif',
     },
   },
   styles: {

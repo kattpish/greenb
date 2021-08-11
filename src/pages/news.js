@@ -42,7 +42,7 @@ const webzineObj = [
   {
     title: `'애물단지' 플라스틱의 변신`,
     date: '2020. 6. 10',
-    url: '"https://blog.naver.com/PostView.naver?blogId=komagreenb&logNo=221996225369&categoryNo=7&parentCategoryNo=&from=thumbnailList"',
+    url: 'https://blog.naver.com/PostView.naver?blogId=komagreenb&logNo=221996225369&categoryNo=7&parentCategoryNo=&from=thumbnailList',
     imgUrl: 6,
   },
   // {

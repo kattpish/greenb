@@ -1,7 +1,7 @@
 /** @jsxImportSource theme-ui */
 
 import { Flex, Box, Link, Button, Text } from 'theme-ui'
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import PropTypes from 'prop-types'
 import { FiDownload } from 'react-icons/fi'
 
@@ -17,7 +17,7 @@ const NavbarLink = (props) => (
     sx={{
       textDecoration: 'none',
       cursor: 'pointer',
-      pb: [4, null, null, 0, null],
+      py: [3, null, null, 0, null],
       ':hover,:focus,.active': {
         color: 'primary',
       },
@@ -36,6 +36,12 @@ NavbarLink.propTypes = {
 }
 
 export default function Navbar() {
+  useEffect((e) => {
+    window.addEventListener('scroll', () => {
+      setIsVisible(false)
+    })
+  }, [])
+
   const [isVisible, setIsVisible] = useState(false)
 
   const handleClick = () => {
@@ -145,7 +151,7 @@ export default function Navbar() {
                     color: 'text',
                     display: 'block',
                   }}
-                  href="/그린비-사업계획서-20200308.pdf"
+                  href="/GreenB_Kor.pdf"
                 >
                   <Box
                     sx={{
@@ -164,7 +170,7 @@ export default function Navbar() {
                     color: 'text',
                     display: 'block',
                   }}
-                  href="/그린비-사업계획서_Eng-20200216.pdf"
+                  href="/GreenB_Eng.pdf"
                 >
                   <Box
                     sx={{
@@ -183,7 +189,7 @@ export default function Navbar() {
                     color: 'text',
                     display: 'block',
                   }}
-                  href="/그린비-사업계획서_Chn-20200308.pdf"
+                  href="/GreenB_Chn.pdf"
                 >
                   <Box
                     sx={{
@@ -225,9 +231,99 @@ export default function Navbar() {
         <NavbarLink url="/product">제품보기</NavbarLink>
         <NavbarLink url="/news">소식을 전해요</NavbarLink>
         <NavbarLink url="/qna">질문에 답해요</NavbarLink>
-        <PrimaryBtn sx={{ minWidth: '145px' }}>
-          사업소개서 <FiDownload />
-        </PrimaryBtn>
+        <Box
+          sx={{
+            ':hover > :last-child': {
+              display: 'block',
+            },
+          }}
+        >
+          <PrimaryBtn sx={{ minWidth: '145px' }}>
+            사업소개서 <FiDownload />
+          </PrimaryBtn>
+          <Box
+            sx={{
+              display: 'none',
+              position: 'absolute',
+              width: '100vw',
+              bg: 'background',
+              left: '50%',
+              transform: 'translateX(-50%)',
+            }}
+          >
+            <Flex
+              sx={{
+                width: '100%',
+                textAlign: 'center',
+                borderBottomColor: 'primary',
+                borderBottomWidth: '3px',
+                borderBottomStyle: 'solid',
+                justifyContent: 'center',
+              }}
+            >
+              <Link
+                sx={{
+                  textDecoration: 'none',
+                  color: 'paragraph',
+                  display: 'block',
+                }}
+                mx={3}
+                href="/GreenB_Kor.pdf"
+              >
+                <Box
+                  sx={{
+                    width: '100%',
+                    backgroundColor: 'background',
+                    pt: 3,
+                    ':hover': { color: 'primary' },
+                  }}
+                >
+                  한국어
+                </Box>
+              </Link>
+              <Link
+                sx={{
+                  textDecoration: 'none',
+                  color: 'paragraph',
+                  display: 'block',
+                }}
+                mx={3}
+                href="/GreenB_Eng.pdf"
+              >
+                <Box
+                  sx={{
+                    width: '100%',
+                    backgroundColor: 'background',
+                    pt: 3,
+                    ':hover': { color: 'primary' },
+                  }}
+                >
+                  English
+                </Box>
+              </Link>
+              <Link
+                sx={{
+                  textDecoration: 'none',
+                  color: 'paragraph',
+                  display: 'block',
+                }}
+                mx={3}
+                href="/GreenB_Chn.pdf"
+              >
+                <Box
+                  sx={{
+                    width: '100%',
+                    backgroundColor: 'background',
+                    py: 3,
+                    ':hover': { color: 'primary' },
+                  }}
+                >
+                  中文
+                </Box>
+              </Link>
+            </Flex>
+          </Box>
+        </Box>
       </Box>
     </PrimaryContainer>
   )
